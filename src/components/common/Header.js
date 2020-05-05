@@ -1,20 +1,14 @@
-// import Navbar from "react-bootstrap/Navbar";
-// import Nav from "react-bootstrap/Nav";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
-// import Button from "react-bootstrap/Button";
-
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout, Menu } from "antd";
 
 const HeaderAntd = Layout.Header;
 
 function Header() {
   return (
-    <HeaderAntd style={{ zIndex: 1, width: "100%" }}>
+    <HeaderAntd style={{ zIndex: 9999, width: "100%", position: "fixed" }}>
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+      <Menu theme="dark" mode="horizontal">
         <Menu.Item key="0">
           <NavLink to="/"> HOME</NavLink>
         </Menu.Item>
@@ -39,32 +33,3 @@ function Header() {
 }
 
 export default Header;
-
-{
-  /* <Navbar bg="dark" variant="dark" className="row">
-      <Nav className="mr-auto">
-        <NavLink className="nav-link" to="/">
-          HOME
-        </NavLink>
-        <NavLink className="nav-link" to="/apple">
-          Apple
-        </NavLink>
-        <NavLink className="nav-link" to="/samsung">
-          Samsung
-        </NavLink>
-        <NavLink className="nav-link" to="huawei">
-          Huawei
-        </NavLink>
-        <NavLink className="nav-link" to="honor">
-          Honor
-        </NavLink>
-        <NavLink className="nav-link" to="xiaomi">
-          Xiaomi
-        </NavLink>
-      </Nav>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-info">Search</Button>
-      </Form>
-    </Navbar> */
-}

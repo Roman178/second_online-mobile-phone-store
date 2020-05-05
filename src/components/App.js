@@ -21,7 +21,7 @@ function App(props) {
   return (
     <Layout>
       <Header />
-      <Layout>
+      <Layout style={{ marginTop: "64px" }}>
         {props.location.pathname === "/" ? undefined : <Sidebar />}
         <Content>
           <Switch>

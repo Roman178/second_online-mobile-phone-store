@@ -3,7 +3,7 @@ import { Card } from "antd";
 
 function ApplePage(props) {
   return (
-    <>
+    <div>
       <h2>Apple Page</h2>
 
       <Card
@@ -18,7 +18,7 @@ function ApplePage(props) {
       >
         <Card.Meta title="iPhone XR" description="The most popular iPhone" />
       </Card>
-    </>
+    </div>
   );
 }
 

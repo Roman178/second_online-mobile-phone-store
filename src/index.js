@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./components/App";
 import "./index.css";
 import "antd/dist/antd.css";
-import "./index.css";
+
 // import configureStore from "./redux/configureStore";
 // import { Provider } from "react-redux";
 
