@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const HomePage = (props) => {
   console.log(window.innerHeight, innerWidth);
   return (
-    <Carousel interval={4000} style={{ marginTop: "-64px" }}>
+    <Carousel interval={3500} fade style={{ marginTop: "-64px" }}>
       <Carousel.Item>
         <NavLink to="/apple">
           <img className="d-block w-100" alt="iPhone SE" src="src/img/2.png" />

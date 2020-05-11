@@ -1,15 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
 import { Layout, Menu } from "antd";
 
 const HeaderAntd = Layout.Header;
 
-function Header() {
+function Header(props) {
+  console.log(props);
   return (
-    <HeaderAntd style={{ zIndex: 9999, width: "100%", position: "fixed" }}>
+    <HeaderAntd
+      style={{
+        zIndex: 9999,
+        width: "100%",
+        position: "fixed",
+        fontFamily: "Helvetica",
+      }}
+    >
       <div className="logo" />
       <Menu theme="dark" mode="horizontal">
-        <Menu.Item key="0">
+        <Menu.Item key="0/">
           <NavLink to="/"> HOME</NavLink>
         </Menu.Item>
         <Menu.Item key="1">
@@ -32,4 +41,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withRouter(Header);
