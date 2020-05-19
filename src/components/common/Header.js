@@ -6,7 +6,6 @@ import { Layout, Menu } from "antd";
 const HeaderAntd = Layout.Header;
 
 function Header(props) {
-  console.log(props);
   return (
     <HeaderAntd
       style={{

@@ -3,7 +3,6 @@ import Carousel from "react-bootstrap/Carousel";
 import { NavLink } from "react-router-dom";
 
 const HomePage = (props) => {
-  console.log(window.innerHeight, innerWidth);
   return (
     <Carousel interval={3500} fade style={{ marginTop: "-64px" }}>
       <Carousel.Item>
