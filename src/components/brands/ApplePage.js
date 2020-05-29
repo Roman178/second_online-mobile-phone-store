@@ -1,15 +1,17 @@
-import React from "react";
-import { Card, Row, Col } from "antd";
+import React, { useEffect } from "react";
+import { Card, Row } from "antd";
 import { NavLink } from "react-router-dom";
-import { getApple } from "../../api/courseApi";
+import * as appleActions from "../../redux/actions/appleActions";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 function ApplePage(props) {
-  async function loadApple() {
-    const _apple = await getApple().then((apple) => apple);
-    return _apple;
-  }
-
-  const apple = async () => await loadApple();
+  console.log(props);
+  useEffect(() => {
+    if (props.apple === 0) {
+      props.actions.loadApple().catch((error) => console.log(error));
+    }
+  }, []);
 
   return (
     <div>
@@ -85,4 +87,14 @@ function ApplePage(props) {
   );
 }
 
-export default ApplePage;
+function mapStateToProps(state, ownProps) {
+  return {
+    apple: state.apple,
+  };
+}
+
+const mapDispatchToProps = {
+  loadApple: appleActions.loadApple,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApplePage);

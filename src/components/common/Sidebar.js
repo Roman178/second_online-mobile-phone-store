@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Menu } from "antd";
-import NaVLink from "react-router-dom";
+import NavLink from "react-router-dom";
+import { withRouter } from "react-router";
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -17,7 +18,11 @@ class Sidebar extends React.Component {
         style={{ marginTop: "100px" }}
       >
         <Menu mode="vertical" style={{ height: "100%" }}>
-          <SubMenu key="sub1" title={<span>Apple</span>}>
+          <SubMenu
+            key="apple"
+            title={<span>Apple</span>}
+            onTitleClick={({ key }) => this.props.history.push("/" + key)}
+          >
             <Menu.Item key="1">option1</Menu.Item>
             <Menu.Item key="2">option2</Menu.Item>
             <Menu.Item key="3">option3</Menu.Item>
@@ -41,4 +46,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

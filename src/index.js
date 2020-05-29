@@ -6,16 +6,16 @@ import App from "./components/App";
 import "./index.css";
 import "antd/dist/antd.css";
 
-// import configureStore from "./redux/configureStore";
-// import { Provider } from "react-redux";
+import configureStore from "./redux/configureStore";
+import { Provider } from "react-redux";
 
-// const store = configureStore(); // if you're wanting to rehydrate your store using some separate state that's passed down from the server or stored in local storage, then this would be a good place to do so.
+const store = configureStore(); // if you're wanting to rehydrate your store using some separate state that's passed down from the server or stored in local storage, then this would be a good place to do so.
 
 render(
-  // <Provider store={store}>
-  <Router>
-    <App />
-  </Router>,
-  // {/* </Provider>, */}
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById("app")
 );
