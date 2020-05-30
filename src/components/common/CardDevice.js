@@ -1,25 +1,20 @@
 import React from "react";
 import { Card } from "antd";
 import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
 
 function CardDevice(props) {
-  console.log(props.match.url);
   return (
-    <NavLink to={props.match.url + "/iphonexr"} style={{ margin: "1%" }}>
+    <NavLink to={props.location.pathname + props.url} style={{ margin: "1%" }}>
       <Card
         hoverable
         style={{ width: 180 }}
-        cover={
-          <img
-            alt="iPhone 11 pro MAX"
-            src="https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg"
-          />
-        }
+        cover={<img alt={props.title} src={props.path} />}
       >
-        <Card.Meta title="iPhone 11 pro MAX" description="The best iPhone" />
+        <Card.Meta title={props.title} description={props.description} />
       </Card>
     </NavLink>
   );
 }
 
-export default CardDevice;
+export default withRouter(CardDevice);

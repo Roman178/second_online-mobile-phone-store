@@ -1,0 +1,32 @@
+{
+  "apple": [
+    {
+      "id": 1,
+      "title": "iPhone 11 Pro Max",
+      "description": "The best iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+      "url": "/iphonexr"
+    },
+    {
+      "id": 2,
+      "title": "iPhone SE",
+      "description": "The lovely iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+      "url": "/iphonexr"
+    },
+    {
+      "id": 3,
+      "title": "iPhone XR",
+      "description": "The most popular iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
+      "url": "/iphonexr"
+    },
+    {
+      "id": 4,
+      "title": "iPhone XS",
+      "description": "The very nice iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
+      "url": "/iphonexr"
+    }
+  ]
+}
