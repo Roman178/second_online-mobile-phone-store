@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Row } from "antd";
-import { NavLink } from "react-router-dom";
+import { Row } from "antd";
 import CardDevice from "../common/CardDevice";
 import { loadApple } from "../../redux/actions/appleActions";
 import { connect } from "react-redux";
@@ -21,7 +20,8 @@ function ApplePage(props) {
             url={iphone.url}
             title={iphone.title}
             path={iphone.path}
-            description={iphone.description}
+            // description={iphone.description}
+            price={iphone.price}
           />
         ))}
       </Row>
