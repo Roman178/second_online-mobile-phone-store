@@ -5,7 +5,6 @@ import { loadApple } from "../../redux/actions/appleActions";
 import { connect } from "react-redux";
 
 function ApplePage(props) {
-  console.log(props);
   useEffect(() => {
     props.loadApple().catch((error) => console.log(error));
   }, []);

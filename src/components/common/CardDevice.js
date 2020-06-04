@@ -18,9 +18,9 @@ function CardDevice(props) {
         >
           {props.price}
         </span>
-        <NavLink>
+        <NavLink to="#">
           <Button
-            onClick={(event) => console.log(event)}
+            onClick={() => console.log("Hi asshole")}
             type="primary"
             size="large"
             style={{ marginTop: "5%" }}

@@ -35,7 +35,7 @@ function Header(props) {
             activeStyle={{
               backgroundColor: "#1890ff",
               color: "#fff",
-              transition: "all 0.6s",
+              transition: "background-color 0.6s ease-out",
             }}
             to="/apple"
           >
