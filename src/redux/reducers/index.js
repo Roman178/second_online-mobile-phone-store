@@ -3,8 +3,8 @@ import apple from "./appleReducer";
 import cart from "./cartReducer";
 
 const rootReducer = combineReducers({
-  cart,
-  apple,
+  cart: cart,
+  apple: apple,
 });
 
 export default rootReducer;

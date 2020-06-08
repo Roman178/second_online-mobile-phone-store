@@ -20,10 +20,11 @@ function CardDevice(props) {
         </span>
         <NavLink to="#">
           <Button
-            onClick={() => console.log("Hi asshole")}
+            onClick={props.onAddToCart}
             type="primary"
             size="large"
             style={{ marginTop: "5%" }}
+            id={props.id}
           >
             Add to Cart
           </Button>
