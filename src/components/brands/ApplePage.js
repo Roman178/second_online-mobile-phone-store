@@ -2,18 +2,20 @@ import React, { useEffect } from "react";
 import { Row } from "antd";
 import CardDevice from "../common/CardDevice";
 import { loadApple } from "../../redux/actions/appleActions";
-import { addItemToCart } from "../../redux/actions/cartActions";
+import { loadCart, addItemToCart } from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
 import { handleError } from "../../api/apiUtils";
 
 function ApplePage(props) {
   useEffect(() => {
     props.loadApple().catch((error) => console.log(error));
+    props.loadCart().catch((error) => console.error(error));
   }, []);
 
   function handAddToCart(event) {
-    const id = parseInt(event.target.id);
-    const foundIphone = props.apple.find((iphone) => iphone.id === id);
+    const foundIphone = props.apple.find(
+      (iphone) => iphone.id === parseInt(event.target.id)
+    );
     props.addItemToCart(foundIphone);
   }
 
@@ -46,6 +48,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
+  loadCart,
   addItemToCart,
   loadApple,
 };
