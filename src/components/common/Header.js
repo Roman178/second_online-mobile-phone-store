@@ -55,7 +55,7 @@ function Header(props) {
           <NavLink to="/xiaomi">Xiaomi</NavLink>
         </Menu.Item>
       </Menu>
-      <NavLink to="/">
+      <NavLink to="/cart">
         <Dropdown overlay={PopUpCartWindow}>
           <ShoppingCartOutlined
             style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}

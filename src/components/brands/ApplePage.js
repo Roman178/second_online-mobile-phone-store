@@ -12,11 +12,13 @@ function ApplePage(props) {
     props.loadCart().catch((error) => console.error(error));
   }, []);
 
-  function handAddToCart(event) {
+  function handleAddToCart(event) {
     const foundIphone = props.apple.find(
       (iphone) => iphone.id === parseInt(event.target.id)
     );
-    props.addItemToCart(foundIphone);
+    if (!props.cart.find((item) => item.id === foundIphone.id)) {
+      props.addItemToCart(foundIphone);
+    }
   }
 
   return (
@@ -26,7 +28,7 @@ function ApplePage(props) {
         {props.apple.map((iphone) => (
           <CardDevice
             key={iphone.id}
-            onAddToCart={handAddToCart}
+            onAddToCart={handleAddToCart}
             id={iphone.id}
             url={iphone.url}
             title={iphone.title}

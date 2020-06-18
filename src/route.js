@@ -8,6 +8,7 @@ import XiaomiPage from "./components/brands/XiaomiPage";
 import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/common/NotFoundPage";
 import IphoneXR from "./components/brands/IphoneXR";
+import CartPage from "./components/CartPage";
 
 const ROUTES = [
   {
@@ -39,6 +40,7 @@ const ROUTES = [
       { path: "/huawei", key: "HUAWEI_PAGE", component: HuaweiPage },
       { path: "/samsung", key: "SAMSUNG_PAGE", component: SamsungPage },
       { path: "/xiaomi", key: "XIAOMI_PAGE", component: XiaomiPage },
+      { path: "/cart", key: "CART_PAGE", component: CartPage },
     ],
   },
 ];
