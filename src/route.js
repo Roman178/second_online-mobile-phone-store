@@ -8,7 +8,7 @@ import XiaomiPage from "./components/brands/XiaomiPage";
 import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/common/NotFoundPage";
 import IphoneXR from "./components/brands/IphoneXR";
-import CartPage from "./components/CartPage";
+import CartPage from "./components/cart/CartPage";
 
 const ROUTES = [
   {

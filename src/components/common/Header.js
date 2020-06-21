@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import { Layout, Menu, Dropdown } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import PopUpCartWindow from "../PopUpCartWindow";
+import PopUpCartWindow from "../cart/PopUpCartWindow";
 
 const HeaderAntd = Layout.Header;
 

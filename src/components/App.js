@@ -16,7 +16,10 @@ function App(props) {
     <Layout>
       <Header />
       <Layout style={{ marginTop: "64px" }}>
-        {props.location.pathname === "/" ? undefined : <Sidebar />}
+        {props.location.pathname === "/" ||
+        props.location.pathname === "/cart" ? undefined : (
+          <Sidebar />
+        )}
         <Content>
           <RenderRoutes routes={ROUTES} />
         </Content>

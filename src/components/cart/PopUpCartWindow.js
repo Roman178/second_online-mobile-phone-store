@@ -3,10 +3,10 @@ import React from "react";
 const PopUpCartWindow = (
   <div
     style={{
-      border: "3px solid",
+      border: "2px solid",
       width: "500px",
       height: "500px",
-      backgroundColor: "yellow",
+      backgroundColor: "white",
       zIndex: 9999,
     }}
   >
