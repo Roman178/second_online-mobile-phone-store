@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "antd";
 
 const Counter = () => {
   const styles = {
@@ -9,9 +10,9 @@ const Counter = () => {
   };
   return (
     <div>
-      <button style={styles}>-</button>
+      <Button style={styles}>-</Button>
       <input style={styles} type="number" min={1} placeholder={1}></input>
-      <button style={styles}>+</button>
+      <Button style={styles}>+</Button>
     </div>
   );
 };

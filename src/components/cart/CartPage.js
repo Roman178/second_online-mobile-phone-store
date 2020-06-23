@@ -1,16 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loadCart } from "../../redux/actions/cartActions";
-import Counter from "./Counter";
-import { DeleteOutlined } from "@ant-design/icons";
+import CardForCart from "./CardForCart";
 
 class CartPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
   }
 
   componentDidMount() {
     this.props.loadCart().catch((error) => console.error(error));
+  }
+
+  handleDeleteFromCart(event) {
+    event.preventDefault();
+    const foundIphone = this.props.cart.find(
+      (iphone) => iphone.id === parseInt(event.target.id)
+    );
+    console.log(foundIphone);
   }
 
   render() {
@@ -25,27 +33,14 @@ class CartPage extends React.Component {
           }}
         >
           {this.props.cart.map((item) => (
-            <div
+            <CardForCart
               key={item.id}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                fontSize: "1.1rem",
-                marginTop: "1%",
-                backgroundColor: "white",
-              }}
-            >
-              <img width="150px" src={item.path}></img>
-              <div>{item.title}</div>
-              <Counter></Counter>
-              {/* <div>Counter will be here</div> */}
-              <div>{item.price}</div>
-              <DeleteOutlined
-                style={{ marginRight: "5%" }}
-                onClick={() => console.log("Hi")}
-              />
-            </div>
+              id={item.id}
+              path={item.path}
+              title={item.title}
+              price={item.price}
+              onDeleteItem={this.handleDeleteFromCart}
+            />
           ))}
           <h2 style={{ alignSelf: "flex-end" }}>Total: 1237$</h2>
         </div>

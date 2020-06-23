@@ -14,3 +14,10 @@ export function addItem(item) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function deleteItem(item) {
+  return fetch(baseUrl, {
+    method: "DELETE",
+    body: JSON.stringify(item),
+  });
+}

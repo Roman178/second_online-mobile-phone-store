@@ -13,6 +13,7 @@ function ApplePage(props) {
   }, []);
 
   function handleAddToCart(event) {
+    event.preventDefault();
     const foundIphone = props.apple.find(
       (iphone) => iphone.id === parseInt(event.target.id)
     );

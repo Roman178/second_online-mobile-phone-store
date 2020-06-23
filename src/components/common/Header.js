@@ -7,12 +7,6 @@ import PopUpCartWindow from "../cart/PopUpCartWindow";
 
 const HeaderAntd = Layout.Header;
 
-const comp = (
-  <div style={{ backgroundColor: "red" }}>
-    <h1>Hi brother</h1>
-  </div>
-);
-
 function Header(props) {
   return (
     <HeaderAntd
