@@ -1,1 +1,10 @@
-# second_online-mobile-phone-store
+The second "project". The worst online mobile phone store.
+
+
+clone repo
+
+npm start
+
+go to http://localhost:3000/
+JSON-server loaded on http://localhost:3001/
+

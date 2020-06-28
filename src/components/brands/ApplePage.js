@@ -12,15 +12,21 @@ function ApplePage(props) {
     props.loadCart().catch((error) => console.error(error));
   }, []);
 
-  function handleAddToCart(event) {
-    event.preventDefault();
-    const foundIphone = props.apple.find(
-      (iphone) => iphone.id === parseInt(event.target.id)
-    );
-    if (!props.cart.find((item) => item.id === foundIphone.id)) {
-      props.addItemToCart(foundIphone);
+  // function handleAddToCart(event) {
+  //   event.preventDefault();
+  //   const foundIphone = props.apple.find(
+  //     (iphone) => iphone.id === parseInt(event.target.id)
+  //   );
+  //   if (!props.cart.find((item) => item.id === foundIphone.id)) {
+  //     props.addItemToCart(foundIphone);
+  //   }
+  // }
+
+  const handleAddToCart = (iphone) => {
+    if (!props.cart.find((item) => item.id === iphone.id)) {
+      props.addItemToCart(iphone);
     }
-  }
+  };
 
   return (
     <div>
@@ -29,7 +35,7 @@ function ApplePage(props) {
         {props.apple.map((iphone) => (
           <CardDevice
             key={iphone.id}
-            onAddToCart={handleAddToCart}
+            onAddToCart={() => handleAddToCart(iphone)}
             id={iphone.id}
             url={iphone.url}
             title={iphone.title}

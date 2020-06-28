@@ -18,7 +18,10 @@ const CardForCart = (props) => {
     >
       <img width="150px" src={props.path}></img>
       <div>{props.title}</div>
-      <Counter></Counter>
+      <Counter
+        onPlusItem={props.onPlusItem}
+        onMinusItem={props.onMinusItem}
+      ></Counter>
       {/* <div>Counter will be here</div> */}
       <div>{props.price}</div>
       <Button

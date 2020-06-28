@@ -16,8 +16,10 @@ export function addItem(item) {
 }
 
 export function deleteItem(item) {
-  return fetch(baseUrl, {
+  return fetch(baseUrl + item.id, {
     method: "DELETE",
     body: JSON.stringify(item),
-  });
+  })
+    .then(handleResponse)
+    .catch(handleError);
 }

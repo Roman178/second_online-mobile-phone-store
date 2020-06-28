@@ -24,7 +24,6 @@ function CardDevice(props) {
             type="primary"
             size="large"
             style={{ marginTop: "5%" }}
-            id={props.id}
           >
             Add to Cart
           </Button>

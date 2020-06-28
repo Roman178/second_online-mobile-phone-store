@@ -33,10 +33,7 @@ export function loadCart() {
 
 export function deleteItemFromCart(item) {
   return (dispatch) => {
-    return deleteItem(item).then((deletedItem) =>
-      dispatch(deleteItemFromCartSuccess(deletedItem)).catch((error) =>
-        console.error(error)
-      )
-    );
+    dispatch(deleteItemFromCartSuccess(item));
+    return deleteItem(item);
   };
 }
