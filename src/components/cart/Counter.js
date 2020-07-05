@@ -10,7 +10,17 @@ const Counter = (props) => {
     backgroundColor: "white",
   };
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(props.quantity);
+
+  function handleChange(e) {
+    const value = parseInt(e.target.value);
+    if (isNaN(value)) {
+      setCount(1);
+    } else {
+      setCount(value);
+    }
+    props.onChangeQuantity(value);
+  }
 
   return (
     <div>
@@ -19,20 +29,25 @@ const Counter = (props) => {
         onClick={() => {
           if (count > 1) {
             setCount(count - 1);
-            props.onMinusItem;
-            console.log(count);
+            props.onChangeQuantity(count - 1);
           }
         }}
       >
         -
       </Button>
-      <input style={styles} type="number" min={1} placeholder={count}></input>
+      <input
+        style={styles}
+        type="number"
+        min={1}
+        placeholder={1}
+        value={count}
+        onChange={handleChange}
+      ></input>
       <Button
         style={styles}
         onClick={() => {
           setCount(count + 1);
-          props.onPlusItem;
-          console.log(count);
+          props.onChangeQuantity(count + 1);
         }}
       >
         +

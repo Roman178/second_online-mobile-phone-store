@@ -6,12 +6,16 @@ import CardForCart from "./CardForCart";
 class CartPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { cart: [] };
+
     // this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
   }
 
   componentDidMount() {
     this.props.loadCart().catch((error) => console.error(error));
   }
+
+  componentDidUpdate(prevProps, prevState) {}
 
   // handleDeleteFromCart = (item) => {
   //   console.log(item);
@@ -22,15 +26,24 @@ class CartPage extends React.Component {
   //   // this.props.deleteItemFromCart(foundIphone);
   // };
 
-  handlePlusItem = (item) => {
-    console.log(item);
-  };
+  // handlePlusItem = (item, count) => {
+  //   console.log({ ...item, quantity: count });
+  // };
 
-  handleMinusItem = (item) => {
-    console.log(item);
+  // handleMinusItem = (item, count) => {
+  //   console.log({ ...item, quantity: count });
+  // };
+
+  handleChangeQuantity = (item, changedValue) => {
+    if (isNaN(changedValue)) {
+      console.log({ ...item, quantity: 1 });
+    } else {
+      console.log({ ...item, quantity: changedValue });
+    }
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <h1>Cart Page</h1>
@@ -49,8 +62,10 @@ class CartPage extends React.Component {
               title={item.title}
               price={item.price}
               onDeleteItem={() => this.props.deleteItemFromCart(item)}
-              onPlusItem={() => this.handlePlusItem(item)}
-              onMinusItem={() => this.handleMinusItem(item)}
+              onChangeQuantity={(count) =>
+                this.handleChangeQuantity(item, count)
+              }
+              quantity={item.quantity}
             />
           ))}
           <h2 style={{ alignSelf: "flex-end" }}>Total: 1237$</h2>

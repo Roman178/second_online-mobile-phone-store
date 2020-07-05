@@ -24,7 +24,7 @@ function ApplePage(props) {
 
   const handleAddToCart = (iphone) => {
     if (!props.cart.find((item) => item.id === iphone.id)) {
-      props.addItemToCart(iphone);
+      props.addItemToCart({ ...iphone, quantity: 1 });
     }
   };
 

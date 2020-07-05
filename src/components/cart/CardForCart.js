@@ -19,8 +19,8 @@ const CardForCart = (props) => {
       <img width="150px" src={props.path}></img>
       <div>{props.title}</div>
       <Counter
-        onPlusItem={props.onPlusItem}
-        onMinusItem={props.onMinusItem}
+        onChangeQuantity={(count) => props.onChangeQuantity(count)}
+        quantity={props.quantity}
       ></Counter>
       {/* <div>Counter will be here</div> */}
       <div>{props.price}</div>
