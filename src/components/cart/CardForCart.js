@@ -22,8 +22,8 @@ const CardForCart = (props) => {
         onChangeQuantity={(count) => props.onChangeQuantity(count)}
         quantity={props.quantity}
       ></Counter>
-      {/* <div>Counter will be here</div> */}
-      <div>{props.price}</div>
+
+      <div>{props.cost}</div>
       <Button
         id={props.id}
         onClick={props.onDeleteItem}

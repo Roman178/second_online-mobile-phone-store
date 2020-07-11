@@ -6,7 +6,7 @@
       "description": "The lovely iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
       "url": "/iphonexr",
-      "price": "549$"
+      "price": 549
     },
     {
       "id": 3,
@@ -14,7 +14,7 @@
       "description": "The most popular iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
       "url": "/iphonexr",
-      "price": "599$"
+      "price": 599
     },
     {
       "id": 4,
@@ -22,7 +22,7 @@
       "description": "The very nice iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
       "url": "/iphonexr",
-      "price": "899$"
+      "price": 899
     },
     {
       "id": 1,
@@ -30,7 +30,7 @@
       "description": "The best iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
       "url": "/iphonexr",
-      "price": "999$"
+      "price": 999
     }
   ],
   "cart": [
@@ -40,8 +40,9 @@
       "description": "The lovely iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
       "url": "/iphonexr",
-      "price": "549$",
-      "quantity": 1
+      "price": 549,
+      "quantity": 1,
+      "cost": 549
     },
     {
       "id": 3,
@@ -49,17 +50,9 @@
       "description": "The most popular iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
       "url": "/iphonexr",
-      "price": "599$",
-      "quantity": 1
-    },
-    {
-      "id": 4,
-      "title": "iPhone XS 64 Gb",
-      "description": "The very nice iPhone",
-      "path": "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
-      "url": "/iphonexr",
-      "price": "899$",
-      "quantity": 1
+      "price": 599,
+      "quantity": 1,
+      "cost": 599
     },
     {
       "id": 1,
@@ -67,8 +60,9 @@
       "description": "The best iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
       "url": "/iphonexr",
-      "price": "999$",
-      "quantity": 1
+      "price": 999,
+      "quantity": 1,
+      "cost": 999
     }
   ]
 }
