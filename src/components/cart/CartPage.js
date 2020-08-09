@@ -6,7 +6,7 @@ import CardForCart from "./CardForCart";
 class CartPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cart: [] };
+    this.state = { cart: [], totalCost: 0 };
 
     // this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
   }
@@ -48,7 +48,22 @@ class CartPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.cart);
+    const listOfCarts = this.state.cart.map((item) => (
+      <CardForCart
+        key={item.id}
+        id={item.id}
+        path={item.path}
+        title={item.title}
+        cost={item.cost}
+        onDeleteItem={() => this.handleDeleteItem(item)}
+        onChangeQuantity={(count) => this.handleChangeQuantity(item, count)}
+        quantity={item.quantity}
+      />
+    ));
+    const totalCost = listOfCarts.reduce(
+      (sum, current) => sum + parseInt(current.props.cost),
+      0
+    );
     return (
       <div>
         <h1>Cart Page</h1>
@@ -59,21 +74,8 @@ class CartPage extends React.Component {
             flexDirection: "column",
           }}
         >
-          {this.state.cart.map((item) => (
-            <CardForCart
-              key={item.id}
-              id={item.id}
-              path={item.path}
-              title={item.title}
-              cost={item.cost + " $"}
-              onDeleteItem={() => this.handleDeleteItem(item)}
-              onChangeQuantity={(count) =>
-                this.handleChangeQuantity(item, count)
-              }
-              quantity={item.quantity}
-            />
-          ))}
-          <h2 style={{ alignSelf: "flex-end" }}>Total: 1237$</h2>
+          {listOfCarts}
+          <h2 style={{ alignSelf: "flex-end" }}>Total: ${totalCost}</h2>
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "antd";
-import "/home/roman/Documents/development/second_the-worst-online-mobile-phone-store/src/components/cart/InputTypeNumberDeleteArrows.css";
+import "./InputTypeNumberDeleteArrows.css";
 
 const Counter = (props) => {
   const styles = {

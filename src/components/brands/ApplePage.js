@@ -7,10 +7,10 @@ import { connect } from "react-redux";
 import { handleError } from "../../api/apiUtils";
 
 function ApplePage(props) {
-  useEffect(() => {
-    props.loadApple().catch((error) => console.log(error));
-    props.loadCart().catch((error) => console.error(error));
-  }, []);
+  // useEffect(() => {
+  //   props.loadApple().catch((error) => console.log(error));
+  //   props.loadCart().catch((error) => console.error(error));
+  // }, []);
 
   // function handleAddToCart(event) {
   //   event.preventDefault();
@@ -28,6 +28,8 @@ function ApplePage(props) {
     }
   };
 
+  console.log(props);
+
   return (
     <div>
       <h2>Apple Page</h2>
@@ -41,7 +43,7 @@ function ApplePage(props) {
             title={iphone.title}
             path={iphone.path}
             // description={iphone.description}
-            price={iphone.price}
+            price={"$" + iphone.price}
           />
         ))}
       </Row>
@@ -57,9 +59,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  loadCart,
+  //   loadCart,
   addItemToCart,
-  loadApple,
+  //   loadApple,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplePage);

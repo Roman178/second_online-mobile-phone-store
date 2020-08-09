@@ -23,7 +23,7 @@ const CardForCart = (props) => {
         quantity={props.quantity}
       ></Counter>
 
-      <div>{props.cost}</div>
+      <div>${props.cost}</div>
       <Button
         id={props.id}
         onClick={props.onDeleteItem}

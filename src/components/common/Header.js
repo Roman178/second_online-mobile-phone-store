@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
+import { connect } from "react-redux";
 import { Layout, Menu, Dropdown } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import PopUpCartWindow from "../cart/PopUpCartWindow";
+import { loadApple } from "../../redux/actions/appleActions";
+import { loadCart } from "../../redux/actions/cartActions";
 
 const HeaderAntd = Layout.Header;
 
 function Header(props) {
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(() => {
+    props.loadApple().catch((error) => console.log(error));
+    props.loadCart().catch((error) => console.error(error));
+  }, []);
+
+  console.log(props);
+
   return (
     <HeaderAntd
       style={{
@@ -51,13 +63,25 @@ function Header(props) {
       </Menu>
       <NavLink to="/cart">
         <Dropdown overlay={PopUpCartWindow}>
-          <ShoppingCartOutlined
-            style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
-          />
+          <div>
+            5
+            <ShoppingCartOutlined
+              style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
+            />
+          </div>
         </Dropdown>
       </NavLink>
     </HeaderAntd>
   );
 }
 
-export default withRouter(Header);
+const mapStateToProps = (state, ownProps) => ({
+  cart: state.cart,
+});
+
+const mapDispatchToProps = {
+  loadCart,
+  loadApple,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
