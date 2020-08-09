@@ -14,11 +14,26 @@ function Header(props) {
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
-    props.loadApple().catch((error) => console.log(error));
-    props.loadCart().catch((error) => console.error(error));
+    props.loadApple();
+    props.loadCart();
   }, []);
 
-  console.log(props);
+  useEffect(() => {
+    if (props.cart.length > 0) {
+      const totalItemsQuantity = props.cart.reduce(
+        (sum, current) => sum + parseInt(current.quantity),
+        0
+      );
+      console.log(totalItemsQuantity);
+      setQuantity(totalItemsQuantity);
+    }
+
+    if (props.cart.length === 0) {
+      setQuantity(0);
+    }
+  }, [props]);
+
+  console.log(quantity);
 
   return (
     <HeaderAntd
@@ -64,7 +79,7 @@ function Header(props) {
       <NavLink to="/cart">
         <Dropdown overlay={PopUpCartWindow}>
           <div>
-            5
+            {quantity}
             <ShoppingCartOutlined
               style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
             />

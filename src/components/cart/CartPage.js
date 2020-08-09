@@ -11,8 +11,8 @@ class CartPage extends React.Component {
     // this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
   }
 
-  async componentDidMount() {
-    await this.props.loadCart().catch((error) => console.error(error));
+  componentDidMount() {
+    // await this.props.loadCart().catch((error) => console.error(error));
     this.setState({ cart: this.props.cart });
   }
 
@@ -60,10 +60,16 @@ class CartPage extends React.Component {
         quantity={item.quantity}
       />
     ));
-    const totalCost = listOfCarts.reduce(
-      (sum, current) => sum + parseInt(current.props.cost),
+    // const totalCost = listOfCarts.reduce(
+    //   (sum, current) => sum + parseInt(current.props.cost),
+    //   0
+    // );
+
+    const totalCost = this.state.cart.reduce(
+      (sum, current) => sum + parseInt(current.cost),
       0
     );
+
     return (
       <div>
         <h1>Cart Page</h1>
