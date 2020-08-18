@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loadCart, deleteItemFromCart } from "../../redux/actions/cartActions";
+import {
+  loadCart,
+  deleteItemFromCart,
+  updateCart,
+} from "../../redux/actions/cartActions";
 import CardForCart from "./CardForCart";
 
 class CartPage extends React.Component {
@@ -9,11 +13,23 @@ class CartPage extends React.Component {
     this.state = { cart: [], totalCost: 0 };
 
     // this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
+    this.componentCleanup = this.componentCleanup.bind(this);
   }
 
-  componentDidMount() {
-    // await this.props.loadCart().catch((error) => console.error(error));
+  componentCleanup() {
+    this.props.updateCart(this.state.cart);
+  }
+
+  async componentDidMount() {
+    await this.props.loadCart().catch((error) => console.error(error));
     this.setState({ cart: this.props.cart });
+    window.addEventListener("beforeunload", this.componentCleanup);
+  }
+
+  componentWillUnmount() {
+    this.componentCleanup();
+    window.removeEventListener("beforeunload", this.componentCleanup);
+    // this.props.updateCart(this.state.cart);
   }
 
   handleChangeQuantity = (item, changedValue) => {
@@ -48,18 +64,22 @@ class CartPage extends React.Component {
   }
 
   render() {
-    const listOfCarts = this.state.cart.map((item) => (
-      <CardForCart
-        key={item.id}
-        id={item.id}
-        path={item.path}
-        title={item.title}
-        cost={item.cost}
-        onDeleteItem={() => this.handleDeleteItem(item)}
-        onChangeQuantity={(count) => this.handleChangeQuantity(item, count)}
-        quantity={item.quantity}
-      />
-    ));
+    console.log(this.props.cart);
+    console.log(this.state.cart);
+
+    // const listOfCarts = this.state.cart.map((item) => (
+    //   <CardForCart
+    //     key={item.id}
+    //     id={item.id}
+    //     path={item.path}
+    //     title={item.title}
+    //     cost={item.cost}
+    //     onDeleteItem={() => this.handleDeleteItem(item)}
+    //     onChangeQuantity={(count) => this.handleChangeQuantity(item, count)}
+    //     quantity={item.quantity}
+    //   />
+    // ));
+
     // const totalCost = listOfCarts.reduce(
     //   (sum, current) => sum + parseInt(current.props.cost),
     //   0
@@ -80,7 +100,20 @@ class CartPage extends React.Component {
             flexDirection: "column",
           }}
         >
-          {listOfCarts}
+          {this.state.cart.map((item) => (
+            <CardForCart
+              key={item.id}
+              id={item.id}
+              path={item.path}
+              title={item.title}
+              cost={item.cost}
+              onDeleteItem={() => this.handleDeleteItem(item)}
+              onChangeQuantity={(count) =>
+                this.handleChangeQuantity(item, count)
+              }
+              quantity={item.quantity}
+            />
+          ))}
           <h2 style={{ alignSelf: "flex-end" }}>Total: ${totalCost}</h2>
         </div>
       </div>
@@ -97,6 +130,7 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   loadCart,
   deleteItemFromCart,
+  updateCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

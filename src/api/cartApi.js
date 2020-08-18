@@ -23,3 +23,13 @@ export function deleteItem(item) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function updateCartApi(item) {
+  return fetch(baseUrl + parseInt(item.id), {
+    method: "PUT",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(item),
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
