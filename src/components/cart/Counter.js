@@ -14,16 +14,20 @@ const Counter = (props) => {
 
   function handleChange(e) {
     const value = parseInt(e.target.value);
-    if (isNaN(value)) {
+    if (isNaN(value) || value === 0) {
       setCount(1);
+      props.onChangeQuantity(1);
+    } else if (value > 10) {
+      setCount(10);
+      props.onChangeQuantity(10);
     } else {
       setCount(value);
+      props.onChangeQuantity(value);
     }
-    props.onChangeQuantity(value);
   }
 
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <Button
         style={styles}
         onClick={() => {
@@ -39,6 +43,7 @@ const Counter = (props) => {
         style={styles}
         type="number"
         min={1}
+        max={10}
         placeholder={1}
         value={count}
         onChange={handleChange}
@@ -46,8 +51,10 @@ const Counter = (props) => {
       <Button
         style={styles}
         onClick={() => {
-          setCount(count + 1);
-          props.onChangeQuantity(count + 1);
+          if (count < 10) {
+            setCount(count + 1);
+            props.onChangeQuantity(count + 1);
+          }
         }}
       >
         +

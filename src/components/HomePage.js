@@ -1,8 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { NavLink } from "react-router-dom";
-// import iPhonePic from "../img/2.png";
-// import xiaomiPic from "../img/4.png";
 
 const HomePage = (props) => {
   return (

@@ -28,8 +28,6 @@ function ApplePage(props) {
     }
   };
 
-  console.log(props);
-
   return (
     <div>
       <h2>Apple Page</h2>

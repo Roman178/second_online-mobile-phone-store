@@ -12,7 +12,7 @@ const CardForCart = (props) => {
         alignItems: "center",
         justifyContent: "space-between",
         fontSize: "1.1rem",
-        marginTop: "1%",
+        marginBottom: "1%",
         backgroundColor: "white",
       }}
     >

@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/common/NotFoundPage";
 import IphoneXR from "./components/brands/IphoneXR";
 import CartPage from "./components/cart/CartPage";
+import CheckoutPage from "./components/cart/CheckoutPage";
 
 const ROUTES = [
   {
@@ -41,6 +42,7 @@ const ROUTES = [
       { path: "/samsung", key: "SAMSUNG_PAGE", component: SamsungPage },
       { path: "/xiaomi", key: "XIAOMI_PAGE", component: XiaomiPage },
       { path: "/cart", key: "CART_PAGE", component: CartPage },
+      { path: "/checkout", key: "CHECKOUT_PAGE", component: CheckoutPage },
     ],
   },
 ];
@@ -67,10 +69,10 @@ function RouteWithSubRoutes(route) {
 /**
  * Use this component for any new section of routes (any config object that has a "routes" property
  */
-export function RenderRoutes({ routes }) {
+export function RenderRoutes(props) {
   return (
     <Switch>
-      {routes.map((route, i) => {
+      {props.routes.map((route, i) => {
         return <RouteWithSubRoutes key={route.key} {...route} />;
       })}
       <Route component={NotFoundPage} />

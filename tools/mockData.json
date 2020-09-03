@@ -35,6 +35,16 @@
   ],
   "cart": [
     {
+      "id": 3,
+      "title": "iPhone XR 64 Gb",
+      "description": "The most popular iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
+      "url": "/iphonexr",
+      "price": 599,
+      "quantity": 3,
+      "cost": 1797
+    },
+    {
       "id": 2,
       "title": "iPhone SE 64 Gb",
       "description": "The lovely iPhone",
@@ -45,14 +55,24 @@
       "cost": 549
     },
     {
-      "id": 3,
-      "title": "iPhone XR 64 Gb",
-      "description": "The most popular iPhone",
-      "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
+      "id": 4,
+      "title": "iPhone XS 64 Gb",
+      "description": "The very nice iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
       "url": "/iphonexr",
-      "price": 599,
-      "quantity": 3,
-      "cost": 1797
+      "price": 899,
+      "quantity": 1,
+      "cost": 899
+    },
+    {
+      "id": 1,
+      "title": "iPhone 11 Pro Max 64 Gb",
+      "description": "The best iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+      "url": "/iphonexr",
+      "price": 999,
+      "quantity": 1,
+      "cost": 999
     }
   ]
 }
