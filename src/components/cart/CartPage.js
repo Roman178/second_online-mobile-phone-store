@@ -7,7 +7,6 @@ import {
   updateCart,
 } from "../../redux/actions/cartActions";
 import CardForCart from "./CardForCart";
-import { Table } from "antd";
 import { Button } from "antd";
 
 class CartPage extends React.Component {
@@ -64,7 +63,7 @@ class CartPage extends React.Component {
       0
     );
 
-    const stateTax = (totalCost * 0.09).toFixed(2);
+    const stateTax = (totalCost * 0.04).toFixed(2);
 
     return (
       <div>

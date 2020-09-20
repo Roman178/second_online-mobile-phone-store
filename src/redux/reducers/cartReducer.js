@@ -1,5 +1,5 @@
 import * as types from "../actions/actionsTypes";
-import initialState from "./initialState";
+import initialState from "../reducers/initialState";
 
 export default function cartReducer(state = initialState.cart, action) {
   switch (action.type) {
@@ -11,6 +11,8 @@ export default function cartReducer(state = initialState.cart, action) {
       return state.filter((item) => item.id !== action.item.id);
     case types.UPDATE_CART_SUCCESS:
       return action.updatedCart;
+    case types.CLEAN_CART_SUCCESS:
+      return [];
     default:
       return state;
   }

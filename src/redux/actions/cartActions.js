@@ -1,5 +1,11 @@
 import * as types from "./actionsTypes";
-import { getCart, addItem, deleteItem, updateCartApi } from "../../api/cartApi";
+import {
+  getCart,
+  addItem,
+  deleteItem,
+  updateCartApi,
+  cleanCartApi,
+} from "../../api/cartApi";
 
 export function loadCartSuccess(cart) {
   return { type: types.LOAD_CART_SUCCESS, cart };
@@ -15,6 +21,10 @@ export function deleteItemFromCartSuccess(item) {
 
 export function updateCartSuccess(updatedCart) {
   return { type: types.UPDATE_CART_SUCCESS, updatedCart };
+}
+
+export function cleanCartSuccess(currentCart) {
+  return { type: types.CLEAN_CART_SUCCESS, currentCart };
 }
 
 export function addItemToCart(item) {
@@ -46,5 +56,12 @@ export function updateCart(updatedCart) {
   return function (dispatch) {
     dispatch(updateCartSuccess(updatedCart));
     return updatedCart.forEach((item) => updateCartApi(item));
+  };
+}
+
+export function cleanCart(currentCart) {
+  return function (dispatch) {
+    dispatch(cleanCartSuccess(currentCart));
+    return currentCart.forEach((item) => cleanCartApi(item));
   };
 }

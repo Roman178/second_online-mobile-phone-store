@@ -1,5 +1,5 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/apple/";
+const baseUrl = "http://localhost:3001/apple/";
 
 export function getApple() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);

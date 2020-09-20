@@ -1,6 +1,14 @@
 {
   "apple": [
     {
+      "id": 1,
+      "title": "iPhone 11 Pro Max 64 Gb",
+      "description": "The best iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+      "url": "/iphonexr",
+      "price": 999
+    },
+    {
       "id": 2,
       "title": "iPhone SE 64 Gb",
       "description": "The lovely iPhone",
@@ -23,15 +31,171 @@
       "path": "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
       "url": "/iphonexr",
       "price": 899
-    },
+    }
+  ],
+  "cart": [
     {
       "id": 1,
       "title": "iPhone 11 Pro Max 64 Gb",
       "description": "The best iPhone",
       "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
       "url": "/iphonexr",
-      "price": 999
+      "price": 999,
+      "quantity": 4,
+      "cost": 3996
+    },
+    {
+      "id": 2,
+      "title": "iPhone SE 64 Gb",
+      "description": "The lovely iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+      "url": "/iphonexr",
+      "price": 549,
+      "quantity": 1,
+      "cost": 549
+    },
+    {
+      "id": 3,
+      "title": "iPhone XR 64 Gb",
+      "description": "The most popular iPhone",
+      "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
+      "url": "/iphonexr",
+      "price": 599,
+      "quantity": 1,
+      "cost": 599
     }
   ],
-  "cart": []
+  "orders": [
+    {
+      "first name": "Egor",
+      "second name": "Titov",
+      "company name": "das",
+      "state of country": "Arizona",
+      "street": "Tompson st 30",
+      "city": "Vice City",
+      "postal code": "12356",
+      "phone": "6588956",
+      "email": "fvsd@h.tu",
+      "order": [
+        {
+          "id": 1,
+          "title": "iPhone 11 Pro Max 64 Gb",
+          "description": "The best iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+          "url": "/iphonexr",
+          "price": 999,
+          "quantity": 4,
+          "cost": 3996
+        },
+        {
+          "id": 2,
+          "title": "iPhone SE 64 Gb",
+          "description": "The lovely iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+          "url": "/iphonexr",
+          "price": 549,
+          "quantity": 2,
+          "cost": 1098
+        }
+      ],
+      "subtotal": 5094,
+      "stateTax": "356.58",
+      "total": "5467.58",
+      "id": 1
+    },
+    {
+      "first name": "Ivan",
+      "second name": "Rokotin",
+      "company name": "MCS",
+      "state of country": "New Jersey",
+      "street": "Jackson st 30",
+      "city": "Liberty City",
+      "postal code": "98765",
+      "phone": "2846351",
+      "email": "MichRok@h.tu",
+      "order": [
+        {
+          "id": 1,
+          "title": "iPhone 11 Pro Max 64 Gb",
+          "description": "The best iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+          "url": "/iphonexr",
+          "price": 999,
+          "quantity": 1,
+          "cost": 999
+        },
+        {
+          "id": 2,
+          "title": "iPhone SE 64 Gb",
+          "description": "The lovely iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+          "url": "/iphonexr",
+          "price": 549,
+          "quantity": 1,
+          "cost": 549
+        },
+        {
+          "id": 3,
+          "title": "iPhone XR 64 Gb",
+          "description": "The most popular iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
+          "url": "/iphonexr",
+          "price": 599,
+          "quantity": 5,
+          "cost": 2995
+        },
+        {
+          "id": 4,
+          "title": "iPhone XS 64 Gb",
+          "description": "The very nice iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
+          "url": "/iphonexr",
+          "price": 899,
+          "quantity": 1,
+          "cost": 899
+        }
+      ],
+      "subtotal": 5442,
+      "stateTax": "544.20",
+      "total": "6003.20",
+      "id": 2
+    },
+    {
+      "first name": "Roman",
+      "second name": "Ismagilov",
+      "company name": "Tortik",
+      "state of country": "Arkansas",
+      "street": "Frank st 40",
+      "city": "Vice City",
+      "postal code": "66633",
+      "phone": "987 78 89",
+      "email": "FoF@gopnik.su",
+      "order": [
+        {
+          "id": 1,
+          "title": "iPhone 11 Pro Max 64 Gb",
+          "description": "The best iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+          "url": "/iphonexr",
+          "price": 999,
+          "quantity": 2,
+          "cost": 1998
+        },
+        {
+          "id": 2,
+          "title": "iPhone SE 64 Gb",
+          "description": "The lovely iPhone",
+          "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+          "url": "/iphonexr",
+          "price": 549,
+          "quantity": 3,
+          "cost": 1647
+        }
+      ],
+      "subtotal": 3645,
+      "stateTax": "291.60",
+      "total": "3953.60",
+      "id": 3
+    }
+  ]
 }
