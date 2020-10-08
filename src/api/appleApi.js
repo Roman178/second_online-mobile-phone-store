@@ -2,7 +2,15 @@ import { handleResponse, handleError } from "./apiUtils";
 const baseUrl = "http://localhost:3001/apple/";
 
 export function getApple() {
-  return fetch(baseUrl).then(handleResponse).catch(handleError);
+  return fetch("http://localhost:3001/apple/")
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function getSamsung() {
+  return fetch("http://localhost:3001/samsung/")
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 // export function saveCourse(course) {

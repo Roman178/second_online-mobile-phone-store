@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
-import apple from "./appleReducer";
+import { appleReducer, samsungReducer } from "./appleReducer";
 import cart from "./cartReducer";
 
 const rootReducer = combineReducers({
   cart,
-  apple,
+  apple: appleReducer,
+  samsung: samsungReducer,
 });
 
 export default rootReducer;

@@ -1,4 +1,5 @@
 export default {
   cart: [],
-  apple: [],
+  apple: { iphones: [], ipads: [], macbooks: [] },
+  samsung: { galaxyS: [] },
 };

@@ -9,7 +9,6 @@ import { handleError } from "../../api/apiUtils";
 function ApplePage(props) {
   // useEffect(() => {
   //   props.loadApple().catch((error) => console.log(error));
-  //   props.loadCart().catch((error) => console.error(error));
   // }, []);
 
   // function handleAddToCart(event) {
@@ -22,26 +21,28 @@ function ApplePage(props) {
   //   }
   // }
 
-  const handleAddToCart = (iphone) => {
-    if (!props.cart.find((item) => item.id === iphone.id)) {
-      props.addItemToCart({ ...iphone, quantity: 1, cost: iphone.price });
+  const handleAddToCart = (item) => {
+    if (!props.cart.find((i) => i.id === item.id)) {
+      props.addItemToCart({ ...item, quantity: 1, cost: item.price });
     }
   };
+
+  const arrOfAllAppleGoods = Object.values(props.apple).flat();
 
   return (
     <div>
       <h2>Apple Page</h2>
       <Row>
-        {props.apple.map((iphone) => (
+        {arrOfAllAppleGoods.map((item) => (
           <CardDevice
-            key={iphone.id}
-            onAddToCart={() => handleAddToCart(iphone)}
-            id={iphone.id}
-            url={iphone.url}
-            title={iphone.title}
-            path={iphone.path}
-            // description={iphone.description}
-            price={"$" + iphone.price}
+            key={item.id}
+            onAddToCart={() => handleAddToCart(item)}
+            id={item.id}
+            url={item.url}
+            title={item.title}
+            path={item.path}
+            // description={item.description}
+            price={"$" + item.price}
           />
         ))}
       </Row>

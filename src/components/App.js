@@ -21,6 +21,7 @@ function App(props) {
         props.location.pathname === "/checkout" ? undefined : (
           <Sidebar />
         )}
+
         <Content>
           <RenderRoutes routes={ROUTES} />
         </Content>

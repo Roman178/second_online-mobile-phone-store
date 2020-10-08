@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Layout, Menu, Dropdown } from "antd";
 import MenuForHeader from "../common/MenuForHeader";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { loadApple } from "../../redux/actions/appleActions";
+import { loadApple, loadSamsung } from "../../redux/actions/appleActions";
 import { loadCart, deleteItemFromCart } from "../../redux/actions/cartActions";
 // import CardForCart from "../cart/CardForCart";
 import PopUpCartWindow from "../cart/PopUpCartWindow";
@@ -22,6 +22,7 @@ function Header(props) {
   useEffect(() => {
     props.loadApple();
     props.loadCart();
+    props.loadSamsung();
   }, []);
 
   useEffect(() => {
@@ -104,6 +105,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = {
   loadCart,
   loadApple,
+  loadSamsung,
   deleteItemFromCart,
 };
 

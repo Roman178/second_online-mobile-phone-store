@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button } from "antd";
 import "./InputTypeNumberDeleteArrows.css";
+import { MyContext } from "../cart/CardForCart";
 
 const Counter = (props) => {
   const styles = {
@@ -11,6 +12,8 @@ const Counter = (props) => {
   };
 
   const [count, setCount] = useState(props.quantity);
+  const contexValue = useContext(MyContext);
+  console.log(contexValue);
 
   function handleChange(e) {
     const value = parseInt(e.target.value);
