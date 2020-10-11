@@ -15,7 +15,6 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const currentPage = this.props.location.pathname.slice(1);
     // console.log(Object.values(this.props.apple).flat());
     // console.log(this.props[currentPage]);
     return (
@@ -24,7 +23,7 @@ class Sidebar extends React.Component {
         width={200}
         style={{ marginTop: "100px" }}
       >
-        {this.props.location.pathname === "/apple" && (
+        {this.props.location.pathname.startsWith("/apple") && (
           <AppleMenu
             iphones={this.props.apple.iphones}
             ipads={this.props.apple.ipads}
@@ -32,7 +31,7 @@ class Sidebar extends React.Component {
           />
         )}
 
-        {this.props.location.pathname === "/samsung" && (
+        {this.props.location.pathname.startsWith("/samsung") && (
           <SamsungMenu galaxyS={this.props.samsung.galaxyS}></SamsungMenu>
         )}
 

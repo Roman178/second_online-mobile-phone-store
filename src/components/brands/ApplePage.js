@@ -5,6 +5,7 @@ import { loadApple } from "../../redux/actions/appleActions";
 import { loadCart, addItemToCart } from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
 import { handleError } from "../../api/apiUtils";
+import { withRouter } from "react-router";
 
 function ApplePage(props) {
   // useEffect(() => {
@@ -21,20 +22,42 @@ function ApplePage(props) {
   //   }
   // }
 
-  const handleAddToCart = (item) => {
+  function handleAddToCart(item) {
     if (!props.cart.find((i) => i.id === item.id)) {
       props.addItemToCart({ ...item, quantity: 1, cost: item.price });
     }
-  };
+  }
 
   const arrOfAllAppleGoods = Object.values(props.apple).flat();
 
   return (
-    <div>
-      <h2>Apple Page</h2>
+    <>
       <Row>
-        {arrOfAllAppleGoods.map((item) => (
+        {props.location.pathname === "/apple" && (
+          <CardDevice list={arrOfAllAppleGoods} onAddToCart={handleAddToCart} />
+        )}
+
+        {props.location.pathname === "/apple/iphones" && (
           <CardDevice
+            list={props.apple.iphones}
+            onAddToCart={handleAddToCart}
+          />
+        )}
+
+        {props.location.pathname === "/apple/ipads" && (
+          <CardDevice list={props.apple.ipads} onAddToCart={handleAddToCart} />
+        )}
+
+        {props.location.pathname === "/apple/macbooks" && (
+          <CardDevice
+            list={props.apple.macbooks}
+            onAddToCart={handleAddToCart}
+          />
+        )}
+
+        {/* {arrOfAllAppleGoods.map((item) => (
+          <CardDevice
+            list={arrOfAllAppleGoods}
             key={item.id}
             onAddToCart={() => handleAddToCart(item)}
             id={item.id}
@@ -44,9 +67,9 @@ function ApplePage(props) {
             // description={item.description}
             price={"$" + item.price}
           />
-        ))}
+        ))} */}
       </Row>
-    </div>
+    </>
   );
 }
 
@@ -63,4 +86,7 @@ const mapDispatchToProps = {
   //   loadApple,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApplePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(ApplePage));

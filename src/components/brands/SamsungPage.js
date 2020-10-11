@@ -19,7 +19,9 @@ function SamsungPage(props) {
     <div>
       <h2>Samsung Page</h2>
       <Row>
-        {arrOfAllSamsungGoods.map((item) => (
+        <CardDevice list={arrOfAllSamsungGoods} onAddToCart={handleAddToCart} />
+
+        {/* {arrOfAllSamsungGoods.map((item) => (
           <CardDevice
             key={item.id}
             onAddToCart={() => handleAddToCart(item)}
@@ -30,7 +32,7 @@ function SamsungPage(props) {
             // description={item.description}
             price={"$" + item.price}
           />
-        ))}
+        ))} */}
       </Row>
     </div>
   );
