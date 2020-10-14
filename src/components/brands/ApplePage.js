@@ -30,14 +30,28 @@ function ApplePage(props) {
 
   const arrOfAllAppleGoods = Object.values(props.apple).flat();
 
+  function checkUrl() {       
+    switch (props.location.pathname) {
+      case '/apple':
+        return arrOfAllAppleGoods;
+      case "/apple/iphones":
+        return props.apple.iphones;
+      case "/apple/ipads":
+        return props.apple.ipads;
+      case "/apple/macbooks":
+        return props.apple.macbooks;
+      default:
+        return undefined
+    }
+  }
+  
   return (
     <>
-      <Row>
-        {props.location.pathname === "/apple" && (
-          <CardDevice list={arrOfAllAppleGoods} onAddToCart={handleAddToCart} />
-        )}
+      <Row>     
+          <CardDevice list={checkUrl()} onAddToCart={handleAddToCart} />
 
-        {props.location.pathname === "/apple/iphones" && (
+
+        {/* {props.location.pathname === "/apple/iphones" && (
           <CardDevice
             list={props.apple.iphones}
             onAddToCart={handleAddToCart}
@@ -53,7 +67,7 @@ function ApplePage(props) {
             list={props.apple.macbooks}
             onAddToCart={handleAddToCart}
           />
-        )}
+        )} */}
 
         {/* {arrOfAllAppleGoods.map((item) => (
           <CardDevice

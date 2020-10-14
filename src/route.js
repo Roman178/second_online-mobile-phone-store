@@ -7,7 +7,7 @@ import ApplePage from "./components/brands/ApplePage";
 import XiaomiPage from "./components/brands/XiaomiPage";
 import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/common/NotFoundPage";
-import IphoneXR from "./components/brands/IphoneXR";
+import DevicePage from "./components/brands/IphoneXR";
 import CartPage from "./components/cart/CartPage";
 import CheckoutPage from "./components/cart/CheckoutPage";
 
@@ -28,6 +28,12 @@ const ROUTES = [
             exact: true,
             key: "APPLE_ROOT",
             component: ApplePage,
+          },
+          {
+            path: "/apple/iphones/:urlName",
+            exact: true,
+            key: "IPHONES",
+            component: DevicePage,
           },
           {
             path: "/apple/iphones",
