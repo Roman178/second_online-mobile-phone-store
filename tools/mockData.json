@@ -123,6 +123,47 @@
       }
     ]
   },
-  "cart": [],
+  "cart": [
+    {
+      "id": 12,
+      "title": "Apple Macbook 12 Retina MNYF2 (1.2GHz, 8GB, 256GB) Space Gray",
+      "path": "https://cdn2.biggeek.ru/1/212/3e4c/space_6.435x435.jpg",
+      "url": "apple-macbook-12-retina-mnyf2-1-2ghz-8gb-256gb-space-gray",
+      "price": 1299,
+      "category": "macbooks",
+      "quantity": 1,
+      "cost": 1299
+    },
+    {
+      "id": 11,
+      "title": "Apple MacBook Pro 16 Retina Touch Bar MVVJ2 Space Gray (2,6 GHz Core i7, 16GB, 512GB, Radeon Pro 5300M)",
+      "path": "https://cdn2.biggeek.ru/1/212/ea9a/10488-781mbp16touch-space-gallery1-201911.jpeg",
+      "url": "apple-macbook-pro-16-retina-touch-bar-mvvj2-space-gray-2-6-ghz-core-i7-16gb-512gb-radeon-pro-5300m",
+      "price": 2699,
+      "category": "macbooks",
+      "quantity": 4,
+      "cost": 10796
+    },
+    {
+      "id": 10,
+      "title": "Apple MacBook Air 13 (2017) MQD32 (1,8Ghz, 8Gb, 128Gb)",
+      "path": "https://cdn2.biggeek.ru/1/212/e8f9/8294-64913_3.435x435_1.435x435.jpg",
+      "url": "apple-macbook-air-13-2017-mqd32-1-8ghz-8gb-128gb",
+      "price": 1090,
+      "category": "macbooks",
+      "quantity": 1,
+      "cost": 1090
+    },
+    {
+      "id": 7,
+      "title": "Apple iPad 2018 32Gb Wi-Fi Space Gray",
+      "path": "https://cdn2.biggeek.ru/1/212/2d4d/ipad-wifi-select-spacegray-201803.png",
+      "url": "apple-ipad-2018-32gb-wi-fi-space-gray",
+      "price": 430,
+      "category": "ipads",
+      "quantity": 1,
+      "cost": 430
+    }
+  ],
   "orders": []
 }

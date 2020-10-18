@@ -6,29 +6,28 @@ import { Button } from "antd";
 import Item from "antd/lib/list/Item";
 
 function CardDevice(props) {
-  const [
-    IsTheCurrentPageACommonBrandPage,
-    setBoolRegCommonBrandPage,
-  ] = useState(true);
+  const checkPage = props.location.pathname.includes("/", 1);
 
-  useEffect(() => {
-    if (props.list.length > 0) {
-      const check = props.list.reduce(function (prevVal, item) {
-        if (prevVal.category === item.category) {
-          return item;
-        } else {
-          return false;
-        }
-      });
-      if (check) {
-        setBoolRegCommonBrandPage(false);
-      } else {
-        setBoolRegCommonBrandPage(true);
-      }
-    }
-  }, [props.list]);
+  const [CurrentPageASubPage] = useState(checkPage);
 
-  console.log(IsTheCurrentPageACommonBrandPage);
+  console.log(CurrentPageASubPage);
+
+  // useEffect(() => {
+  //   if (props.list.length > 0) {
+  //     const check = props.list.reduce(function (prevVal, item) {
+  //       if (prevVal.category === item.category) {
+  //         return item;
+  //       } else {
+  //         return false;
+  //       }
+  //     });
+  //     if (check) {
+  //       setBoolRegCommonBrandPage(false);
+  //     } else {
+  //       setBoolRegCommonBrandPage(true);
+  //     }
+  //   }
+  // }, [props.list]);
 
   // const check = props.list.reduce(function (prevVal, item) {
   //   if (prevVal.category === item.category) {
@@ -45,7 +44,11 @@ function CardDevice(props) {
       {props.list.map((item) => (
         <NavLink
           key={item.id}
-          to={props.location.pathname + "/" + item.url}
+          to={
+            CurrentPageASubPage
+              ? props.location.pathname + "/" + item.url
+              : props.location.pathname + "/" + item.category + "/" + item.url
+          }
           style={{ margin: "1%" }}
         >
           <Card
