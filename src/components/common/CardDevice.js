@@ -8,9 +8,9 @@ import Item from "antd/lib/list/Item";
 function CardDevice(props) {
   const checkPage = props.location.pathname.includes("/", 1);
 
-  const [CurrentPageASubPage] = useState(checkPage);
+  const [currentPageIsASubPage] = useState(checkPage);
 
-  console.log(CurrentPageASubPage);
+  console.log(currentPageIsASubPage);
 
   // useEffect(() => {
   //   if (props.list.length > 0) {
@@ -45,7 +45,7 @@ function CardDevice(props) {
         <NavLink
           key={item.id}
           to={
-            CurrentPageASubPage
+            currentPageIsASubPage
               ? props.location.pathname + "/" + item.url
               : props.location.pathname + "/" + item.category + "/" + item.url
           }

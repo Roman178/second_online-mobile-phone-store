@@ -7,7 +7,7 @@ import ApplePage from "./components/brands/ApplePage";
 import XiaomiPage from "./components/brands/XiaomiPage";
 import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/common/NotFoundPage";
-import DevicePage from "./components/brands/IphoneXR";
+import DevicePage from "./components/common/DevicePage";
 import CartPage from "./components/cart/CartPage";
 import CheckoutPage from "./components/cart/CheckoutPage";
 

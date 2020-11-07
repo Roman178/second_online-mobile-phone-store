@@ -3,7 +3,7 @@ import Counter from "./Counter";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
-export const MyContext = React.createContext(75);
+export const MyContext = React.createContext(75); // Just try to check Context. Nevermind.
 
 const CardForCart = (props) => {
   return (
