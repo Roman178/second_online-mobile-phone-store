@@ -125,6 +125,16 @@
   },
   "cart": [
     {
+      "id": 2,
+      "title": "iPhone SE 64 Gb",
+      "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+      "url": "iphone-se-64-gb",
+      "price": 549,
+      "category": "iphones",
+      "quantity": 2,
+      "cost": 1098
+    },
+    {
       "id": 14,
       "title": "Galaxy S10 Lite 128Gb 6Gb Black",
       "path": "https://cdn2.biggeek.ru/1/212/9ab2/11037-934s10bk.jpg",
@@ -132,27 +142,8 @@
       "price": 549,
       "category": "galaxyS",
       "quantity": 1,
-      "cost": 549
-    },
-    {
-      "id": 13,
-      "title": "Galaxy S20 Ultra 128 Gb (Cosmic Black)",
-      "path": "https://cdn2.biggeek.ru/1/212/08f0/11048-876SM-G988BZKDSER-comp.jpg",
-      "url": "galaxy-s20-ultra-128-gb-cosmic-black",
-      "price": 999,
-      "category": "galaxyS",
-      "quantity": 1,
-      "cost": 999
-    },
-    {
-      "id": 2,
-      "title": "iPhone SE 64 Gb",
-      "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
-      "url": "iphone-se-64-gb",
-      "price": 549,
-      "category": "iphones",
-      "quantity": 1,
-      "cost": 549
+      "cost": 549,
+      "createdAt": 1605473588472
     }
   ],
   "orders": [

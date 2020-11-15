@@ -18,7 +18,8 @@ function App(props) {
       <Layout style={{ marginTop: "64px" }}>
         {props.location.pathname === "/" ||
         props.location.pathname === "/cart" ||
-        props.location.pathname === "/checkout" ? undefined : (
+        props.location.pathname === "/checkout" ||
+        props.location.pathname.split("/").length - 1 > 2 ? undefined : (
           <Sidebar />
         )}
 
