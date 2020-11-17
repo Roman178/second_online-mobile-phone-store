@@ -1,20 +1,42 @@
 import React from "react";
 import { Image } from "antd";
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import "./DevicePage.css";
+
+const images = [
+  {
+    original:
+      "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/",
+    originalClass: "big-img",
+    thumbnail:
+      "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/63x63/",
+    thumbnailClass: "small-img",
+  },
+  {
+    original:
+      "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/",
+    originalClass: "big-img",
+
+    thumbnail:
+      "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/63x63/",
+    thumbnailClass: "small-img",
+  },
+];
 
 function DevicePage(props) {
   console.log(props);
   return (
-    <>
-      <h1>Device Page</h1>
-      <div>
-        <h2>Apple iPhone SE 64Gb</h2>
-        <Image width={400} src={iphone11ProMaxImg}></Image>
-      </div>
-    </>
+    <div style={{ width: "500px" }}>
+      <ImageGallery items={images} showNav={false} />
+    </div>
   );
 }
 
 export default DevicePage;
 
 // "https://cdn2.biggeek.ru/1/435/91cd/11342-817white.jpeg"
+
+// {/* <h2>Apple iPhone SE 64Gb</h2>
+//   <Image width={400} src={iphone11ProMaxImg}></Image> */}

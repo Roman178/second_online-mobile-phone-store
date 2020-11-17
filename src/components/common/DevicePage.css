@@ -1,0 +1,8 @@
+.big-img {
+  width: none;
+  height: 700px;
+}
+
+.small-img {
+  width: inherit;
+}
