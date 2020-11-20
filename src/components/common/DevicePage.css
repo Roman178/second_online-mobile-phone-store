@@ -1,8 +1,23 @@
-.big-img {
-  width: none;
-  height: 700px;
+/* .big-img {
+  height: 483px;
 }
 
 .small-img {
   width: inherit;
+} */
+.container-product-slider {
+  display: block;
+  height: 483px;
+}
+
+.img-container {
+  display: inline-block;
+  height: 483px;
+  width: 500px;
+}
+
+.img-element {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

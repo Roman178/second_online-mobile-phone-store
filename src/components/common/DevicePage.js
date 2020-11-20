@@ -5,31 +5,44 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./DevicePage.css";
 
-const images = [
-  {
-    original:
-      "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/",
-    originalClass: "big-img",
-    thumbnail:
-      "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/63x63/",
-    thumbnailClass: "small-img",
-  },
-  {
-    original:
-      "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/",
-    originalClass: "big-img",
+// const images = [
+//   {
+//     original:
+//       "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/",
+//     originalClass: "big-img",
+//     thumbnail:
+//       "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/63x63/",
+//     thumbnailClass: "small-img",
+//   },
+//   {
+//     original:
+//       "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/",
+//     originalClass: "big-img",
 
-    thumbnail:
-      "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/63x63/",
-    thumbnailClass: "small-img",
-  },
-];
+//     thumbnail:
+//       "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/63x63/",
+//     thumbnailClass: "small-img",
+//   },
+// ];
 
 function DevicePage(props) {
   console.log(props);
   return (
-    <div style={{ width: "500px" }}>
-      <ImageGallery items={images} showNav={false} />
+    <div className="container-product-slider">
+      {/* <ImageGallery items={images} showNav={false} /> */}
+
+      <div className="img-container">
+        <img
+          className="img-element"
+          src="https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/"
+        ></img>
+      </div>
+      <div className="img-container">
+        <img
+          className="img-element"
+          src="https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/"
+        ></img>
+      </div>
     </div>
   );
 }
