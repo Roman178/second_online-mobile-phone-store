@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Image } from "antd";
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
 import ImageGallery from "react-image-gallery";
@@ -25,25 +26,44 @@ import "./DevicePage.css";
 //   },
 // ];
 
+// const []
+
 function DevicePage(props) {
   console.log(props);
   return (
-    <div className="container-product-slider">
-      {/* <ImageGallery items={images} showNav={false} /> */}
+    <>
+      <div className="container-product-slider">
+        {/* <ImageGallery items={images} showNav={false} /> */}
 
-      <div className="img-container">
-        <img
-          className="img-element"
-          src="https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/"
-        ></img>
+        <div className="secondary-container">
+          <div className="img-container">
+            <img
+              className="img-element"
+              src="https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/"
+            ></img>
+          </div>
+          <div className="img-container">
+            <img
+              className="img-element"
+              src="https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/"
+            ></img>
+          </div>
+          <div className="img-container">
+            <img
+              className="img-element"
+              src="https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/"
+            ></img>
+          </div>
+        </div>
       </div>
-      <div className="img-container">
-        <img
-          className="img-element"
-          src="https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/"
-        ></img>
-      </div>
-    </div>
+      <button
+        onClick={() => {
+          const el = document.getElementsByClassName("secondary-container");
+          el[0].style.transition = "transform 0.5s ease-in";
+          el[0].style.transform = "translateX(-500px)";
+        }}
+      ></button>
+    </>
   );
 }
 

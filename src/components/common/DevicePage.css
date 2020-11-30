@@ -6,9 +6,23 @@
   width: inherit;
 } */
 .container-product-slider {
-  display: block;
+  display: inline-block;
   height: 483px;
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: white;
 }
+
+.secondary-container {
+  /* transition: transform 0.5s ease-in;
+  transform: translateX(-500px); */
+}
+
+/* .container-product-slider:hover {
+  transition: transform 0.5s ease-in;
+  transform: translateX(500px);
+} */
 
 .img-container {
   display: inline-block;
