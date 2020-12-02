@@ -14,15 +14,25 @@
   background-color: white;
 }
 
-.secondary-container {
-  /* transition: transform 0.5s ease-in;
-  transform: translateX(-500px); */
+.secondary-container-0 {
+  transition: transform 0.5s ease-in;
+  transform: translateX(0px);
 }
 
-/* .container-product-slider:hover {
+.secondary-container-500 {
   transition: transform 0.5s ease-in;
-  transform: translateX(500px);
-} */
+  transform: translateX(-500px);
+}
+
+.secondary-container-1000 {
+  transition: transform 0.5s ease-in;
+  transform: translateX(-1000px);
+}
+
+.secondary-container-1500 {
+  transition: transform 0.5s ease-in;
+  transform: translateX(-1500px);
+}
 
 .img-container {
   display: inline-block;
