@@ -144,6 +144,17 @@
       "quantity": 1,
       "cost": 549,
       "createdAt": 1605473588472
+    },
+    {
+      "id": 1,
+      "title": "iPhone 11 Pro Max 64 Gb",
+      "path": "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+      "url": "iphone-11-pro-max-64-gb",
+      "price": 999,
+      "category": "iphones",
+      "quantity": 1,
+      "cost": 999,
+      "createdAt": 1607198666753
     }
   ],
   "orders": [

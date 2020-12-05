@@ -40,8 +40,38 @@
   width: 500px;
 }
 
+button:focus {
+  outline: none;
+  border: 1.3px solid #001529;
+  border-radius: 4px;
+}
+
+.img-container-btn {
+  transition: border 0.12s ease-in;
+  display: inline-block;
+  height: 80px;
+  width: 90px;
+  background-color: white;
+  border: none;
+}
+
 .img-element {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.tape-container {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-btn {
+  font-size: 27px;
+  border-radius: 3px;
+  transition: color 0.3s ease-in-out;
+}
+
+.arrow-btn:hover {
+  color: #1890ff;
 }

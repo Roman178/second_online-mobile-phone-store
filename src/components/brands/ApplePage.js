@@ -8,6 +8,7 @@ import { handleError } from "../../api/apiUtils";
 import { withRouter } from "react-router";
 
 function ApplePage(props) {
+  console.log(props);
   // useEffect(() => {
   //   props.loadApple().catch((error) => console.log(error));
   // }, []);
@@ -30,9 +31,9 @@ function ApplePage(props) {
 
   const arrOfAllAppleGoods = Object.values(props.apple).flat();
 
-  function checkUrl() {       
+  function checkUrl() {
     switch (props.location.pathname) {
-      case '/apple':
+      case "/apple":
         return arrOfAllAppleGoods;
       case "/apple/iphones":
         return props.apple.iphones;
@@ -41,15 +42,14 @@ function ApplePage(props) {
       case "/apple/macbooks":
         return props.apple.macbooks;
       default:
-        return undefined
+        return undefined;
     }
   }
-  
+
   return (
     <>
-      <Row>     
-          <CardDevice list={checkUrl()} onAddToCart={handleAddToCart} />
-
+      <Row>
+        <CardDevice list={checkUrl()} onAddToCart={handleAddToCart} />
 
         {/* {props.location.pathname === "/apple/iphones" && (
           <CardDevice

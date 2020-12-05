@@ -5,29 +5,9 @@ import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./DevicePage.css";
-
-// const images = [
-//   {
-//     original:
-//       "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/",
-//     originalClass: "big-img",
-//     thumbnail:
-//       "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/63x63/",
-//     thumbnailClass: "small-img",
-//   },
-//   {
-//     original:
-//       "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/",
-//     originalClass: "big-img",
-
-//     thumbnail:
-//       "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/63x63/",
-//     thumbnailClass: "small-img",
-//   },
-// ];
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 function DevicePage(props) {
-  console.log(props);
   const [cssClass, setCssClass] = useState("secondary-container-0");
 
   function checkClassOnTheRight() {
@@ -56,6 +36,15 @@ function DevicePage(props) {
     }
   }
 
+  const firstImg =
+    "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/";
+  const secondImg =
+    "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/";
+  const thirdImg =
+    "https://cdn.svyaznoy.ru/upload/iblock/48e/iphone_11_w_1.jpg/resize/483x483/hq/";
+  const fourth =
+    "https://cdn.svyaznoy.ru/upload/iblock/db9/iphone_11_w_2.jpg/resize/483x483/hq/";
+
   return (
     <>
       <div className="container-product-slider">
@@ -63,49 +52,61 @@ function DevicePage(props) {
 
         <div className={cssClass}>
           <div className="img-container">
-            <img
-              className="img-element"
-              src="https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/"
-            ></img>
+            <img className="img-element" src={firstImg}></img>
           </div>
           <div className="img-container">
-            <img
-              className="img-element"
-              src="https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/"
-            ></img>
+            <img className="img-element" src={secondImg}></img>
           </div>
           <div className="img-container">
-            <img
-              className="img-element"
-              src="https://cdn.svyaznoy.ru/upload/iblock/48e/iphone_11_w_1.jpg/resize/483x483/hq/"
-            ></img>
+            <img className="img-element" src={thirdImg}></img>{" "}
           </div>
-
           <div className="img-container">
-            <img
-              className="img-element"
-              src="https://cdn.svyaznoy.ru/upload/iblock/db9/iphone_11_w_2.jpg/resize/483x483/hq/"
-            ></img>
+            <img className="img-element" src={fourth}></img>
           </div>
         </div>
       </div>
-      <button onClick={() => checkClassOnTheLeft()}>
-        {" "}
-        <img
-          width={50}
-          className="img-element"
-          src="https://cdn.svyaznoy.ru/upload/iblock/48e/iphone_11_w_1.jpg/resize/483x483/hq/"
-        ></img>
-      </button>
 
-      <button onClick={() => checkClassOnTheRight()}>
-        {" "}
-        <img
-          width={50}
-          className="img-element"
-          src="https://cdn.svyaznoy.ru/upload/iblock/db9/iphone_11_w_2.jpg/resize/483x483/hq/"
-        ></img>
-      </button>
+      <div className="tape-container">
+        <LeftOutlined
+          className="arrow-btn"
+          onClick={() => checkClassOnTheLeft()}
+        ></LeftOutlined>
+        <button
+          className="img-container-btn"
+          onClick={() => setCssClass("secondary-container-0")}
+        >
+          {" "}
+          <img height={60} className="img-element" src={firstImg}></img>
+        </button>
+
+        <button
+          className="img-container-btn"
+          onClick={() => setCssClass("secondary-container-500")}
+        >
+          {" "}
+          <img height={60} className="img-element" src={secondImg}></img>
+        </button>
+
+        <button
+          className="img-container-btn"
+          onClick={() => setCssClass("secondary-container-1000")}
+        >
+          {" "}
+          <img height={60} className="img-element" src={thirdImg}></img>
+        </button>
+
+        <button
+          className="img-container-btn"
+          onClick={() => setCssClass("secondary-container-1500")}
+        >
+          {" "}
+          <img height={60} className="img-element" src={fourth}></img>
+        </button>
+        <RightOutlined
+          className="arrow-btn"
+          onClick={() => checkClassOnTheRight()}
+        ></RightOutlined>
+      </div>
     </>
   );
 }
