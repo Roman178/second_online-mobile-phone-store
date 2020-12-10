@@ -18,10 +18,10 @@ const CheckoutPage = (props) => {
     console.log("Received values of form: ", values);
     addOrderApi({
       ...values,
-      order: props.cart,
       subtotal: subtotal,
       stateTax: stateTax,
       total: total,
+      order: props.cart,
     });
     props.cleanCart(props.cart);
     success();

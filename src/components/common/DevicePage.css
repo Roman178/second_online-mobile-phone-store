@@ -38,6 +38,19 @@
   display: inline-block;
   height: 483px;
   width: 500px;
+  cursor: pointer;
+}
+
+.img-element {
+  /* width: 100%;
+  height: 100%; */
+}
+
+.img-element > img {
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button:focus {
@@ -53,12 +66,6 @@ button:focus {
   width: 90px;
   background-color: white;
   border: none;
-}
-
-.img-element {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .tape-container {

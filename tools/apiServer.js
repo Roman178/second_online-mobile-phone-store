@@ -1,7 +1,7 @@
 const jsonServer = require("json-server");
 const server = jsonServer.create();
 const path = require("path");
-const router = jsonServer.router(path.join(__dirname, "mockData.json"));
+const router = jsonServer.router(path.join(__dirname, "db.json"));
 const middlewares = jsonServer.defaults({
   static: "node_modules/json-server/public",
 });
@@ -10,8 +10,8 @@ const middlewares = jsonServer.defaults({
 server.use(middlewares);
 
 // Add custom routes before JSON Server router
-server.get("/echo", (req, res) => {
-  res.jsonp(req.query);
+server.get("/samsung", (req, res, next) => {
+  next();
 });
 
 // To handle POST, PUT and PATCH you need to use a body-parser
@@ -30,6 +30,13 @@ server.use(router);
 server.listen(3001, () => {
   console.log("JSON Server is running");
 });
+
+function createUrlName(value) {
+  return value
+    .replace(/[^a-z0-9_]+/gi, "-")
+    .replace(/^-|-$/g, "")
+    .toLowerCase();
+}
 
 // const jsonServer = require("json-server");
 // const server = jsonServer.create();

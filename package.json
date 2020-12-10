@@ -29,6 +29,8 @@
     "redux-immutable-state-invariant": "^2.1.0"
   },
   "scripts": {
+    "prestart:api": "node tools/createDb.js",
+    "start:api": "node tools/apiServer.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

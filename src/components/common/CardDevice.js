@@ -11,6 +11,7 @@ function CardDevice(props) {
   const [currentPageIsASubPage] = useState(checkPage);
 
   console.log(currentPageIsASubPage);
+  console.log(props);
 
   // useEffect(() => {
   //   if (props.list.length > 0) {

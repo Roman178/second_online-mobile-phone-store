@@ -21,7 +21,7 @@ function FormCheckout(props) {
       validateMessages={validateMessages}
     >
       <Form.Item
-        name={["first name"]}
+        name={["first_name"]}
         label="First name"
         rules={[
           {
@@ -32,7 +32,7 @@ function FormCheckout(props) {
         <Input />
       </Form.Item>
       <Form.Item
-        name={["second name"]}
+        name={["second_name"]}
         label="Second name"
         rules={[
           {
@@ -42,14 +42,14 @@ function FormCheckout(props) {
       >
         <Input />
       </Form.Item>
-      <Form.Item name={["company name"]} label="Company name (optional)">
+      <Form.Item name={["company_name"]} label="Company name (optional)">
         <Input />
       </Form.Item>
       <Form.Item name={["country"]} label="Country">
         <p style={{ margin: 0 }}>USA</p>
       </Form.Item>
       <Form.Item
-        name={["state of country"]}
+        name={["state_of_country"]}
         label="State"
         rules={[
           {
@@ -86,7 +86,7 @@ function FormCheckout(props) {
       </Form.Item>
 
       <Form.Item
-        name={["postal code"]}
+        name={["postal_code"]}
         label="Postal code"
         rules={[{ required: true, message: "Postal code is required" }]}
       >

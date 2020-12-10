@@ -8,6 +8,7 @@ import "./DevicePage.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 function DevicePage(props) {
+  console.log(props);
   const [cssClass, setCssClass] = useState("secondary-container-0");
 
   function checkClassOnTheRight() {
@@ -36,32 +37,59 @@ function DevicePage(props) {
     }
   }
 
-  const firstImg =
-    "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/";
-  const secondImg =
-    "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/";
-  const thirdImg =
-    "https://cdn.svyaznoy.ru/upload/iblock/48e/iphone_11_w_1.jpg/resize/483x483/hq/";
-  const fourth =
-    "https://cdn.svyaznoy.ru/upload/iblock/db9/iphone_11_w_2.jpg/resize/483x483/hq/";
+  // const firstImgWhite =
+  //   "https://cdn.svyaznoy.ru/upload/iblock/53a/iphone_11_w_4.jpg/resize/483x483/hq/";
+  // const secondImgWhite =
+  //   "https://cdn.svyaznoy.ru/upload/iblock/d92/iphone_11_w_3.jpg/resize/483x483/hq/";
+  // const thirdImgWhite =
+  //   "https://cdn.svyaznoy.ru/upload/iblock/48e/iphone_11_w_1.jpg/resize/483x483/hq/";
+  // const fourthImgWhite =
+  //   "https://cdn.svyaznoy.ru/upload/iblock/db9/iphone_11_w_2.jpg/resize/483x483/hq/";
+
+  const firstImgWhite =
+    "https://cdn.svyaznoy.ru/upload/iblock/937/iphone_11_w_4.jpg/resize/870x725/hq/";
+  const secondImgWhite =
+    "https://cdn.svyaznoy.ru/upload/iblock/6b1/iphone_11_w_3.jpg/resize/870x725/hq/";
+  const thirdImgWhite =
+    "https://cdn.svyaznoy.ru/upload/iblock/48e/iphone_11_w_1.jpg/resize/870x725/hq/";
+  const fourthImgWhite =
+    "https://cdn.svyaznoy.ru/upload/iblock/02c/iphone_11_w_2.jpg/resize/870x725/hq/";
 
   return (
     <>
       <div className="container-product-slider">
-        {/* <ImageGallery items={images} showNav={false} /> */}
-
         <div className={cssClass}>
           <div className="img-container">
-            <img className="img-element" src={firstImg}></img>
+            <Image
+              height={"100%"}
+              width={"100%"}
+              className="img-element"
+              src={firstImgWhite}
+            ></Image>
           </div>
           <div className="img-container">
-            <img className="img-element" src={secondImg}></img>
+            <Image
+              height={"100%"}
+              width={"100%"}
+              className="img-element"
+              src={secondImgWhite}
+            ></Image>
           </div>
           <div className="img-container">
-            <img className="img-element" src={thirdImg}></img>{" "}
+            <Image
+              height={"100%"}
+              width={"100%"}
+              className="img-element"
+              src={thirdImgWhite}
+            ></Image>
           </div>
           <div className="img-container">
-            <img className="img-element" src={fourth}></img>
+            <Image
+              height={"100%"}
+              width={"100%"}
+              className="img-element"
+              src={fourthImgWhite}
+            ></Image>
           </div>
         </div>
       </div>
@@ -76,7 +104,7 @@ function DevicePage(props) {
           onClick={() => setCssClass("secondary-container-0")}
         >
           {" "}
-          <img height={60} className="img-element" src={firstImg}></img>
+          <img height={60} className="img-element" src={firstImgWhite}></img>
         </button>
 
         <button
@@ -84,7 +112,7 @@ function DevicePage(props) {
           onClick={() => setCssClass("secondary-container-500")}
         >
           {" "}
-          <img height={60} className="img-element" src={secondImg}></img>
+          <img height={60} className="img-element" src={secondImgWhite}></img>
         </button>
 
         <button
@@ -92,7 +120,7 @@ function DevicePage(props) {
           onClick={() => setCssClass("secondary-container-1000")}
         >
           {" "}
-          <img height={60} className="img-element" src={thirdImg}></img>
+          <img height={60} className="img-element" src={thirdImgWhite}></img>
         </button>
 
         <button
@@ -100,7 +128,7 @@ function DevicePage(props) {
           onClick={() => setCssClass("secondary-container-1500")}
         >
           {" "}
-          <img height={60} className="img-element" src={fourth}></img>
+          <img height={60} className="img-element" src={fourthImgWhite}></img>
         </button>
         <RightOutlined
           className="arrow-btn"
