@@ -6,20 +6,28 @@ const middlewares = jsonServer.defaults({
   static: "node_modules/json-server/public",
 });
 
+const fs = require("fs");
+
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
 // Add custom routes before JSON Server router
-server.get("/samsung", (req, res, next) => {
-  next();
-});
+// server.get("/samsung", (req, res, next) => {
+//   next();
+// });
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
-server.use((req, res, next) => {
+server.use("/orders", (req, res, next) => {
   if (req.method === "POST") {
-    req.body.createdAt = Date.now();
+    let orderCounter = 1;
+    const orders = require("./orders.json");
+    orders.push({ ...req.body, orderNo: orderCounter });
+    orderCounter += 1;
+    fs.writeFile("orders.json", JSON.stringify(orders), (err) => {
+      console.error(err);
+    });
   }
   // Continue to JSON Server router
   next();

@@ -1,0 +1,57 @@
+[
+  {
+    "first_name": "Ron",
+    "second_name": "Tompson",
+    "company_name": "NH",
+    "state_of_country": "Colorado",
+    "street": "Frank st 40",
+    "city": "Vice City",
+    "postal_code": "66666",
+    "phone": "987 78 89",
+    "email": "GoG@upyr.ru",
+    "subtotal": 549,
+    "stateTax": "43.92",
+    "total": "609.92",
+    "order": [
+      {
+        "id": 2,
+        "title": "iPhone SE 64 Gb",
+        "path": "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
+        "url": "iphone-se-64-gb",
+        "price": 549,
+        "category": "iphones",
+        "urlName": "iphone-se-64-gb",
+        "quantity": 1,
+        "cost": 549
+      }
+    ],
+    "orderNo": 1
+  },
+  {
+    "first_name": "ccc",
+    "second_name": "hhhhhop",
+    "company_name": "RTY",
+    "state_of_country": "Michigan",
+    "street": "RUin st 6",
+    "city": "NY",
+    "postal_code": "11122",
+    "phone": "56734",
+    "email": "FoF@gopnik.su",
+    "subtotal": 5290,
+    "stateTax": "423.20",
+    "total": "5730.20",
+    "order": [
+      {
+        "id": 9,
+        "title": "Apple MacBook Pro 13 Retina Touch Bar Z0Y7000TM Space Gray",
+        "path": "https://cdn2.biggeek.ru/1/212/7b8c/11806-18411399-84mbp13touch-space-select-202005.jpeg",
+        "url": "apple-macbook-pro-13-retina-touch-bar-z0y7000tm-space-gray",
+        "price": 5290,
+        "category": "macbooks",
+        "quantity": 1,
+        "cost": 5290
+      }
+    ],
+    "orderNo": 1
+  }
+]

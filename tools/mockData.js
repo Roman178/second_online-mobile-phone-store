@@ -2,19 +2,21 @@ const apple = {
   iphones: [
     {
       id: 1,
-      title: "iPhone 11 Pro Max 64 Gb",
+      title: "iPhone 11 Pro Max",
+      memory: "64 gb",
+      color: "white",
       path:
         "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
-      url: "iphone-11-pro-max-64-gb",
       price: 999,
       category: "iphones",
     },
     {
       id: 2,
-      title: "iPhone SE 64 Gb",
+      title: "iPhone SE",
+      memory: "64 gb",
+      color: "black",
       path:
         "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
-      url: "iphone-se-64-gb",
       price: 549,
       category: "iphones",
     },
