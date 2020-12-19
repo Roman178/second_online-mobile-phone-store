@@ -55,9 +55,22 @@ function CardDevice(props) {
           <Card
             hoverable
             style={{ width: 220 }}
-            cover={<img alt={item.title} src={item.path} />}
+            cover={
+              <img
+                alt={item.title}
+                src={item.path}
+                style={{
+                  height: "212px",
+                  width: "auto",
+                  margin: "auto",
+                  marginTop: "7%",
+                }}
+              />
+            }
           >
-            <Card.Meta title={item.title} />
+            <Card.Meta
+              title={item.title + " " + item.memory + " " + item.color}
+            />
             <span
               style={{
                 fontSize: "160%",

@@ -18,11 +18,12 @@ function addUrl(item) {
 
 const { apple, samsung } = mockData;
 const data = JSON.stringify({
-  apple: {
-    iphones: apple.iphones.map((item) => addUrl(item)),
-    ipads: apple.ipads.map((item) => addUrl(item)),
-    macbooks: apple.macbooks.map((item) => addUrl(item)),
-  },
+  // apple: {
+  //   iphones: apple.iphones.map((item) => addUrl(item)),
+  //   ipads: apple.ipads.map((item) => addUrl(item)),
+  //   macbooks: apple.macbooks.map((item) => addUrl(item)),
+  // },
+  apple: apple,
   samsung: samsung,
   cart: [],
   orders: [],

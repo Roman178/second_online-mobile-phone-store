@@ -1,12 +1,28 @@
+const serverUrlImages = "http://localhost:3001/images/";
+function createUrlName(value) {
+  return value
+    .replace(/[^a-z0-9_]+/gi, "-")
+    .replace(/^-|-$/g, "")
+    .toLowerCase();
+}
+
 const apple = {
   iphones: [
     {
       id: 1,
-      title: "iPhone 11 Pro Max",
+      title: "iPhone 11",
       memory: "64 gb",
-      color: "white",
-      path:
-        "https://cdn2.biggeek.ru/1/212/29e7/9943-189iphone-11-pro-max-silver-select-2019.jpeg",
+      color: "black",
+      get path() {
+        return (
+          serverUrlImages +
+          createUrlName(this.title + " " + this.memory + " " + this.color) +
+          ".jpeg"
+        );
+      },
+      get url() {
+        return createUrlName(this.title + " " + this.memory + " " + this.color);
+      },
       price: 999,
       category: "iphones",
     },
