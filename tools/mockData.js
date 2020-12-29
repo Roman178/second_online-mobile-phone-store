@@ -1,9 +1,14 @@
 const serverUrlImages = "http://localhost:3001/images/";
-function createUrlName(value) {
+function createUrlName(obj) {
+  const value = obj.title + " " + obj.memory + " " + obj.color;
   return value
     .replace(/[^a-z0-9_]+/gi, "-")
     .replace(/^-|-$/g, "")
     .toLowerCase();
+}
+
+function createPath(obj) {
+  return serverUrlImages + createUrlName(obj) + ".jpeg";
 }
 
 const apple = {
@@ -14,18 +19,15 @@ const apple = {
       memory: "64 gb",
       color: "black",
       get path() {
-        return (
-          serverUrlImages +
-          createUrlName(this.title + " " + this.memory + " " + this.color) +
-          ".jpeg"
-        );
+        return createPath(this);
       },
       get url() {
-        return createUrlName(this.title + " " + this.memory + " " + this.color);
+        return createUrlName(this);
       },
       price: 999,
       category: "iphones",
     },
+
     {
       id: 2,
       title: "iPhone SE",

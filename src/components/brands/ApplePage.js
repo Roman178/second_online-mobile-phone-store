@@ -8,7 +8,7 @@ import { handleError } from "../../api/apiUtils";
 import { withRouter } from "react-router";
 
 function ApplePage(props) {
-  console.log(props);
+  // console.log(props);
   // useEffect(() => {
   //   props.loadApple().catch((error) => console.log(error));
   // }, []);

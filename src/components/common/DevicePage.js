@@ -1,15 +1,24 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Image } from "antd";
+import { connect } from "react-redux";
+
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./DevicePage.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Radio } from "antd";
 
 function DevicePage(props) {
-  console.log(props);
+  const [value, setValue] = useState(1);
   const [cssClass, setCssClass] = useState("secondary-container-0");
+  console.log(props);
+
+  const onChange = (e) => {
+    console.log("radio checked", e.target.value);
+    setValue(e.target.value);
+  };
 
   function checkClassOnTheRight() {
     switch (cssClass) {
@@ -57,89 +66,102 @@ function DevicePage(props) {
 
   return (
     <>
-      <div className="container-product-slider">
-        <div className={cssClass}>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={firstImgWhite}
-            ></Image>
-          </div>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={secondImgWhite}
-            ></Image>
-          </div>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={thirdImgWhite}
-            ></Image>
-          </div>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={fourthImgWhite}
-            ></Image>
+      <div>
+        <div className="container-product-slider">
+          <div className={cssClass}>
+            <div className="img-container">
+              <Image
+                height={"100%"}
+                width={"100%"}
+                className="img-element"
+                src={firstImgWhite}
+              ></Image>
+            </div>
+            <div className="img-container">
+              <Image
+                height={"100%"}
+                width={"100%"}
+                className="img-element"
+                src={secondImgWhite}
+              ></Image>
+            </div>
+            <div className="img-container">
+              <Image
+                height={"100%"}
+                width={"100%"}
+                className="img-element"
+                src={thirdImgWhite}
+              ></Image>
+            </div>
+            <div className="img-container">
+              <Image
+                height={"100%"}
+                width={"100%"}
+                className="img-element"
+                src={fourthImgWhite}
+              ></Image>
+            </div>
           </div>
         </div>
+
+        <div className="tape-container">
+          <LeftOutlined
+            className="arrow-btn"
+            onClick={() => checkClassOnTheLeft()}
+          ></LeftOutlined>
+          <button
+            className="img-container-btn"
+            onClick={() => setCssClass("secondary-container-0")}
+          >
+            {" "}
+            <img height={60} className="img-element" src={firstImgWhite}></img>
+          </button>
+
+          <button
+            className="img-container-btn"
+            onClick={() => setCssClass("secondary-container-500")}
+          >
+            {" "}
+            <img height={60} className="img-element" src={secondImgWhite}></img>
+          </button>
+
+          <button
+            className="img-container-btn"
+            onClick={() => setCssClass("secondary-container-1000")}
+          >
+            {" "}
+            <img height={60} className="img-element" src={thirdImgWhite}></img>
+          </button>
+
+          <button
+            className="img-container-btn"
+            onClick={() => setCssClass("secondary-container-1500")}
+          >
+            {" "}
+            <img height={60} className="img-element" src={fourthImgWhite}></img>
+          </button>
+          <RightOutlined
+            className="arrow-btn"
+            onClick={() => checkClassOnTheRight()}
+          ></RightOutlined>
+        </div>
       </div>
-
-      <div className="tape-container">
-        <LeftOutlined
-          className="arrow-btn"
-          onClick={() => checkClassOnTheLeft()}
-        ></LeftOutlined>
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-0")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={firstImgWhite}></img>
-        </button>
-
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-500")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={secondImgWhite}></img>
-        </button>
-
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-1000")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={thirdImgWhite}></img>
-        </button>
-
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-1500")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={fourthImgWhite}></img>
-        </button>
-        <RightOutlined
-          className="arrow-btn"
-          onClick={() => checkClassOnTheRight()}
-        ></RightOutlined>
-      </div>
+      <Radio.Group onChange={onChange} value={value}>
+        <Radio value={64}>64 Gb</Radio>
+        <Radio value={128}>128 Gb</Radio>
+        <Radio value={256}>256 Gb</Radio>
+      </Radio.Group>
     </>
   );
 }
 
-export default DevicePage;
+function mapStateToProps(state, ownProps) {
+  return {
+    allGoods: state,
+  };
+}
+
+export default connect(mapStateToProps)(DevicePage);
 
 // "https://cdn2.biggeek.ru/1/435/91cd/11342-817white.jpeg"
 
