@@ -30,20 +30,31 @@ const apple = {
 
     {
       id: 2,
-      title: "iPhone SE",
-      memory: "64 gb",
+      title: "iPhone 11",
+      memory: "128 gb",
       color: "black",
-      path:
-        "https://cdn2.biggeek.ru/1/212/07f5/11340-521iphone-se-black-select-2020.png",
-      price: 549,
+      get path() {
+        return createPath(this);
+      },
+      get url() {
+        return createUrlName(this);
+      },
+      price: 1200,
       category: "iphones",
     },
+
     {
       id: 3,
-      title: "iPhone XR 64 Gb",
-      path: "https://cdn2.biggeek.ru/1/212/c1d0/xr-black_2.jpg",
-      url: "iphone-xr-64-gb",
-      price: 599,
+      title: "iPhone 11",
+      memory: "128 gb",
+      color: "green",
+      get path() {
+        return createPath(this);
+      },
+      get url() {
+        return createUrlName(this);
+      },
+      price: 1200,
       category: "iphones",
     },
     {

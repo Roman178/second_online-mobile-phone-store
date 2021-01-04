@@ -16,7 +16,6 @@ class Sidebar extends React.Component {
 
   render() {
     // console.log(Object.values(this.props.apple).flat());
-    // console.log(this.props[currentPage]);
     return (
       <Sider
         className="site-layout-background"

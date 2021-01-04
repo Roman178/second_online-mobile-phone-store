@@ -11,9 +11,22 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Radio } from "antd";
 
 function DevicePage(props) {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const [cssClass, setCssClass] = useState("secondary-container-0");
+
+  // useEffect(() => {
+  //   setValue(256);
+  // }, [props.allGoods]);
+
+  const arrCurrentDevice = props.location.pathname.split("/");
+  const arrTheSameDevices =
+    props.allGoods[arrCurrentDevice[1]][arrCurrentDevice[2]];
+
   console.log(props);
+
+  const objCurrentDevice = arrTheSameDevices.find(
+    (item) => item.url === props.match.params.urlName
+  );
 
   const onChange = (e) => {
     console.log("radio checked", e.target.value);

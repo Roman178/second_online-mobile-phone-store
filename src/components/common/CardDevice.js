@@ -10,9 +10,6 @@ function CardDevice(props) {
 
   const [currentPageIsASubPage] = useState(checkPage);
 
-  console.log(currentPageIsASubPage);
-  console.log(props);
-
   // useEffect(() => {
   //   if (props.list.length > 0) {
   //     const check = props.list.reduce(function (prevVal, item) {
