@@ -42,11 +42,20 @@ function CardDevice(props) {
       {props.list.map((item) => (
         <NavLink
           key={item.id}
-          to={
-            currentPageIsASubPage
+          to={{
+            pathname: currentPageIsASubPage
               ? props.location.pathname + "/" + item.url
-              : props.location.pathname + "/" + item.category + "/" + item.url
-          }
+              : props.location.pathname + "/" + item.category + "/" + item.url,
+            state: item,
+          }}
+          //   {
+          //   pathname: currentPageIsASubPage
+          //     ? props.location.pathname + "/" + item.url
+          //     : props.location.pathname + "/" + item.category + "/" + item.url,
+
+          //   state: item,
+          // }
+
           style={{ margin: "1%" }}
         >
           <Card

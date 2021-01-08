@@ -10,23 +10,51 @@ import "./DevicePage.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Radio } from "antd";
 
+import {
+  addCurrentDevice,
+  deleteCurrentDevice,
+} from "../../redux/actions/devicePageActions";
+
 function DevicePage(props) {
   const [value, setValue] = useState(0);
   const [cssClass, setCssClass] = useState("secondary-container-0");
-
-  // useEffect(() => {
-  //   setValue(256);
-  // }, [props.allGoods]);
-
-  const arrCurrentDevice = props.location.pathname.split("/");
-  const arrTheSameDevices =
-    props.allGoods[arrCurrentDevice[1]][arrCurrentDevice[2]];
-
   console.log(props);
 
-  const objCurrentDevice = arrTheSameDevices.find(
-    (item) => item.url === props.match.params.urlName
+  function getCurrentDevice() {
+    const arrCurrentDevice = props.location.pathname.split("/");
+    const arrTheSameDevices =
+      props.theReduxStore[arrCurrentDevice[1]][arrCurrentDevice[2]];
+    const objCurrentDevice = arrTheSameDevices.find(
+      (item) => item.url === props.match.params.urlName
+    );
+    return objCurrentDevice;
+  }
+
+  const currentDevice = getCurrentDevice();
+
+  useEffect(
+    function () {
+      if (currentDevice) props.dispatch(addCurrentDevice(currentDevice));
+      return () => props.dispatch(deleteCurrentDevice(currentDevice));
+    },
+    [currentDevice]
   );
+
+  useEffect(() => {
+    setValue(parseInt(props.theReduxStore.currentDevice.memory), 10);
+  }, [props.theReduxStore.currentDevice]);
+
+  // const arrCurrentDevice = props.location.pathname.split("/");
+  // const arrTheSameDevices =
+  //   props.theReduxStore[arrCurrentDevice[1]][arrCurrentDevice[2]];
+
+  // const objCurrentDevice = arrTheSameDevices.find(
+  //   (item) => item.url === props.match.params.urlName
+  // );
+
+  // useEffect(() => {
+  //   if (objCurrentDevice) setValue(parseInt(objCurrentDevice.memory), 10);
+  // }, [objCurrentDevice]);
 
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
@@ -170,7 +198,7 @@ function DevicePage(props) {
 
 function mapStateToProps(state, ownProps) {
   return {
-    allGoods: state,
+    theReduxStore: state,
   };
 }
 
