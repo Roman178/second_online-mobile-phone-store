@@ -20,17 +20,28 @@ function DevicePage(props) {
   const [cssClass, setCssClass] = useState("secondary-container-0");
   console.log(props);
 
-  function getCurrentDevice() {
+  function getArrSameTypesOfDevices() {
     const arrCurrentDevice = props.location.pathname.split("/");
-    const arrTheSameDevices =
+    const arrTheSameTypesOfDevices =
       props.theReduxStore[arrCurrentDevice[1]][arrCurrentDevice[2]];
-    const objCurrentDevice = arrTheSameDevices.find(
+    return arrTheSameTypesOfDevices;
+  }
+  const theSameTypesOfDevices = getArrSameTypesOfDevices();
+
+  function getCurrentDevice() {
+    // const arrCurrentDevice = props.location.pathname.split("/");
+    // const arrTheSameDevices =
+    //   props.theReduxStore[arrCurrentDevice[1]][arrCurrentDevice[2]];
+    const objCurrentDevice = theSameTypesOfDevices.find(
       (item) => item.url === props.match.params.urlName
     );
     return objCurrentDevice;
   }
-
   const currentDevice = getCurrentDevice();
+
+  const reallyTheSameDevices = theSameTypesOfDevices.filter(
+    (item) => item.title === props.theReduxStore.currentDevice.title
+  );
 
   useEffect(
     function () {
@@ -44,6 +55,8 @@ function DevicePage(props) {
     setValue(parseInt(props.theReduxStore.currentDevice.memory), 10);
   }, [props.theReduxStore.currentDevice]);
 
+  // console.log(theSameTypesOfDevices);
+
   // const arrCurrentDevice = props.location.pathname.split("/");
   // const arrTheSameDevices =
   //   props.theReduxStore[arrCurrentDevice[1]][arrCurrentDevice[2]];
@@ -56,10 +69,21 @@ function DevicePage(props) {
   //   if (objCurrentDevice) setValue(parseInt(objCurrentDevice.memory), 10);
   // }, [objCurrentDevice]);
 
-  const onChange = (e) => {
-    console.log("radio checked", e.target.value);
-    setValue(e.target.value);
-  };
+  function onChange(e) {
+    const nextDevice = reallyTheSameDevices.find(
+      (item) => parseInt(item.memory, 10) === e.target.value
+    );
+    const nextUrl = props.location.pathname.replace(
+      props.match.params.urlName,
+      nextDevice.url
+    );
+    // console.log(nextUrl);
+
+    props.history.push(nextUrl);
+
+    // console.log("radio checked", e.target.value);
+    // setValue(e.target.value);
+  }
 
   function checkClassOnTheRight() {
     switch (cssClass) {
