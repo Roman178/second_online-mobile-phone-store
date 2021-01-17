@@ -9,6 +9,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "./DevicePage.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Radio } from "antd";
+import { CirclePicker, SketchPicker, GithubPicker } from "react-color";
 
 import {
   addCurrentDevice,
@@ -16,9 +17,9 @@ import {
 } from "../../redux/actions/devicePageActions";
 
 function DevicePage(props) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(NaN);
+  const [color, setColor] = useState("");
   const [cssClass, setCssClass] = useState("secondary-container-0");
-  console.log(props);
 
   function getArrSameTypesOfDevices() {
     const arrCurrentDevice = props.location.pathname.split("/");
@@ -43,6 +44,11 @@ function DevicePage(props) {
     (item) => item.title === props.theReduxStore.currentDevice.title
   );
 
+  const arrOfAvailableColorsDevice = [
+    ...new Set(reallyTheSameDevices.map((i) => i.color)),
+  ];
+  console.log(value, color);
+
   useEffect(
     function () {
       if (currentDevice) props.dispatch(addCurrentDevice(currentDevice));
@@ -53,6 +59,7 @@ function DevicePage(props) {
 
   useEffect(() => {
     setValue(parseInt(props.theReduxStore.currentDevice.memory), 10);
+    setColor(props.theReduxStore.currentDevice.color);
   }, [props.theReduxStore.currentDevice]);
 
   // console.log(theSameTypesOfDevices);
@@ -71,7 +78,9 @@ function DevicePage(props) {
 
   function onChange(e) {
     const nextDevice = reallyTheSameDevices.find(
-      (item) => parseInt(item.memory, 10) === e.target.value
+      (item) =>
+        parseInt(item.memory, 10) === e.target.value &&
+        item.color === props.theReduxStore.currentDevice.color
     );
     const nextUrl = props.location.pathname.replace(
       props.match.params.urlName,
@@ -83,6 +92,20 @@ function DevicePage(props) {
 
     // console.log("radio checked", e.target.value);
     // setValue(e.target.value);
+  }
+
+  function handleChangeColor(e) {
+    console.log(e.target.value);
+    const nextDevice = reallyTheSameDevices.find(
+      (item) =>
+        item.color === e.target.value &&
+        item.memory === props.theReduxStore.currentDevice.memory
+    );
+    const nextUrl = props.location.pathname.replace(
+      props.match.params.urlName,
+      nextDevice.url
+    );
+    props.history.push(nextUrl);
   }
 
   function checkClassOnTheRight() {
@@ -212,10 +235,26 @@ function DevicePage(props) {
         </div>
       </div>
       <Radio.Group onChange={onChange} value={value}>
-        <Radio value={64}>64 Gb</Radio>
-        <Radio value={128}>128 Gb</Radio>
-        <Radio value={256}>256 Gb</Radio>
+        <Radio.Button value={64}>64 Gb</Radio.Button>
+        <Radio.Button value={128}>128 Gb</Radio.Button>
+        <Radio.Button value={256}>256 Gb</Radio.Button>
       </Radio.Group>
+
+      <div>
+        {arrOfAvailableColorsDevice.map((color) => (
+          <button
+            style={{
+              backgroundColor: color,
+              borderRadius: "100px",
+              height: "30px",
+              width: "30px",
+              border: "none",
+            }}
+            value={color}
+            onClick={handleChangeColor}
+          ></button>
+        ))}
+      </div>
     </>
   );
 }

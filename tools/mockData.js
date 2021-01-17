@@ -32,7 +32,7 @@ const apple = {
       id: 2,
       title: "iPhone 11",
       memory: "128 gb",
-      color: "black",
+      color: "green",
       get path() {
         return createPath(this);
       },
@@ -47,7 +47,7 @@ const apple = {
       id: 3,
       title: "iPhone 11",
       memory: "128 gb",
-      color: "green",
+      color: "black",
       get path() {
         return createPath(this);
       },
@@ -63,6 +63,20 @@ const apple = {
       path: "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
       url: "iphone-xs-64-gb",
       price: 899,
+      category: "iphones",
+    },
+    {
+      id: 15,
+      title: "iPhone 11",
+      memory: "64 gb",
+      color: "green",
+      get path() {
+        return createPath(this);
+      },
+      get url() {
+        return createUrlName(this);
+      },
+      price: 1200,
       category: "iphones",
     },
   ],
