@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  loadCart,
+  // loadCart,
   deleteItemFromCart,
   updateCart,
 } from "../../redux/actions/cartActions";
@@ -23,7 +23,7 @@ class CartPage extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.loadCart().catch((error) => console.error(error));
+    // await this.props.loadCart().catch((error) => console.error(error));
     this.setState({ cart: this.props.cart });
     window.addEventListener("beforeunload", this.componentCleanup);
   }
@@ -173,7 +173,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  loadCart,
+  // loadCart,
   deleteItemFromCart,
   updateCart,
 };

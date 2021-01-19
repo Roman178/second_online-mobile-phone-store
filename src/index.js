@@ -8,14 +8,19 @@ import "antd/dist/antd.css";
 
 import configureStore from "./redux/configureStore";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
-const store = configureStore(); // if you're wanting to rehydrate your store using some separate state that's passed down from the server or stored in local storage, then this would be a good place to do so.
+const store = configureStore();
+const persistor = persistStore(store);
 
 render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <App />
+      </Router>
+    </PersistGate>
   </Provider>,
   document.getElementById("app")
 );

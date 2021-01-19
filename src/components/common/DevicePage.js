@@ -1,15 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Image } from "antd";
+import { Image, Skeleton } from "antd";
 import { connect } from "react-redux";
+import SelectColor from "./device_page/SelectColor";
+import SelectMemory from "./device_page/SelectMemory";
 
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
 import "./DevicePage.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Radio } from "antd";
-import { CirclePicker, SketchPicker, GithubPicker } from "react-color";
 
 import {
   addCurrentDevice,
@@ -17,8 +16,8 @@ import {
 } from "../../redux/actions/devicePageActions";
 
 function DevicePage(props) {
-  const [value, setValue] = useState(NaN);
-  const [color, setColor] = useState("");
+  // const [value, setValue] = useState(0);
+  // const [color, setColor] = useState("");
   const [cssClass, setCssClass] = useState("secondary-container-0");
 
   function getArrSameTypesOfDevices() {
@@ -44,10 +43,13 @@ function DevicePage(props) {
     (item) => item.title === props.theReduxStore.currentDevice.title
   );
 
-  const arrOfAvailableColorsDevice = [
+  const availableColors = [
     ...new Set(reallyTheSameDevices.map((i) => i.color)),
   ];
-  console.log(value, color);
+
+  const arrOfAvailableMemoryDevice = [
+    ...new Set(reallyTheSameDevices.map((i) => i.memory)),
+  ];
 
   useEffect(
     function () {
@@ -57,10 +59,12 @@ function DevicePage(props) {
     [currentDevice]
   );
 
-  useEffect(() => {
-    setValue(parseInt(props.theReduxStore.currentDevice.memory), 10);
-    setColor(props.theReduxStore.currentDevice.color);
-  }, [props.theReduxStore.currentDevice]);
+  console.log(props);
+
+  // useEffect(() => {
+  //   setValue(parseInt(props.theReduxStore.currentDevice.memory), 10);
+  //   setColor(props.theReduxStore.currentDevice.color);
+  // }, [props.theReduxStore.currentDevice]);
 
   // console.log(theSameTypesOfDevices);
 
@@ -234,27 +238,18 @@ function DevicePage(props) {
           ></RightOutlined>
         </div>
       </div>
-      <Radio.Group onChange={onChange} value={value}>
-        <Radio.Button value={64}>64 Gb</Radio.Button>
-        <Radio.Button value={128}>128 Gb</Radio.Button>
-        <Radio.Button value={256}>256 Gb</Radio.Button>
-      </Radio.Group>
 
-      <div>
-        {arrOfAvailableColorsDevice.map((color) => (
-          <button
-            style={{
-              backgroundColor: color,
-              borderRadius: "100px",
-              height: "30px",
-              width: "30px",
-              border: "none",
-            }}
-            value={color}
-            onClick={handleChangeColor}
-          ></button>
-        ))}
-      </div>
+      <SelectMemory
+        onChange={onChange}
+        currentMemory={parseInt(props.theReduxStore.currentDevice.memory)}
+        availableMemory={arrOfAvailableMemoryDevice}
+      />
+
+      <SelectColor
+        availableColors={availableColors}
+        currentDeviceColor={props.theReduxStore.currentDevice.color}
+        onChangeColor={handleChangeColor}
+      />
     </>
   );
 }

@@ -6,7 +6,7 @@ import { Layout, Menu, Dropdown } from "antd";
 import MenuForHeader from "../common/MenuForHeader";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { loadApple, loadSamsung } from "../../redux/actions/appleActions";
-import { loadCart, deleteItemFromCart } from "../../redux/actions/cartActions";
+import { deleteItemFromCart } from "../../redux/actions/cartActions";
 // import CardForCart from "../cart/CardForCart";
 import PopUpCartWindow from "../cart/PopUpCartWindow";
 import { DeleteOutlined } from "@ant-design/icons";
@@ -21,7 +21,7 @@ function Header(props) {
 
   useEffect(() => {
     props.loadApple();
-    props.loadCart();
+    // props.loadCart();
     props.loadSamsung();
   }, []);
 
@@ -103,7 +103,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-  loadCart,
+  // loadCart,
   loadApple,
   loadSamsung,
   deleteItemFromCart,

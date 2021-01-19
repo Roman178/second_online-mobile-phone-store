@@ -82,3 +82,14 @@ button:focus {
 .arrow-btn:hover {
   color: #1890ff;
 }
+
+.colors:hover {
+  transition: transform 0.15s ease-in;
+  transform: scale(1.2);
+}
+
+.colors {
+  transition: transform 0.15s ease-in;
+  height: 30px;
+  width: 30px;
+}

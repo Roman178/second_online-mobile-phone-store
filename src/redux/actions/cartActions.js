@@ -29,39 +29,40 @@ export function cleanCartSuccess(currentCart) {
 
 export function addItemToCart(item) {
   return function (dispatch) {
-    return addItem(item)
-      .then((addedItem) => dispatch(addItemToCartSuccess(addedItem)))
-      .catch((error) => console.error(error));
+    dispatch(addItemToCartSuccess(item));
+    // return addItem(item)
+    //   .then((addedItem) => dispatch(addItemToCartSuccess(addedItem)))
+    //   .catch((error) => console.error(error));
   };
 }
 
-export function loadCart() {
-  return function (dispatch) {
-    return getCart()
-      .then((cart) => {
-        dispatch(loadCartSuccess(cart));
-      })
-      .catch((error) => console.error(error));
-  };
-}
+// export function loadCart() {
+//   return function (dispatch) {
+//     return getCart()
+//       .then((cart) => {
+//         dispatch(loadCartSuccess(cart));
+//       })
+//       .catch((error) => console.error(error));
+//   };
+// }
 
 export function deleteItemFromCart(item) {
   return (dispatch) => {
     dispatch(deleteItemFromCartSuccess(item));
-    return deleteItem(item);
+    // return deleteItem(item);
   };
 }
 
 export function updateCart(updatedCart) {
   return function (dispatch) {
     dispatch(updateCartSuccess(updatedCart));
-    return updatedCart.forEach((item) => updateCartApi(item));
+    // return updatedCart.forEach((item) => updateCartApi(item));
   };
 }
 
 export function cleanCart(currentCart) {
   return function (dispatch) {
     dispatch(cleanCartSuccess(currentCart));
-    return currentCart.forEach((item) => cleanCartApi(item));
+    // return currentCart.forEach((item) => cleanCartApi(item));
   };
 }
