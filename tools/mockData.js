@@ -26,6 +26,14 @@ const apple = {
       },
       price: 999,
       category: "iphones",
+      imageFirst:
+        "https://cdn.svyaznoy.ru/upload/iblock/82d/iphone_11_b_4.jpg/resize/870x725/hq/",
+      imageSecond:
+        "https://cdn.svyaznoy.ru/upload/iblock/2a4/iphone_11_b_3.jpg/resize/870x725/hq/",
+      imageThird:
+        "https://cdn.svyaznoy.ru/upload/iblock/c8b/iphone_11_b_1.jpg/resize/870x725/hq/",
+      imageFourth:
+        "https://cdn.svyaznoy.ru/upload/iblock/989/iphone_11_b_2.jpg/resize/870x725/hq/",
     },
 
     {
@@ -41,6 +49,14 @@ const apple = {
       },
       price: 1200,
       category: "iphones",
+      imageFirst:
+        "https://cdn.svyaznoy.ru/upload/iblock/3ec/iphone_11_g_4.jpg/resize/870x725/hq/",
+      imageSecond:
+        "https://cdn.svyaznoy.ru/upload/iblock/37d/iphone_11_g_3.jpg/resize/870x725/hq/",
+      imageThird:
+        "https://cdn.svyaznoy.ru/upload/iblock/909/iphone_11_g_1.jpg/resize/870x725/hq/",
+      imageFourth:
+        "https://cdn.svyaznoy.ru/upload/iblock/09c/iphone_11_g_2.jpg/resize/870x725/hq/",
     },
 
     {
@@ -56,14 +72,14 @@ const apple = {
       },
       price: 1200,
       category: "iphones",
-    },
-    {
-      id: 4,
-      title: "iPhone XS 64 Gb",
-      path: "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
-      url: "iphone-xs-64-gb",
-      price: 899,
-      category: "iphones",
+      imageFirst:
+        "https://cdn.svyaznoy.ru/upload/iblock/82d/iphone_11_b_4.jpg/resize/870x725/hq/",
+      imageSecond:
+        "https://cdn.svyaznoy.ru/upload/iblock/2a4/iphone_11_b_3.jpg/resize/870x725/hq/",
+      imageThird:
+        "https://cdn.svyaznoy.ru/upload/iblock/c8b/iphone_11_b_1.jpg/resize/870x725/hq/",
+      imageFourth:
+        "https://cdn.svyaznoy.ru/upload/iblock/989/iphone_11_b_2.jpg/resize/870x725/hq/",
     },
     {
       id: 15,
@@ -77,6 +93,22 @@ const apple = {
         return createUrlName(this);
       },
       price: 1200,
+      category: "iphones",
+      imageFirst:
+        "https://cdn.svyaznoy.ru/upload/iblock/3ec/iphone_11_g_4.jpg/resize/870x725/hq/",
+      imageSecond:
+        "https://cdn.svyaznoy.ru/upload/iblock/37d/iphone_11_g_3.jpg/resize/870x725/hq/",
+      imageThird:
+        "https://cdn.svyaznoy.ru/upload/iblock/909/iphone_11_g_1.jpg/resize/870x725/hq/",
+      imageFourth:
+        "https://cdn.svyaznoy.ru/upload/iblock/09c/iphone_11_g_2.jpg/resize/870x725/hq/",
+    },
+    {
+      id: 4,
+      title: "iPhone XS 64 Gb",
+      path: "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
+      url: "iphone-xs-64-gb",
+      price: 899,
       category: "iphones",
     },
   ],

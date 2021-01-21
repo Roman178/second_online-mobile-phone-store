@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Image } from "antd";
+import "../DevicePage.css";
 
 function ImageCarouselDevice(props) {
   const [cssClass, setCssClass] = useState("secondary-container-0");
@@ -30,42 +33,35 @@ function ImageCarouselDevice(props) {
     }
   }
 
+  function moveImgByClickOnImg(url) {
+    switch (url) {
+      case props.objUrlsImages.imageFirst:
+        return "secondary-container-0";
+      case props.objUrlsImages.imageSecond:
+        return "secondary-container-500";
+      case props.objUrlsImages.imageThird:
+        return "secondary-container-1000";
+      case props.objUrlsImages.imageFourth:
+        return "secondary-container-1500";
+      default:
+        return;
+    }
+  }
+
   return (
     <div>
       <div className="container-product-slider">
         <div className={cssClass}>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={firstImgWhite}
-            ></Image>
-          </div>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={secondImgWhite}
-            ></Image>
-          </div>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={thirdImgWhite}
-            ></Image>
-          </div>
-          <div className="img-container">
-            <Image
-              height={"100%"}
-              width={"100%"}
-              className="img-element"
-              src={fourthImgWhite}
-            ></Image>
-          </div>
+          {props.arrUrlsImages.map((url) => (
+            <div className="img-container">
+              <Image
+                height={"100%"}
+                width={"100%"}
+                className="img-element"
+                src={url}
+              ></Image>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -74,37 +70,16 @@ function ImageCarouselDevice(props) {
           className="arrow-btn"
           onClick={() => checkClassOnTheLeft()}
         ></LeftOutlined>
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-0")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={firstImgWhite}></img>
-        </button>
 
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-500")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={secondImgWhite}></img>
-        </button>
+        {props.arrUrlsImages.map((url) => (
+          <button
+            className="img-container-btn"
+            onClick={() => setCssClass(moveImgByClickOnImg(url))}
+          >
+            <img height={60} className="img-element" src={url} />
+          </button>
+        ))}
 
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-1000")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={thirdImgWhite}></img>
-        </button>
-
-        <button
-          className="img-container-btn"
-          onClick={() => setCssClass("secondary-container-1500")}
-        >
-          {" "}
-          <img height={60} className="img-element" src={fourthImgWhite}></img>
-        </button>
         <RightOutlined
           className="arrow-btn"
           onClick={() => checkClassOnTheRight()}
