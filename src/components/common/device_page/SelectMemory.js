@@ -3,19 +3,14 @@ import { Radio } from "antd";
 
 const SelectMemory = (props) => {
   return (
-    <Radio.Group
-      onChange={props.onChange}
-      value={props.currentMemory}
-      // {parseInt(props.theReduxStore.currentDevice.memory)}
-    >
-      {props.availableMemory.map((m) => {
-        return <Radio.Button value={parseInt(m)}>{m}</Radio.Button>;
-      })}
-
-      {/* <Radio.Button value={64}>64 Gb</Radio.Button>
-        <Radio.Button value={128}>128 Gb</Radio.Button>
-        <Radio.Button value={256}>256 Gb</Radio.Button> */}
-    </Radio.Group>
+    <div style={{ marginBottom: "7%" }}>
+      <h6 style={{ color: "#9d9ea0" }}>Memory</h6>
+      <Radio.Group onChange={props.onChange} value={props.currentMemory}>
+        {props.availableMemory.map((m) => {
+          return <Radio.Button value={parseInt(m)}>{m}</Radio.Button>;
+        })}
+      </Radio.Group>
+    </div>
   );
 };
 

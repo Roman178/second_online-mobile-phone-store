@@ -5,6 +5,11 @@ import { connect } from "react-redux";
 import SelectColor from "./device_page/SelectColor";
 import SelectMemory from "./device_page/SelectMemory";
 import ImageCarouselDevice from "./device_page/ImageCarouselDevice";
+import CharacteristicsTable from "./device_page/CharacteristicsTable";
+import { Button } from "antd";
+import { addItemToCart } from "../../redux/actions/cartActions";
+import { Anchor } from "antd";
+import { DeviceInfoBlock } from "./device_page/DeviceInfoBlock";
 
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
 import "./DevicePage.css";
@@ -38,7 +43,7 @@ function DevicePage(props) {
     );
     return objCurrentDevice;
   }
-  const currentDevice = getCurrentDevice();
+  const _currentDevice = getCurrentDevice();
 
   const reallyTheSameDevices = theSameTypesOfDevices.filter(
     (item) => item.title === props.theReduxStore.currentDevice.title
@@ -54,17 +59,17 @@ function DevicePage(props) {
 
   useEffect(
     function () {
-      if (currentDevice) props.dispatch(addCurrentDevice(currentDevice));
-      return () => props.dispatch(deleteCurrentDevice(currentDevice));
+      if (_currentDevice) props.dispatch(addCurrentDevice(_currentDevice));
+      return () => props.dispatch(deleteCurrentDevice(_currentDevice));
     },
-    [currentDevice]
+    [_currentDevice]
   );
 
   function getUrlsImages() {
     const arr = [];
-    for (const key in props.theReduxStore.currentDevice) {
+    for (const key in props.currentDevice) {
       if (key.startsWith("image")) {
-        arr.push(props.theReduxStore.currentDevice[key]);
+        arr.push(props.currentDevice[key]);
       }
     }
     return arr;
@@ -73,9 +78,9 @@ function DevicePage(props) {
 
   function getObjUrlsImages() {
     let obj = {};
-    for (const key in props.theReduxStore.currentDevice) {
+    for (const key in props.currentDevice) {
       if (key.startsWith("image")) {
-        obj = { ...obj, [key]: props.theReduxStore.currentDevice[key] };
+        obj = { ...obj, [key]: props.currentDevice[key] };
       }
     }
     return obj;
@@ -86,18 +91,14 @@ function DevicePage(props) {
     const nextDevice = reallyTheSameDevices.find(
       (item) =>
         parseInt(item.memory, 10) === e.target.value &&
-        item.color === props.theReduxStore.currentDevice.color
+        item.color === props.currentDevice.color
     );
     const nextUrl = props.location.pathname.replace(
       props.match.params.urlName,
       nextDevice.url
     );
-    // console.log(nextUrl);
 
     props.history.push(nextUrl);
-
-    // console.log("radio checked", e.target.value);
-    // setValue(e.target.value);
   }
 
   function handleChangeColor(e) {
@@ -113,32 +114,80 @@ function DevicePage(props) {
     props.history.push(nextUrl);
   }
 
+  function handleAddToCart(item) {
+    if (!props.cart.find((i) => i.id === item.id)) {
+      props.dispatch(addItemToCart({ ...item, quantity: 1, cost: item.price }));
+    }
+  }
+
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        marginLeft: "5%",
+        marginTop: "3%",
+        alignItems: "center",
+      }}
+    >
       <ImageCarouselDevice
         objUrlsImages={objUrlsImages}
         arrUrlsImages={urlsImages}
       />
+      <div
+        style={{ display: "flex", flexDirection: "column", marginLeft: "3%" }}
+      >
+        <h1 style={{ marginBottom: "10%", color: "#001529" }}>
+          {props.currentDevice.title +
+            " " +
+            props.currentDevice.memory +
+            " " +
+            props.currentDevice.color}
+        </h1>
 
-      <SelectMemory
-        onChange={onChange}
-        currentMemory={parseInt(props.theReduxStore.currentDevice.memory)}
-        availableMemory={arrOfAvailableMemoryDevice}
-      />
+        <Button
+          onClick={() => handleAddToCart(props.currentDevice)}
+          type="primary"
+          size="large"
+          style={{ marginBottom: "5%" }}
+        >
+          Add to Cart
+        </Button>
 
-      <SelectColor
-        availableColors={availableColors}
-        currentDeviceColor={props.theReduxStore.currentDevice.color}
-        onChangeColor={handleChangeColor}
-      />
-    </>
+        <SelectMemory
+          onChange={onChange}
+          currentMemory={parseInt(props.currentDevice.memory)}
+          availableMemory={arrOfAvailableMemoryDevice}
+        />
+
+        <SelectColor
+          availableColors={availableColors}
+          currentDeviceColor={props.currentDevice.color}
+          onChangeColor={handleChangeColor}
+        />
+
+        <CharacteristicsTable currentDevice={props.currentDevice} />
+        <Anchor affix={false}>
+          <Anchor.Link
+            href="#components-anchor-demo-basic"
+            title="Basic demo"
+          />
+        </Anchor>
+      </div>
+      <DeviceInfoBlock />
+    </div>
   );
 }
 
 function mapStateToProps(state, ownProps) {
   return {
     theReduxStore: state,
+    currentDevice: state.currentDevice,
+    cart: state.cart,
   };
 }
+
+// const mapDispatchToProps = {
+//   addItemToCart,
+// };
 
 export default connect(mapStateToProps)(DevicePage);

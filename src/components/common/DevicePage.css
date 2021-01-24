@@ -93,3 +93,7 @@ button:focus {
   height: 30px;
   width: 30px;
 }
+
+.featuresDescr {
+  color: #001529;
+}

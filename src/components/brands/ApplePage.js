@@ -28,7 +28,6 @@ function ApplePage(props) {
       props.addItemToCart({ ...item, quantity: 1, cost: item.price });
     }
   }
-  console.log(props);
 
   const arrOfAllAppleGoods = Object.values(props.apple).flat();
 

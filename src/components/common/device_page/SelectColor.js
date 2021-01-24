@@ -2,7 +2,8 @@ import React from "react";
 
 function SelectColor(props) {
   return (
-    <div>
+    <div style={{ marginBottom: "7%" }}>
+      <h6 style={{ color: "#9d9ea0" }}>Color</h6>
       {props.availableColors.map((color) => (
         <button
           className="colors"
