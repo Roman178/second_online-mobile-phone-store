@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Card } from "antd";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
@@ -9,33 +9,6 @@ function CardDevice(props) {
   const checkPage = props.location.pathname.includes("/", 1);
 
   const [currentPageIsASubPage] = useState(checkPage);
-
-  // useEffect(() => {
-  //   if (props.list.length > 0) {
-  //     const check = props.list.reduce(function (prevVal, item) {
-  //       if (prevVal.category === item.category) {
-  //         return item;
-  //       } else {
-  //         return false;
-  //       }
-  //     });
-  //     if (check) {
-  //       setBoolRegCommonBrandPage(false);
-  //     } else {
-  //       setBoolRegCommonBrandPage(true);
-  //     }
-  //   }
-  // }, [props.list]);
-
-  // const check = props.list.reduce(function (prevVal, item) {
-  //   if (prevVal.category === item.category) {
-  //     return item;
-  //   } else {
-  //     return false;
-  //   }
-  // });
-
-  // console.log(check);
 
   return (
     <>
@@ -48,14 +21,6 @@ function CardDevice(props) {
               : props.location.pathname + "/" + item.category + "/" + item.url,
             state: item,
           }}
-          //   {
-          //   pathname: currentPageIsASubPage
-          //     ? props.location.pathname + "/" + item.url
-          //     : props.location.pathname + "/" + item.category + "/" + item.url,
-
-          //   state: item,
-          // }
-
           style={{ margin: "1%" }}
         >
           <Card

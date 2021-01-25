@@ -12,7 +12,7 @@ import FormCheckout from "./FormCheckout";
 // };
 
 const CheckoutPage = (props) => {
-  const [americanState, setAmericanState] = useState("");
+  const [americanState, setAmericanState] = useState("Ohio");
 
   function onFinish(values) {
     console.log("Received values of form: ", values);

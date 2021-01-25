@@ -5,7 +5,9 @@ function Footer(props) {
   const FooterAntd = Layout.Footer;
 
   return (
-    <FooterAntd>
+    <FooterAntd
+      style={{ backgroundColor: "#001529", height: "500px", padding: "0" }}
+    >
       <div>
         <span>Footers content</span>
       </div>

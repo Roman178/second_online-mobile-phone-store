@@ -58,6 +58,7 @@ function FormCheckout(props) {
         ]}
       >
         <Select
+          defaultValue="Ohio"
           placeholder="Select state"
           onChange={(value) => props.setAmericanStateProp(value)}
         >

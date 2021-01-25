@@ -49,7 +49,13 @@ function ImageCarouselDevice(props) {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <div className="container-product-slider">
         <div className={cssClass}>
           {props.arrUrlsImages.map((url) => (

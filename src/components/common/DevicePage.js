@@ -9,7 +9,7 @@ import CharacteristicsTable from "./device_page/CharacteristicsTable";
 import { Button } from "antd";
 import { addItemToCart } from "../../redux/actions/cartActions";
 import { Anchor } from "antd";
-import { DeviceInfoBlock } from "./device_page/DeviceInfoBlock";
+import DeviceInfoBlock from "./device_page/DeviceInfoBlock";
 
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
 import "./DevicePage.css";
@@ -121,60 +121,64 @@ function DevicePage(props) {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        marginLeft: "5%",
-        marginTop: "3%",
-        alignItems: "center",
-      }}
-    >
-      <ImageCarouselDevice
-        objUrlsImages={objUrlsImages}
-        arrUrlsImages={urlsImages}
-      />
+    <>
       <div
-        style={{ display: "flex", flexDirection: "column", marginLeft: "3%" }}
+        style={{
+          display: "flex",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: "3%",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
-        <h1 style={{ marginBottom: "10%", color: "#001529" }}>
-          {props.currentDevice.title +
-            " " +
-            props.currentDevice.memory +
-            " " +
-            props.currentDevice.color}
-        </h1>
-
-        <Button
-          onClick={() => handleAddToCart(props.currentDevice)}
-          type="primary"
-          size="large"
-          style={{ marginBottom: "5%" }}
+        <ImageCarouselDevice
+          objUrlsImages={objUrlsImages}
+          arrUrlsImages={urlsImages}
+        />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "3%",
+            maxWidth: "400px",
+          }}
         >
-          Add to Cart
-        </Button>
+          <h1 style={{ marginBottom: "10%", color: "#001529" }}>
+            {props.currentDevice.title +
+              " " +
+              props.currentDevice.memory +
+              " " +
+              props.currentDevice.color}
+          </h1>
 
-        <SelectMemory
-          onChange={onChange}
-          currentMemory={parseInt(props.currentDevice.memory)}
-          availableMemory={arrOfAvailableMemoryDevice}
-        />
+          <Button
+            onClick={() => handleAddToCart(props.currentDevice)}
+            type="primary"
+            size="large"
+            style={{ marginBottom: "5%" }}
+          >
+            Add to Cart
+          </Button>
 
-        <SelectColor
-          availableColors={availableColors}
-          currentDeviceColor={props.currentDevice.color}
-          onChangeColor={handleChangeColor}
-        />
-
-        <CharacteristicsTable currentDevice={props.currentDevice} />
-        <Anchor affix={false}>
-          <Anchor.Link
-            href="#components-anchor-demo-basic"
-            title="Basic demo"
+          <SelectMemory
+            onChange={onChange}
+            currentMemory={parseInt(props.currentDevice.memory)}
+            availableMemory={arrOfAvailableMemoryDevice}
           />
-        </Anchor>
+
+          <SelectColor
+            availableColors={availableColors}
+            currentDeviceColor={props.currentDevice.color}
+            onChangeColor={handleChangeColor}
+          />
+
+          <CharacteristicsTable currentDevice={props.currentDevice} />
+          <a href="#info-block">See more...</a>
+        </div>
       </div>
       <DeviceInfoBlock />
-    </div>
+    </>
   );
 }
 
