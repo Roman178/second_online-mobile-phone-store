@@ -26,6 +26,8 @@ function DevicePage(props) {
   // const [color, setColor] = useState("");
   const [cssClass, setCssClass] = useState("secondary-container-0");
 
+  console.log(Object.keys(props.theReduxStore.apple));
+
   function getArrSameTypesOfDevices() {
     const arrCurrentDevice = props.location.pathname.split("/");
     const arrTheSameTypesOfDevices =

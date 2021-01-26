@@ -27,6 +27,7 @@ class Sidebar extends React.Component {
             iphones={this.props.apple.iphones}
             ipads={this.props.apple.ipads}
             macbooks={this.props.apple.macbooks}
+            apple={this.props.apple}
           />
         )}
 
