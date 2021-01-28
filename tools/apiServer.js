@@ -27,10 +27,10 @@ server.get("/echo", (req, res) => {
 server.use(jsonServer.bodyParser);
 server.use("/orders", (req, res, next) => {
   if (req.method === "POST") {
-    const orders = require("./orders.json");
-    fs.writeFile("orders.json", JSON.stringify(orders), (err) => {
-      console.error(err);
-    });
+    console.log(req.body);
+    // fs.writeFile("orders.json", JSON.stringify(orders), (err) => {
+    //   console.log(orders);
+    // });
   }
   // Continue to JSON Server router
   next();

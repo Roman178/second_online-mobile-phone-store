@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu } from "antd";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
-import SiderSubMenu from "./SiderSubMenu";
+import MenuCreator from "./MenuCreator";
 
 const { SubMenu } = Menu;
 
@@ -14,13 +14,11 @@ const AppleMenu = (props) => {
     return setTrueOrFalseSubPage(checkPage);
   }, [props.location]);
 
-  function getCorrectLink(item) {
-    return currentPageIsASubPage
-      ? props.location.pathname + "/" + item.url
-      : props.location.pathname + "/" + item.category + "/" + item.url;
-  }
-
-  const generationsOfiPhones = [...new Set(props.iphones.map((i) => i.title))];
+  // function getCorrectLink(item) {
+  //   return currentPageIsASubPage
+  //     ? props.location.pathname + "/" + item.url
+  //     : props.location.pathname + "/" + item.category + "/" + item.url;
+  // }
 
   const appleDevices = Object.keys(props.apple);
 
@@ -30,84 +28,44 @@ const AppleMenu = (props) => {
     macbooks: [...new Set(props.macbooks.map((i) => i.title))],
   };
 
-  console.log(generationsOfAppleDevices, appleDevices);
-
   return (
-    <Menu mode="vertical" style={{ height: "100%" }}>
-      {/* <SiderSubMenu
-        key="iphone"
-        title="iPhone"
-        onTitleClick={() => props.history.push("/apple/iphones")}
-        generationsOfDevice={generationsOfiPhones}
-        devices={props.iphones}
-      /> */}
+    <MenuCreator
+      currBrandUrl="/apple/"
+      brandDevices={appleDevices}
+      generationsOfDevices={generationsOfAppleDevices}
+      iphones={props.iphones}
+      ipads={props.ipads}
+      macbooks={props.macbooks}
+    />
 
-      {appleDevices.map((device) => {
-        return (
-          <SubMenu
-            key={device}
-            title={device}
-            onTitleClick={() => props.history.push("/apple/" + device)}
-          >
-            {generationsOfAppleDevices[device].map((gen) => {
-              const devicesOfCurrGen = props[device].filter(
-                (i) => i.title === gen
-              );
-              return (
-                <SubMenu title={gen}>
-                  {devicesOfCurrGen.map((item) => (
-                    <Menu.Item key={item.id}>
-                      <NavLink key={item.id} to={getCorrectLink(item)}>
-                        {item.title + " " + item.memory + " " + item.color}
-                      </NavLink>
-                    </Menu.Item>
-                  ))}
-                </SubMenu>
-              );
-            })}
-          </SubMenu>
-        );
-      })}
-
-      {/* <SubMenu
-        key="iphone"
-        title="iPhone"
-        onTitleClick={() => props.history.push("/apple/iphones")}
-      >
-        {generationsOfiPhones.map((gen) => {
-          const iphonesOfCurrGen = props.iphones.filter((i) => i.title === gen);
-          return (
-            <SubMenu title={gen}>
-              {iphonesOfCurrGen.map((item) => (
-                <Menu.Item key={item.id}>
-                  <NavLink key={item.id} to={getCorrectLink(item)}>
-                    {item.title + " " + item.memory + " " + item.color}
-                  </NavLink>
-                </Menu.Item>
-              ))}
-            </SubMenu>
-          );
-        })}
-      </SubMenu> */}
-      {/* <SubMenu
-        key="ipad"
-        title={<span>iPad</span>}
-        onTitleClick={() => props.history.push("/apple/ipads")}
-      >
-        {props.ipads.map((item) => (
-          <Menu.Item key={item.id}>{item.title}</Menu.Item>
-        ))}
-      </SubMenu>
-      <SubMenu
-        key="macBook"
-        title={<span>Mac Book</span>}
-        onTitleClick={() => props.history.push("/apple/macbooks")}
-      >
-        {props.macbooks.map((item) => (
-          <Menu.Item key={item.id}>{item.title}</Menu.Item>
-        ))}
-      </SubMenu> */}
-    </Menu>
+    // <Menu mode="vertical" style={{ height: "100%" }}>
+    //   {appleDevices.map((device) => {
+    //     return (
+    //       <SubMenu
+    //         key={device}
+    //         title={device}
+    //         onTitleClick={() => props.history.push("/apple/" + device)}
+    //       >
+    //         {generationsOfAppleDevices[device].map((gen) => {
+    //           const devicesOfCurrGen = props[device].filter(
+    //             (i) => i.title === gen
+    //           );
+    //           return (
+    //             <SubMenu title={gen}>
+    //               {devicesOfCurrGen.map((item) => (
+    //                 <Menu.Item key={item.id}>
+    //                   <NavLink key={item.id} to={getCorrectLink(item)}>
+    //                     {item.title + " " + item.memory + " " + item.color}
+    //                   </NavLink>
+    //                 </Menu.Item>
+    //               ))}
+    //             </SubMenu>
+    //           );
+    //         })}
+    //       </SubMenu>
+    //     );
+    //   })}
+    // </Menu>
   );
 };
 
