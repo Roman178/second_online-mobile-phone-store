@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Image } from "antd";
-import "../DevicePage.css";
 
 function ImageCarouselDevice(props) {
   const [cssClass, setCssClass] = useState("secondary-container-0");

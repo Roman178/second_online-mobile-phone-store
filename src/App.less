@@ -1,0 +1,146 @@
+@import "~antd/dist/antd.less";
+@primary-color: #1da57a;
+
+// Styles for Header. To override Ant design styles, you need to declare variables.
+@display-flex: "flex";
+@align-items-center: "center";
+@font-family-helvetica: "Helvetica";
+@justify-content-space-between: "space-between";
+@position-fixed: "fixed";
+@width-100: "100%";
+@z-index-999: 999;
+
+.main-header {
+  align-items: @align-items-center;
+  display: @display-flex;
+  font-family: @font-family-helvetica;
+  justify-content: @justify-content-space-between;
+  position: @position-fixed;
+  width: @width-100;
+  z-index: @z-index-999;
+}
+
+.mobile-header {
+  display: none;
+  height: 64px;
+  width: @width-100;
+  position: @position-fixed;
+  background-color: #001529;
+  z-index: @z-index-999;
+}
+
+// Styles for Device Page. To override Ant design styles, you need to declare variables.
+
+.container-product-slider {
+  background-color: white;
+  display: inline-block;
+  height: 483px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 500px;
+}
+.secondary-container-0 {
+  transform: translateX(0px);
+  transition: transform 0.5s ease-in;
+}
+.secondary-container-500 {
+  transform: translateX(-500px);
+  transition: transform 0.5s ease-in;
+}
+.secondary-container-1000 {
+  transform: translateX(-1000px);
+  transition: transform 0.5s ease-in;
+}
+.secondary-container-1500 {
+  transform: translateX(-1500px);
+  transition: transform 0.5s ease-in;
+}
+.img-container {
+  cursor: pointer;
+  display: inline-block;
+  height: 483px;
+  width: 500px;
+}
+.img-element {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+button {
+  &:focus {
+    border-radius: 4px;
+    border: 1.3px solid #001529;
+    outline: none;
+  }
+}
+.img-container-btn {
+  background-color: white;
+  border: none;
+  display: inline-block;
+  height: 80px;
+  transition: border 0.12s ease-in;
+  width: 90px;
+}
+.tape-container {
+  align-items: center;
+  display: flex;
+}
+.arrow-btn {
+  border-radius: 3px;
+  font-size: 27px;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #1890ff;
+  }
+}
+.colors {
+  height: 30px;
+  transition: transform 0.15s ease-in;
+  width: 30px;
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 0.15s ease-in;
+  }
+}
+.featuresDescr {
+  color: #001529;
+}
+
+// NavBar
+
+.nav-button-mobile {
+}
+
+// Media queries
+@mobile-max-width: ~"(max-width: 768px)";
+
+@media @mobile-max-width {
+  .sidebar {
+    display: none;
+  }
+  .main-header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    .nav-button-mobile {
+      height: 35px;
+      width: 35px;
+      background-color: #001529;
+      border: none;
+      .nav-button-icon {
+        font-size: 2em;
+        color: rgb(166 173 180);
+      }
+    }
+  }
+}
+
+// @media @mobile-min-width {
+//   .mobile-header {
+//     display: none;
+//   }
+// }

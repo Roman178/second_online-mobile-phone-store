@@ -8,6 +8,7 @@ import Sidebar from "../components/common/Sidebar";
 import Footer from "../components/common/Footer";
 import { Layout } from "antd";
 import ROUTES, { RenderRoutes } from "../route";
+import "../App.less";
 
 const { Content } = Layout;
 

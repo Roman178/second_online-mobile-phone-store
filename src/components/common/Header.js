@@ -10,7 +10,10 @@ import { deleteItemFromCart } from "../../redux/actions/cartActions";
 // import CardForCart from "../cart/CardForCart";
 import PopUpCartWindow from "../cart/PopUpCartWindow";
 import { DeleteOutlined } from "@ant-design/icons";
+import { MenuUnfoldOutlined } from "@ant-design/icons";
+
 import { Button } from "antd";
+import styles from "../../styles";
 
 const HeaderAntd = Layout.Header;
 
@@ -51,50 +54,47 @@ function Header(props) {
   }
 
   return (
-    <HeaderAntd
-      style={{
-        zIndex: 999,
-        width: "100%",
-        position: "fixed",
-        fontFamily: "Helvetica",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <MenuForHeader />
+    <>
+      <HeaderAntd className="main-header">
+        <MenuForHeader />
 
-      <Dropdown
-        visible={visible}
-        onVisibleChange={(flag) => setVisible(flag)}
-        overlay={() =>
-          quantity === 0 ? (
-            <h5
-              style={{
-                border: "1px solid gray",
-                width: "400px",
-                height: "100px",
-                zIndex: 9999,
-                backgroundColor: "white",
-              }}
-            >
-              No products in the Cart
-            </h5>
-          ) : (
-            <PopUpCartWindow cart={cart} onDeleteItem={handleDeleteItem} />
-          )
-        }
-      >
-        <NavLink to="/cart">
-          <div>
-            {quantity}
-            <ShoppingCartOutlined
-              style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
-            />
-          </div>
-        </NavLink>
-      </Dropdown>
-    </HeaderAntd>
+        <Dropdown
+          visible={visible}
+          onVisibleChange={(flag) => setVisible(flag)}
+          overlay={() =>
+            quantity === 0 ? (
+              <h5
+                style={{
+                  border: "1px solid gray",
+                  width: "400px",
+                  height: "100px",
+                  zIndex: 9999,
+                  backgroundColor: "white",
+                }}
+              >
+                No products in the Cart
+              </h5>
+            ) : (
+              <PopUpCartWindow cart={cart} onDeleteItem={handleDeleteItem} />
+            )
+          }
+        >
+          <NavLink to="/cart">
+            <div>
+              {quantity}
+              <ShoppingCartOutlined
+                style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
+              />
+            </div>
+          </NavLink>
+        </Dropdown>
+      </HeaderAntd>
+      <div className="mobile-header">
+        <button className="nav-button-mobile">
+          <MenuUnfoldOutlined className="nav-button-icon" />
+        </button>
+      </div>
+    </>
   );
 }
 

@@ -17,11 +17,7 @@ class Sidebar extends React.Component {
   render() {
     // console.log(Object.values(this.props.apple).flat());
     return (
-      <Sider
-        className="site-layout-background"
-        width={200}
-        style={{ marginTop: "100px" }}
-      >
+      <Sider className="sidebar" width={200} style={{ marginTop: "100px" }}>
         {this.props.location.pathname.startsWith("/apple") && (
           <AppleMenu
             iphones={this.props.apple.iphones}

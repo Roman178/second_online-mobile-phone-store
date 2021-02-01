@@ -12,7 +12,6 @@ import { Anchor } from "antd";
 import DeviceInfoBlock from "./device_page/DeviceInfoBlock";
 
 import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
-import "./DevicePage.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Radio } from "antd";
 

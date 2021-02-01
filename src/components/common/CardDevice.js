@@ -28,6 +28,7 @@ function CardDevice(props) {
             style={{ width: 220 }}
             cover={
               <img
+                className="button-exmpl"
                 alt={item.title}
                 src={item.path}
                 style={{
@@ -56,7 +57,7 @@ function CardDevice(props) {
                 onClick={() => props.onAddToCart(item)}
                 type="primary"
                 size="large"
-                style={{ marginTop: "5%" }}
+                // style={{ marginTop: "5%" }}
               >
                 Add to Cart
               </Button>

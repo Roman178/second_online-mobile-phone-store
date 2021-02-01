@@ -1,4 +1,29 @@
-/* .container-product-slider {
+/* body,
+#app {
+  min-height: 75rem;
+} */
+
+// nav {
+//   padding: 20px 0 20px 0;
+// }
+
+// For Header
+
+.main-header {
+  z-index: 999;
+  width: "100%";
+  position: "fixed";
+  font-family: "Helvetica";
+  display: "flex";
+  justify-content: "space-between";
+  align-items: "center";
+}
+
+// For Device Page and its child components
+
+$transCarousel: transform 0.5s ease-in;
+
+.container-product-slider {
   display: inline-block;
   height: 483px;
   width: 500px;
@@ -8,22 +33,22 @@
 }
 
 .secondary-container-0 {
-  transition: transform 0.5s ease-in;
+  transition: $transCarousel;
   transform: translateX(0px);
 }
 
 .secondary-container-500 {
-  transition: transform 0.5s ease-in;
+  transition: $transCarousel;
   transform: translateX(-500px);
 }
 
 .secondary-container-1000 {
-  transition: transform 0.5s ease-in;
+  transition: $transCarousel;
   transform: translateX(-1000px);
 }
 
 .secondary-container-1500 {
-  transition: transform 0.5s ease-in;
+  transition: $transCarousel;
   transform: translateX(-1500px);
 }
 
@@ -62,21 +87,19 @@ button:focus {
 }
 
 .arrow-btn {
+  &:hover {
+    color: #1890ff;
+  }
   font-size: 27px;
   border-radius: 3px;
   transition: color 0.3s ease-in-out;
 }
 
-.arrow-btn:hover {
-  color: #1890ff;
-}
-
-.colors:hover {
-  transition: transform 0.15s ease-in;
-  transform: scale(1.2);
-}
-
 .colors {
+  &:hover {
+    transition: transform 0.15s ease-in;
+    transform: scale(1.2);
+  }
   transition: transform 0.15s ease-in;
   height: 30px;
   width: 30px;
@@ -84,4 +107,4 @@ button:focus {
 
 .featuresDescr {
   color: #001529;
-} */
+}
