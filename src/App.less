@@ -27,6 +27,17 @@
   position: @position-fixed;
   background-color: #001529;
   z-index: @z-index-999;
+  align-items: center;
+  .nav-button-mobile {
+    height: 35px;
+    width: 35px;
+    background-color: #001529;
+    border: none;
+    .nav-button-icon {
+      font-size: 2em;
+      color: rgb(166 173 180);
+    }
+  }
 }
 
 // Styles for Device Page. To override Ant design styles, you need to declare variables.
@@ -39,22 +50,43 @@
   white-space: nowrap;
   width: 500px;
 }
-.secondary-container-0 {
-  transform: translateX(0px);
-  transition: transform 0.5s ease-in;
+
+.secondary-container {
+  &-0 {
+    transform: translateX(0px);
+    transition: transform 0.5s ease-in;
+  }
+  &-500 {
+    transform: translateX(-500px);
+    transition: transform 0.5s ease-in;
+  }
+  &-1000 {
+    transform: translateX(-1000px);
+    transition: transform 0.5s ease-in;
+  }
+  &-1500 {
+    transform: translateX(-1500px);
+    transition: transform 0.5s ease-in;
+  }
 }
-.secondary-container-500 {
-  transform: translateX(-500px);
-  transition: transform 0.5s ease-in;
-}
-.secondary-container-1000 {
-  transform: translateX(-1000px);
-  transition: transform 0.5s ease-in;
-}
-.secondary-container-1500 {
-  transform: translateX(-1500px);
-  transition: transform 0.5s ease-in;
-}
+
+// .secondary-container-0 {
+//   transform: translateX(0px);
+//   transition: transform 0.5s ease-in;
+// }
+// .secondary-container-500 {
+//   transform: translateX(-500px);
+//   transition: transform 0.5s ease-in;
+// }
+// .secondary-container-1000 {
+//   transform: translateX(-1000px);
+//   transition: transform 0.5s ease-in;
+// }
+// .secondary-container-1500 {
+//   transform: translateX(-1500px);
+//   transition: transform 0.5s ease-in;
+// }
+
 .img-container {
   cursor: pointer;
   display: inline-block;
@@ -107,9 +139,21 @@ button {
   color: #001529;
 }
 
-// NavBar
+// NavBar.
 
-.nav-button-mobile {
+// .ant-menu-submenu-title {
+//   padding-left: 24px;
+//   width: 180px;
+//   position: absolute;
+//   margin: 0;
+//   background-color: inherit;
+// }
+
+.submenu-title {
+  width: 180px !important;
+  z-index: 1000 !important;
+  position: absolute !important;
+  margin: 0 !important;
 }
 
 // Media queries
@@ -125,17 +169,17 @@ button {
 
   .mobile-header {
     display: flex;
-    align-items: center;
-    .nav-button-mobile {
-      height: 35px;
-      width: 35px;
-      background-color: #001529;
-      border: none;
-      .nav-button-icon {
-        font-size: 2em;
-        color: rgb(166 173 180);
-      }
-    }
+    // align-items: center;
+    // .nav-button-mobile {
+    //   height: 35px;
+    //   width: 35px;
+    //   background-color: #001529;
+    //   border: none;
+    //   .nav-button-icon {
+    //     font-size: 2em;
+    //     color: rgb(166 173 180);
+    //   }
+    // }
   }
 }
 

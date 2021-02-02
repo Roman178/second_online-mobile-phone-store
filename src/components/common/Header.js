@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Layout, Menu, Dropdown } from "antd";
+import { Layout, Menu, Dropdown, Drawer } from "antd";
 import MenuForHeader from "../common/MenuForHeader";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { loadApple, loadSamsung } from "../../redux/actions/appleActions";
@@ -11,6 +11,7 @@ import { deleteItemFromCart } from "../../redux/actions/cartActions";
 import PopUpCartWindow from "../cart/PopUpCartWindow";
 import { DeleteOutlined } from "@ant-design/icons";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
+import MobileMenu from "../menu/MobileMenu";
 
 import { Button } from "antd";
 import styles from "../../styles";
@@ -20,6 +21,7 @@ const HeaderAntd = Layout.Header;
 function Header(props) {
   const [quantity, setQuantity] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [visibleDrawer, setVisibleDrawer] = useState(false);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -90,9 +92,23 @@ function Header(props) {
         </Dropdown>
       </HeaderAntd>
       <div className="mobile-header">
-        <button className="nav-button-mobile">
+        <button
+          onClick={() => setVisibleDrawer(true)}
+          className="nav-button-mobile"
+        >
           <MenuUnfoldOutlined className="nav-button-icon" />
         </button>
+        <Drawer
+          width={270}
+          title="Basic Drawer"
+          placement="left"
+          closable={true}
+          onClose={() => setVisibleDrawer(false)}
+          visible={visibleDrawer}
+          key="left"
+        >
+          <MobileMenu />
+        </Drawer>
       </div>
     </>
   );
