@@ -149,11 +149,27 @@ button {
 //   background-color: inherit;
 // }
 
+.main-mobile-menu {
+  position: relative;
+  .h5-mobile-menu,
+  .h6-mobile-menu {
+    display: inline;
+  }
+}
+
 .submenu-title {
+  padding-left: 25px !important;
   width: 180px !important;
   z-index: 1000 !important;
   position: absolute !important;
   margin: 0 !important;
+  &::after {
+    display: none;
+  }
+}
+
+.test-pest {
+  padding-left: 32px !important;
 }
 
 // Media queries

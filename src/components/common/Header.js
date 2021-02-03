@@ -107,7 +107,7 @@ function Header(props) {
           visible={visibleDrawer}
           key="left"
         >
-          <MobileMenu />
+          <MobileMenu onClose={() => setVisibleDrawer(false)} />
         </Drawer>
       </div>
     </>
