@@ -100,7 +100,11 @@ function Header(props) {
         </button>
         <Drawer
           width={270}
-          title="Basic Drawer"
+          title={
+            <NavLink onClick={() => setVisibleDrawer(false)} to="/">
+              The Worst Mobile Store
+            </NavLink>
+          }
           placement="left"
           closable={true}
           onClose={() => setVisibleDrawer(false)}
@@ -109,6 +113,14 @@ function Header(props) {
         >
           <MobileMenu onClose={() => setVisibleDrawer(false)} />
         </Drawer>
+        <NavLink to="/cart" className="mobile-cart-btn">
+          <div>
+            {quantity}
+            <ShoppingCartOutlined
+              style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
+            />
+          </div>
+        </NavLink>
       </div>
     </>
   );

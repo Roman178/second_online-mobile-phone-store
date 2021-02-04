@@ -24,6 +24,7 @@ class MobileMenu extends React.Component {
         {Object.keys(this.props.brands).map((brand) => {
           return (
             <Menu.ItemGroup className="li-mobile-menu">
+              {/* ---------------------Apple, Samsung, Huawei, Honor, Xiaomi------------------------- */}
               <Menu.Item
                 className="submenu-title"
                 onClick={() => {
@@ -35,6 +36,7 @@ class MobileMenu extends React.Component {
                   {brand[0].toUpperCase() + brand.slice(1)}
                 </h5>
               </Menu.Item>
+              {/* ------------------------------------------------------------------------------------- */}
               <SubMenu key={brand} className="submenu-mobile">
                 {Object.keys(this.props.brands[brand]).map((device) => {
                   return (
