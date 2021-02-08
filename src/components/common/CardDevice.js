@@ -11,20 +11,15 @@ function CardDevice(props) {
   const [currentPageIsASubPage] = useState(checkPage);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
-      }}
-    >
+    <div className="list-devices-main-cont">
       {props.list.map((item) => (
-        <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+        <div className="card-device-cont">
           <Card
+            className="card-device"
             hoverable
-            style={{ width: 220 }}
             cover={
               <NavLink
+                className="card-device-link-top"
                 key={item.id}
                 to={{
                   pathname: currentPageIsASubPage
@@ -36,18 +31,11 @@ function CardDevice(props) {
                       item.url,
                   state: item,
                 }}
-                style={{ marginTop: "9%" }}
               >
                 <img
-                  className="button-exmpl"
+                  className="card-device-img"
                   alt={item.title}
                   src={item.path}
-                  style={{
-                    height: "212px",
-                    marginLeft: "auto",
-                    display: "block",
-                    margin: "auto",
-                  }}
                 />
               </NavLink>
             }
@@ -64,32 +52,22 @@ function CardDevice(props) {
                     item.url,
                 state: item,
               }}
-              style={{ margin: "1%" }}
             >
               <Card.Meta
+                className="card-device-description"
                 title={item.title + " " + item.memory + " " + item.color}
               />
-              <span
-                style={{
-                  fontSize: "160%",
-                  display: "block",
-                  margin: "5% 1% 5% 0",
-                }}
-              >
-                {"$" + item.price}
-              </span>
+              <span className="card-device-title-span">{"$" + item.price}</span>
             </NavLink>
 
-            {/* <NavLink to="#"> */}
             <Button
+              className="card-device-btn-add-to-cart"
               onClick={() => props.onAddToCart(item)}
               type="primary"
-              size="large"
-              // style={{ marginTop: "5%" }}
+              size="small"
             >
               Add to Cart
             </Button>
-            {/* </NavLink> */}
           </Card>
         </div>
       ))}

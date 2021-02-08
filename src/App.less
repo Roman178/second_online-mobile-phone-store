@@ -75,6 +75,50 @@
   }
 }
 
+.list-devices-main-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .card-device-cont {
+    margin: 10px;
+
+    .card-device {
+      width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      .ant-card-body {
+        padding: 0 !important;
+      }
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      .card-device-link-top {
+        margin-top: 9%;
+
+        .card-device-img {
+          height: 212px;
+          margin-left: auto;
+          display: block;
+          margin: auto;
+        }
+      }
+      .card-device-description {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      .card-device-title-span {
+        font-size: 160%;
+        display: block;
+        margin: 5% 1% 5% 10px;
+      }
+      .card-device-btn-add-to-cart {
+        margin-left: 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
 // .secondary-container-0 {
 //   transform: translateX(0px);
 //   transition: transform 0.5s ease-in;
@@ -201,6 +245,24 @@ button {
     //     color: rgb(166 173 180);
     //   }
     // }
+  }
+
+  .list-devices-main-cont {
+    display: flex;
+    max-width: 100%;
+
+    .card-device-cont {
+      width: 50%;
+      max-width: 100%;
+      margin: 0;
+
+      .card-device {
+        width: initial;
+      }
+    }
+  }
+  .card-device-img {
+    height: 145px !important;
   }
 }
 

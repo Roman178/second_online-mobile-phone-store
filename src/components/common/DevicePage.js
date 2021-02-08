@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Image, Skeleton } from "antd";
+import { useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import SelectColor from "./device_page/SelectColor";
 import SelectMemory from "./device_page/SelectMemory";
@@ -11,22 +11,12 @@ import { addItemToCart } from "../../redux/actions/cartActions";
 import { Anchor } from "antd";
 import DeviceInfoBlock from "./device_page/DeviceInfoBlock";
 
-import iphone11ProMaxImg from "../../img/iphone_11_pro_max.jpg";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { Radio } from "antd";
-
 import {
   addCurrentDevice,
   deleteCurrentDevice,
 } from "../../redux/actions/devicePageActions";
 
 function DevicePage(props) {
-  // const [value, setValue] = useState(0);
-  // const [color, setColor] = useState("");
-  const [cssClass, setCssClass] = useState("secondary-container-0");
-
-  console.log(Object.keys(props.theReduxStore.apple));
-
   function getArrSameTypesOfDevices() {
     const arrCurrentDevice = props.location.pathname.split("/");
     const arrTheSameTypesOfDevices =

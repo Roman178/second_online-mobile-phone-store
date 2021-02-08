@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { Layout, Menu, Dropdown, Drawer } from "antd";
 import MenuForHeader from "../common/MenuForHeader";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import {
+  CodeSandboxCircleFilled,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 import { loadApple, loadSamsung } from "../../redux/actions/appleActions";
 import { deleteItemFromCart } from "../../redux/actions/cartActions";
 // import CardForCart from "../cart/CardForCart";
@@ -12,9 +15,12 @@ import PopUpCartWindow from "../cart/PopUpCartWindow";
 import { DeleteOutlined } from "@ant-design/icons";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
 import MobileMenu from "../menu/MobileMenu";
+import Search from "../Search";
+import { Button, AutoComplete } from "antd";
 
-import { Button } from "antd";
-import styles from "../../styles";
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 const HeaderAntd = Layout.Header;
 
@@ -55,10 +61,23 @@ function Header(props) {
     props.deleteItemFromCart(item);
   }
 
+  const query = useQuery();
+  console.log(props);
+
   return (
     <>
       <HeaderAntd className="main-header">
         <MenuForHeader />
+
+        <AutoComplete
+          options={[{ value: "ddd" }, { value: "rrr" }, { value: "bbb" }]}
+          style={{
+            width: 200,
+          }}
+          // onSelect={(data) => console.log(data)}
+          // onSearch={(data) => console.log(data)}
+          placeholder="input here"
+        />
 
         <Dropdown
           visible={visible}
@@ -126,9 +145,13 @@ function Header(props) {
   );
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  cart: state.cart,
-});
+function mapStateToProps(state, ownProps) {
+  for (let key in state.apple) {
+    console.log(state.apple[key]);
+  }
+
+  return { cart: state.cart };
+}
 
 const mapDispatchToProps = {
   // loadCart,
