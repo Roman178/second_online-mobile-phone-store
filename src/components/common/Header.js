@@ -147,7 +147,6 @@ function Header(props) {
 
 function mapStateToProps(state, ownProps) {
   for (let key in state.apple) {
-    console.log(state.apple[key]);
   }
 
   return { cart: state.cart };
