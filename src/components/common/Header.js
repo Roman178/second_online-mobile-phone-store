@@ -64,19 +64,38 @@ function Header(props) {
   const query = useQuery();
   console.log(props);
 
+  const options = props.allProducts.map((prod) => ({
+    ...prod,
+    value: `${prod.brand} ${prod.title} ${prod.memory} ${prod.color}`,
+  }));
+
+  console.log(options);
   return (
     <>
       <HeaderAntd className="main-header">
         <MenuForHeader />
 
         <AutoComplete
-          options={[{ value: "ddd" }, { value: "rrr" }, { value: "bbb" }]}
+          allowClear={true}
+          options={options}
+          filterOption={(inputValue, option) =>
+            option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+          }
           style={{
-            width: 200,
+            width: 400,
           }}
-          // onSelect={(data) => console.log(data)}
-          // onSearch={(data) => console.log(data)}
-          placeholder="input here"
+          onSelect={(foundDevice) => {
+            const objOfFoundDevice = options.find(
+              (d) => d.value === foundDevice
+            );
+            return props.history.push(
+              `/${objOfFoundDevice.brand.toLowerCase()}/${
+                objOfFoundDevice.category
+              }/${objOfFoundDevice.url}`
+            );
+          }}
+          onSearch={(data) => console.log(data)}
+          placeholder="iPhone 11"
         />
 
         <Dropdown
@@ -146,10 +165,32 @@ function Header(props) {
 }
 
 function mapStateToProps(state, ownProps) {
-  for (let key in state.apple) {
-  }
+  function getArrOfAllProducts() {
+    let allProducts = [];
+    for (let brand in state) {
+      if (
+        brand === "apple" ||
+        brand === "samsung" ||
+        brand === "huawei" ||
+        brand === "honor" ||
+        brand === "xiaomi"
+      ) {
+        let productsOfCurrBrand = [];
 
-  return { cart: state.cart };
+        for (let device in state[brand]) {
+          productsOfCurrBrand.push(
+            ...state[brand][device].map((d) => ({
+              ...d,
+              brand: brand[0].toUpperCase() + brand.slice(1),
+            }))
+          );
+        }
+        allProducts.push(...productsOfCurrBrand);
+      }
+    }
+    return allProducts;
+  }
+  return { cart: state.cart, allProducts: getArrOfAllProducts() };
 }
 
 const mapDispatchToProps = {
