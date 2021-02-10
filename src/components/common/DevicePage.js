@@ -51,7 +51,10 @@ function DevicePage(props) {
   useEffect(
     function () {
       if (_currentDevice) props.dispatch(addCurrentDevice(_currentDevice));
-      return () => props.dispatch(deleteCurrentDevice(_currentDevice));
+      return () => {
+        // window.scrollTo(0, 0);
+        return props.dispatch(deleteCurrentDevice(_currentDevice));
+      };
     },
     [_currentDevice]
   );
@@ -102,7 +105,10 @@ function DevicePage(props) {
       props.match.params.urlName,
       nextDevice.url
     );
+    const currScrollY = window.scrollY;
+    console.log(currScrollY);
     props.history.push(nextUrl);
+    window.scrollTo(0, currScrollY);
   }
 
   function handleAddToCart(item) {
@@ -113,29 +119,13 @@ function DevicePage(props) {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginTop: "3%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="cont-imgcarousel-and-featuresblock">
         <ImageCarouselDevice
           objUrlsImages={objUrlsImages}
           arrUrlsImages={urlsImages}
         />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "3%",
-            maxWidth: "400px",
-          }}
-        >
-          <h1 style={{ marginBottom: "10%", color: "#001529" }}>
+        <div className="features-block">
+          <h1 className="features-block-h1">
             {props.currentDevice.title +
               " " +
               props.currentDevice.memory +

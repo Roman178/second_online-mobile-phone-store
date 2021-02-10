@@ -17,7 +17,7 @@ render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <Router>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <App />
       </Router>
     </PersistGate>
