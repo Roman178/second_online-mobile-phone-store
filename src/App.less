@@ -47,6 +47,16 @@
 
 // Styles for Device Page. To override Ant design styles, you need to declare variables.
 
+.cont-description {
+  padding-top: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5em;
+}
+
 .cont-imgcarousel-and-featuresblock {
   display: flex;
   margin-left: auto;
@@ -67,6 +77,24 @@
       overflow: hidden;
       white-space: nowrap;
       width: 500px;
+      .secondary-container {
+        &-0 {
+          transform: translateX(0px);
+          transition: transform 0.5s ease-in;
+        }
+        &-500 {
+          transform: translateX(-500px);
+          transition: transform 0.5s ease-in;
+        }
+        &-1000 {
+          transform: translateX(-1000px);
+          transition: transform 0.5s ease-in;
+        }
+        &-1500 {
+          transform: translateX(-1500px);
+          transition: transform 0.5s ease-in;
+        }
+      }
     }
   }
 
@@ -79,68 +107,21 @@
       margin-bottom: 10%;
       color: #001529;
     }
-  }
-}
-
-.secondary-container {
-  &-0 {
-    transform: translateX(0px);
-    transition: transform 0.5s ease-in;
-  }
-  &-500 {
-    transform: translateX(-500px);
-    transition: transform 0.5s ease-in;
-  }
-  &-1000 {
-    transform: translateX(-1000px);
-    transition: transform 0.5s ease-in;
-  }
-  &-1500 {
-    transform: translateX(-1500px);
-    transition: transform 0.5s ease-in;
-  }
-}
-
-.list-devices-main-cont {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
-  .card-device-cont {
-    margin: 10px;
-
-    .card-device {
-      width: 220px;
-      margin-left: auto;
-      margin-right: auto;
-      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      .ant-card-body {
-        padding: 0 !important;
+    .features-block-btn-addtocart {
+      margin-bottom: 5%;
+    }
+    .features-block-memory,
+    .features-block-color {
+      margin-bottom: 7%;
+      h6 {
+        color: #9d9ea0;
       }
-      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      .card-device-link-top {
-        margin-top: 9%;
-
-        .card-device-img {
-          height: 212px;
-          margin-left: auto;
-          display: block;
-          margin: auto;
-        }
-      }
-      .card-device-description {
-        margin-top: 5px;
-        margin-left: 10px;
-      }
-      .card-device-title-span {
-        font-size: 160%;
-        display: block;
-        margin: 5% 1% 5% 10px;
-      }
-      .card-device-btn-add-to-cart {
-        margin-left: 15px;
-        margin-bottom: 10px;
-      }
+    }
+    .features-block-characteristics {
+      background-color: #f0f2f5;
+      list-style: none;
+      color: #9d9ea0;
+      padding: 0;
     }
   }
 }
@@ -197,15 +178,110 @@ button {
   color: #001529;
 }
 
-// NavBar.
+// List devices
 
-// .ant-menu-submenu-title {
-//   padding-left: 24px;
-//   width: 180px;
-//   position: absolute;
-//   margin: 0;
-//   background-color: inherit;
-// }
+.list-devices-main-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .card-device-cont {
+    margin: 10px;
+
+    .card-device {
+      width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      .ant-card-body {
+        padding: 0 !important;
+      }
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      .card-device-link-top {
+        margin-top: 9%;
+
+        .card-device-img {
+          height: 212px;
+          margin-left: auto;
+          display: block;
+          margin: auto;
+        }
+      }
+      .card-device-description {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      .card-device-title-span {
+        font-size: 160%;
+        display: block;
+        margin: 5% 1% 5% 10px;
+      }
+      .card-device-btn-add-to-cart {
+        margin-left: 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+// Cart Page
+
+.cart-main-cont {
+  display: flex;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  .cart-list-block {
+    display: flex;
+    flex-direction: column;
+    .card-cart {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      margin-bottom: 1%;
+      background-color: white;
+      .card-cart-counter {
+        display: flex;
+        .card-cart-counter-btn {
+          width: 34px;
+          height: 34px;
+          border: 1px solid #e6e6e6;
+          background-color: white;
+        }
+      }
+      .card-cart-title {
+        font-size: 0.9rem;
+        margin-left: 2%;
+      }
+      .card-cart-deletebtn {
+        margin-right: 5%;
+      }
+    }
+  }
+  .cart-totals {
+    margin-left: 30px;
+    height: 350px;
+    background-color: white;
+    padding: 10px;
+    .cart-totals-table {
+      width: 100%;
+      height: 200px;
+      border-bottom: 1px solid;
+      .cart-totals-table-tbody {
+        font-size: 1.2em;
+        .cart-totals-table-tbody-tr {
+          font-size: 1.4em;
+        }
+      }
+    }
+    .cart-totals-btn-prcd-to-chckt {
+      margin-top: 20px;
+    }
+  }
+}
+
+// NavBar.
 
 .main-mobile-menu {
   position: relative;
@@ -229,16 +305,27 @@ button {
 .test-pest {
   padding-left: 32px !important;
 }
+// .ant-menu-submenu-title {
+//   padding-left: 24px;
+//   width: 180px;
+//   position: absolute;
+//   margin: 0;
+//   background-color: inherit;
+// }
 
 // Media queries
 @mobile-max-width-768: ~"(max-width: 768px)";
 @mobile-max-width-500: ~"(max-width: 500px)";
 
 @media @mobile-max-width-768 {
+  .cont-description {
+    width: 95%;
+    font-size: 1em;
+  }
   .cont-imgcarousel-and-featuresblock {
     flex-direction: column;
-
     .img-carousel {
+      width: 100%;
       .tape-container {
         @media @mobile-max-width-500 {
           width: 100%;
@@ -250,10 +337,8 @@ button {
           }
         }
       }
-
-      width: 100%;
-
       .container-product-slider {
+        width: 100%;
         @media @mobile-max-width-500 {
           height: 289px;
           .secondary-container {
@@ -268,9 +353,6 @@ button {
             }
           }
         }
-
-        width: 100%;
-
         .secondary-container {
           &-0 {
             transform: translateX(0);
@@ -294,6 +376,18 @@ button {
             width: 100%;
           }
         }
+      }
+    }
+    .features-block {
+      .features-block-h1 {
+        font-size: 1.7rem;
+        margin-top: 10%;
+      }
+      .features-block-btn-addtocart {
+        order: 1;
+      }
+      .features-block-anchor-to-descr {
+        display: none;
       }
     }
   }
@@ -322,5 +416,46 @@ button {
   }
   .card-device-img {
     height: 145px !important;
+  }
+
+  .cart-main-cont {
+    flex-direction: column;
+    margin: 0;
+    .cart-list-block {
+      .card-cart {
+        height: 130px;
+        margin-bottom: 8px;
+        position: relative;
+        .card-cart-title {
+          font-size: 0.8rem;
+        }
+        .card-cart-img {
+          width: 77px;
+        }
+        .card-cart-cont-counterprice {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: auto;
+          margin-right: 2px;
+          .card-cart-counter {
+            .card-cart-counter-btn {
+              width: 22px;
+              height: 22px;
+              padding: 0;
+            }
+          }
+          .card-cart-price {
+            margin-bottom: 0;
+          }
+        }
+        .card-cart-deletebtn {
+          position: absolute;
+          margin-right: 0;
+          top: 2px;
+          right: 2px;
+        }
+      }
+    }
   }
 }

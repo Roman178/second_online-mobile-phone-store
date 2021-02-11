@@ -51,10 +51,7 @@ function DevicePage(props) {
   useEffect(
     function () {
       if (_currentDevice) props.dispatch(addCurrentDevice(_currentDevice));
-      return () => {
-        // window.scrollTo(0, 0);
-        return props.dispatch(deleteCurrentDevice(_currentDevice));
-      };
+      return () => props.dispatch(deleteCurrentDevice(_currentDevice));
     },
     [_currentDevice]
   );
@@ -105,10 +102,7 @@ function DevicePage(props) {
       props.match.params.urlName,
       nextDevice.url
     );
-    const currScrollY = window.scrollY;
-    console.log(currScrollY);
     props.history.push(nextUrl);
-    window.scrollTo(0, currScrollY);
   }
 
   function handleAddToCart(item) {
@@ -126,18 +120,14 @@ function DevicePage(props) {
         />
         <div className="features-block">
           <h1 className="features-block-h1">
-            {props.currentDevice.title +
-              " " +
-              props.currentDevice.memory +
-              " " +
-              props.currentDevice.color}
+            {`${props.currentDevice.title} ${props.currentDevice.memory} ${props.currentDevice.color}`}
           </h1>
 
           <Button
+            className="features-block-btn-addtocart"
             onClick={() => handleAddToCart(props.currentDevice)}
             type="primary"
             size="large"
-            style={{ marginBottom: "5%" }}
           >
             Add to Cart
           </Button>
@@ -149,13 +139,15 @@ function DevicePage(props) {
           />
 
           <SelectColor
-            availableColors={availableColors}
-            currentDeviceColor={props.currentDevice.color}
             onChangeColor={handleChangeColor}
+            currentDeviceColor={props.currentDevice.color}
+            availableColors={availableColors}
           />
 
           <CharacteristicsTable currentDevice={props.currentDevice} />
-          <a href="#info-block">See more...</a>
+          <a className="features-block-anchor-to-descr" href="#info-block">
+            See more...
+          </a>
         </div>
       </div>
       <DeviceInfoBlock />

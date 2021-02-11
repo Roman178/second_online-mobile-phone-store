@@ -1,24 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
 function DeviceInfoBlock(props) {
   return (
-    <Tabs
-      id="info-block"
-      defaultActiveKey="1"
-      style={{
-        paddingTop: "5%",
-        marginTop: "5%",
-        marginBottom: "100%",
-        width: "80%",
-        marginLeft: "auto",
-        marginRight: "auto",
-        fontSize: "1.5em",
-      }}
-    >
-      <TabPane tab="Description" key="1">
+    <Tabs size="small" className="cont-description" defaultActiveKey="1">
+      <TabPane className="cont-description-tab" tab="Description" key="1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Fermentum leo vel
         orci porta non pulvinar. Augue ut lectus arcu bibendum at varius vel
@@ -41,7 +29,7 @@ function DeviceInfoBlock(props) {
         varius vel pharetra. Suspendisse in est ante in nibh. Elementum pulvinar
         etiam non quam lacus suspendisse.
       </TabPane>
-      <TabPane tab="Specification" key="2">
+      <TabPane className="cont-description-tab" tab="Specification" key="2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -50,7 +38,7 @@ function DeviceInfoBlock(props) {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </TabPane>
-      <TabPane tab="Shipping" key="3">
+      <TabPane className="cont-description-tab" tab="Shipping" key="3">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

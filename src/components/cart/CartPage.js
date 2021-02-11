@@ -68,27 +68,16 @@ class CartPage extends React.Component {
     return (
       <div>
         <h1>Cart Page</h1>
-        <section
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginLeft: "15%",
-            marginRight: "15%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "60%",
-            }}
-          >
+        <section className="cart-main-cont">
+          <div className="cart-list-block">
             {this.state.cart.map((item) => (
               <CardForCart
                 key={item.id}
                 id={item.id}
                 path={item.path}
                 title={item.title}
+                memory={item.memory}
+                color={item.color}
                 cost={item.cost}
                 onDeleteItem={() => this.handleDeleteItem(item)}
                 onChangeQuantity={(count) =>
@@ -98,26 +87,10 @@ class CartPage extends React.Component {
               />
             ))}
           </div>
-          <div
-            style={{
-              width: "40%",
-              marginLeft: "30px",
-              height: "350px",
-              backgroundColor: "white",
-              padding: "10px",
-            }}
-          >
-            <h3>Cart totals</h3>
-            <table
-              width="100%"
-              rules="rows"
-              style={{
-                width: "100%",
-                height: "200px",
-                borderBottom: "1px solid",
-              }}
-            >
-              <tbody style={{ fontSize: "1.2em" }}>
+          <div className="cart-totals">
+            <h3 className="cart-totals-h3">Cart totals</h3>
+            <table className="cart-totals-table" width="100%" rules="rows">
+              <tbody className="cart-totals-table-tbody">
                 <tr>
                   <th>Subtotal</th>
                   <td>${totalCost}</td>
@@ -130,8 +103,7 @@ class CartPage extends React.Component {
                   <th>Shipping</th>
                   <td>DHL or Fedex (+ $17)</td>
                 </tr>
-                <tr style={{ fontSize: "1.4em" }}>
-                  {" "}
+                <tr className="cart-totals-table-tbody-tr">
                   <th>Total</th>
                   <td>
                     $
@@ -144,22 +116,15 @@ class CartPage extends React.Component {
             </table>
             <NavLink to="/checkout">
               <Button
+                className="cart-totals-btn-prcd-to-chckt"
                 size="large"
                 type="primary"
-                style={{ marginTop: "20px" }}
                 disabled={totalCost === 0 ? true : false}
               >
                 Proceed to checkout
               </Button>
             </NavLink>
           </div>
-
-          {/* <Table
-            style={{ width: "40%", marginLeft: "10px" }}
-            dataSource={dataSource}
-            columns={columns}
-            pagination={false}
-          /> */}
         </section>
       </div>
     );

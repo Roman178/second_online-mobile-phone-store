@@ -4,14 +4,7 @@ import "../DevicePage.css";
 const CharacteristicsTable = (props) => {
   return (
     <div>
-      <ul
-        style={{
-          backgroundColor: "#f0f2f5",
-          listStyle: "none",
-          color: "#9d9ea0",
-          padding: "0",
-        }}
-      >
+      <ul className="features-block-characteristics">
         <li>
           Id: <span className="featuresDescr">{props.currentDevice.id}</span>
         </li>

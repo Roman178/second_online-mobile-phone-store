@@ -1,19 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Button } from "antd";
 import "./InputTypeNumberDeleteArrows.css";
-import { MyContext } from "../cart/CardForCart";
 
 const Counter = (props) => {
-  const styles = {
-    width: "34px",
-    height: "34px",
-    border: "1px solid #e6e6e6",
-    backgroundColor: "white",
-  };
-
   const [count, setCount] = useState(props.quantity);
-  const contexValue = useContext(MyContext);
-  console.log(contexValue);
 
   function handleChange(e) {
     const value = parseInt(e.target.value);
@@ -30,9 +20,9 @@ const Counter = (props) => {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="card-cart-counter">
       <Button
-        style={styles}
+        className="card-cart-counter-btn"
         onClick={() => {
           if (count > 1) {
             setCount(count - 1);
@@ -43,7 +33,7 @@ const Counter = (props) => {
         -
       </Button>
       <input
-        style={styles}
+        className="card-cart-counter-btn"
         type="number"
         min={1}
         max={10}
@@ -52,7 +42,7 @@ const Counter = (props) => {
         onChange={handleChange}
       ></input>
       <Button
-        style={styles}
+        className="card-cart-counter-btn"
         onClick={() => {
           if (count < 10) {
             setCount(count + 1);
