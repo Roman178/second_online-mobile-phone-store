@@ -4,14 +4,23 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import { Button } from "antd";
 import Item from "antd/lib/list/Item";
+import { addItemToCart } from "../../redux/actions/cartActions";
+import { connect } from "react-redux";
 
 function CardDevice(props) {
   const checkPage = props.location.pathname.includes("/", 1);
 
   const [currentPageIsASubPage] = useState(checkPage);
+  console.log(props);
+
+  function handleAddToCart(item) {
+    if (!props.cart.find((i) => i.id === item.id)) {
+      props.addItemToCart({ ...item, quantity: 1, cost: item.price });
+    }
+  }
 
   return (
-    <div className="list-devices-main-cont">
+    <>
       {props.list.map((item) => (
         <div className="card-device-cont">
           <Card
@@ -62,7 +71,7 @@ function CardDevice(props) {
 
             <Button
               className="card-device-btn-add-to-cart"
-              onClick={() => props.onAddToCart(item)}
+              onClick={() => handleAddToCart(item)}
               type="primary"
               size="small"
             >
@@ -71,8 +80,21 @@ function CardDevice(props) {
           </Card>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 
-export default withRouter(CardDevice);
+function mapStateToProps(state, ownProps) {
+  return {
+    cart: state.cart,
+  };
+}
+
+const mapDispatchToProps = {
+  addItemToCart,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(CardDevice));

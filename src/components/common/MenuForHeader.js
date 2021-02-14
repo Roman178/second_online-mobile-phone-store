@@ -1,12 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Menu } from "antd";
+import logo from "../../img/logo.png";
 
 const MenuForHeader = (props) => {
   return (
     <Menu theme="dark" mode="horizontal" selectable={false}>
       <Menu.Item key="0/">
-        <NavLink to="/"> HOME</NavLink>
+        <NavLink to="/">
+          <img className="logo-img" src={logo} />
+        </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
         <NavLink

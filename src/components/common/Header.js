@@ -141,9 +141,7 @@ function Header(props) {
           width={270}
           title={
             <NavLink onClick={() => setVisibleDrawer(false)} to="/">
-              <div className="logo-cont">
-                <img className="logo-img" src={logo} />
-              </div>
+              <img className="logo-img" src={logo} />
             </NavLink>
           }
           placement="left"

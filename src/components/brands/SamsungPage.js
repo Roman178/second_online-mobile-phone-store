@@ -21,9 +21,15 @@ function SamsungPage(props) {
 
   return (
     <div>
-      <h2>Samsung Page</h2>
+      <h2>Samsung</h2>
       <Row>
-        <CardDevice list={arrOfAllSamsungGoods} onAddToCart={handleAddToCart} />
+        <section className="list-devices-main-cont">
+          <CardDevice
+            list={arrOfAllSamsungGoods}
+            onAddToCart={handleAddToCart}
+          />
+        </section>
+
         {/* {arrOfAllSamsungGoods.map((item) => (
           <CardDevice
             key={item.id}

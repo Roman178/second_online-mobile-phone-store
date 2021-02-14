@@ -11,11 +11,11 @@ class MobileMenu extends React.Component {
     super(props);
   }
 
-  getGenerationsOfDevice(brand, device) {
-    const allTitles = this.props.brands[brand][device].map((d) => d.title);
-    const allNoRepeatedTitles = [...new Set(allTitles)];
-    return allNoRepeatedTitles;
-  }
+  // getGenerationsOfDevice(brand, device) {
+  //   const allTitles = this.props.brands[brand][device].map((d) => d.title);
+  //   const allNoRepeatedTitles = [...new Set(allTitles)];
+  //   return allNoRepeatedTitles;
+  // }
 
   render() {
     console.log(this.props);

@@ -23,11 +23,11 @@ function ApplePage(props) {
   //   }
   // }
 
-  function handleAddToCart(item) {
-    if (!props.cart.find((i) => i.id === item.id)) {
-      props.addItemToCart({ ...item, quantity: 1, cost: item.price });
-    }
-  }
+  // function handleAddToCart(item) {
+  //   if (!props.cart.find((i) => i.id === item.id)) {
+  //     props.addItemToCart({ ...item, quantity: 1, cost: item.price });
+  //   }
+  // }
 
   function addBrandToObj(arrOfDevices) {
     return { ...arrOfDevices, brand: "apple" };
@@ -53,9 +53,14 @@ function ApplePage(props) {
 
   return (
     <>
+      <h2>Apple</h2>
       <Row>
-        <CardDevice list={checkUrl()} onAddToCart={handleAddToCart} />
-
+        <section className="list-devices-main-cont">
+          <CardDevice
+            list={checkUrl()}
+            // onAddToCart={handleAddToCart}
+          />
+        </section>
         {/* {props.location.pathname === "/apple/iphones" && (
           <CardDevice
             list={props.apple.iphones}
