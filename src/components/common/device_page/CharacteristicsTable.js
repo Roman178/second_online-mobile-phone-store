@@ -3,7 +3,7 @@ import "../DevicePage.css";
 
 const CharacteristicsTable = (props) => {
   return (
-    <div>
+    <div id="info-block">
       <ul className="features-block-characteristics">
         <li>
           Id: <span className="featuresDescr">{props.currentDevice.id}</span>

@@ -29,18 +29,23 @@ function ApplePage(props) {
     }
   }
 
+  function addBrandToObj(arrOfDevices) {
+    return { ...arrOfDevices, brand: "apple" };
+  }
+
   const arrOfAllAppleGoods = Object.values(props.apple).flat();
+  console.log(arrOfAllAppleGoods);
 
   function checkUrl() {
     switch (props.location.pathname) {
       case "/apple":
-        return arrOfAllAppleGoods;
+        return arrOfAllAppleGoods.map((d) => addBrandToObj(d));
       case "/apple/iphones":
-        return props.apple.iphones;
+        return props.apple.iphones.map((d) => addBrandToObj(d));
       case "/apple/ipads":
-        return props.apple.ipads;
+        return props.apple.ipads.map((d) => addBrandToObj(d));
       case "/apple/macbooks":
-        return props.apple.macbooks;
+        return props.apple.macbooks.map((d) => addBrandToObj(d));
       default:
         return undefined;
     }

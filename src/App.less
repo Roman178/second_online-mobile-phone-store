@@ -45,6 +45,48 @@
   margin-right: 7px;
 }
 
+// Home Page
+
+.logo-cont {
+  width: 250px;
+  margin-bottom: -70px;
+  margin-top: -70px;
+  .logo-img {
+    width: 100%;
+  }
+}
+
+.home-main-cont {
+  height: 50%;
+  .home-carousel {
+    margin: 50px auto 50px;
+    width: 780px;
+  }
+}
+
+.home-carousel-cont {
+  background-image: url(./img/bckgrnd_home_carousel.jpg);
+}
+
+.home-carousel-slide-ant {
+  .home-carousel-slide-own {
+    width: 100%;
+    display: flex;
+    margin-bottom: 55px;
+    .home-carousel-slide-imgtitle {
+      margin: auto;
+      font-size: 3em;
+    }
+    .home-carousel-slide-cont-img {
+      width: 360px;
+      margin-left: auto;
+      .home-carousel-slide-img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 // Styles for Device Page. To override Ant design styles, you need to declare variables.
 
 .cont-description {
@@ -237,25 +279,42 @@ button {
     .card-cart {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       font-size: 1.1rem;
       margin-bottom: 1%;
       background-color: white;
-      .card-cart-counter {
-        display: flex;
-        .card-cart-counter-btn {
-          width: 34px;
-          height: 34px;
-          border: 1px solid #e6e6e6;
-          background-color: white;
+      .card-cart-linkcont-img {
+        display: block;
+        height: 185px;
+        .card-cart-img {
+          height: 100%;
         }
       }
+
+      .card-cart-cont-counterprice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .card-cart-counter {
+          display: flex;
+          .card-cart-counter-btn {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #e6e6e6;
+            background-color: white;
+          }
+        }
+      }
+
       .card-cart-title {
+        margin-right: auto;
         font-size: 0.9rem;
         margin-left: 2%;
       }
       .card-cart-deletebtn {
-        margin-right: 5%;
+        margin-right: 2px;
+        margin-bottom: auto;
+        margin-top: 2px;
       }
     }
   }
@@ -277,6 +336,52 @@ button {
     }
     .cart-totals-btn-prcd-to-chckt {
       margin-top: 20px;
+    }
+  }
+}
+
+// Checkout Page
+
+.empty-cart-h5 {
+  background-color: white;
+  height: 100px;
+  padding-top: 1%;
+  margin-right: 70%;
+}
+
+.checkout-main-cont {
+  display: flex;
+  justify-content: space-around;
+  margin: 2% 10% 0 10%;
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: white;
+    padding: 1.5%;
+    .checkout-form-title-usa {
+      margin: 0;
+    }
+    .checkout-form-sbmt-btn {
+      margin-top: 20px;
+      width: 100px;
+    }
+  }
+  .checkout-table-cont {
+    width: 40%;
+    margin-left: 30px;
+    background-color: white;
+    padding: 10px;
+    .checkout-table {
+      width: 100%;
+      height: 330px;
+      border-bottom: 1px solid;
+      .checkout-table-tbody {
+      }
+      .checkout-table-tfoot {
+        font-size: 1.3em;
+        font-weight: bold;
+      }
     }
   }
 }
@@ -426,6 +531,9 @@ button {
         height: 130px;
         margin-bottom: 8px;
         position: relative;
+        .card-cart-linkcont-img {
+          height: auto;
+        }
         .card-cart-title {
           font-size: 0.8rem;
         }
@@ -455,6 +563,34 @@ button {
           top: 2px;
           right: 2px;
         }
+      }
+    }
+    .cart-totals {
+      margin-left: 0;
+      padding: 15px;
+    }
+  }
+  .checkout-main-cont {
+    flex-direction: column-reverse;
+    margin: 0;
+    .checkout-form {
+      margin-top: 15px;
+      padding: 20px;
+      width: auto;
+    }
+    .checkout-table-cont {
+      width: auto;
+      margin: 0;
+      padding: 20px;
+    }
+  }
+  .empty-cart-h5 {
+    margin: 0;
+  }
+  .home-carousel-slide-ant {
+    .home-carousel-slide-own {
+      .home-carousel-slide-imgtitle {
+        font-size: 1.8em;
       }
     }
   }

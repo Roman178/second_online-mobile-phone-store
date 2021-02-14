@@ -6,7 +6,11 @@ function Footer(props) {
 
   return (
     <FooterAntd
-      style={{ backgroundColor: "#001529", height: "500px", padding: "0" }}
+      style={{
+        backgroundColor: "#001529",
+        height: window.innerHeight,
+        padding: "0",
+      }}
     >
       <div>
         <span>Footers content</span>

@@ -11,17 +11,20 @@ function SamsungPage(props) {
     }
   };
 
-  const arrOfAllSamsungGoods = Object.values(props.samsung).flat();
+  function addBrandToObj(arrOfDevices) {
+    return { ...arrOfDevices, brand: "samsung" };
+  }
 
-  console.log(props.dispatch);
+  const arrOfAllSamsungGoods = Object.values(props.samsung)
+    .flat()
+    .map((d) => addBrandToObj(d));
 
   return (
     <div>
-     <h2>Samsung Page</h2>
+      <h2>Samsung Page</h2>
       <Row>
-        
         <CardDevice list={arrOfAllSamsungGoods} onAddToCart={handleAddToCart} />
-          {/* {arrOfAllSamsungGoods.map((item) => (
+        {/* {arrOfAllSamsungGoods.map((item) => (
           <CardDevice
             key={item.id}
             onAddToCart={() => handleAddToCart(item)}
@@ -33,7 +36,6 @@ function SamsungPage(props) {
             price={"$" + item.price}
           />
         ))} */}
-
       </Row>
     </div>
   );

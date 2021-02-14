@@ -17,6 +17,7 @@ import { MenuUnfoldOutlined } from "@ant-design/icons";
 import MobileMenu from "../menu/MobileMenu";
 import Search from "../Search";
 import { Button, AutoComplete } from "antd";
+import logo from "../../img/logo.png";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -140,7 +141,9 @@ function Header(props) {
           width={270}
           title={
             <NavLink onClick={() => setVisibleDrawer(false)} to="/">
-              The Worst Mobile Store
+              <div className="logo-cont">
+                <img className="logo-img" src={logo} />
+              </div>
             </NavLink>
           }
           placement="left"

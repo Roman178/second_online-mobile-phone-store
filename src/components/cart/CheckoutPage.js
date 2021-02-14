@@ -15,7 +15,6 @@ const CheckoutPage = (props) => {
   const [americanState, setAmericanState] = useState("Ohio");
 
   function onFinish(values) {
-    console.log("Received values of form: ", values);
     addOrderApi({
       ...values,
       subtotal: subtotal,
@@ -46,54 +45,23 @@ const CheckoutPage = (props) => {
   return (
     <>
       {subtotal === 0 ? (
-        <h5
-          style={{
-            backgroundColor: "white",
-            height: "100px",
-            paddingTop: "1%",
-            marginRight: "70%",
-          }}
-        >
-          Your cart is currently empty.
-        </h5>
+        <h5 className="empty-cart-h5">Your cart is currently empty.</h5>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            margin: "2% 10% 0 10%",
-          }}
-        >
+        <div className="checkout-main-cont">
           <FormCheckout
             onFinish={onFinish}
             setAmericanStateProp={(value) => setAmericanState(value)}
-          ></FormCheckout>
-
-          <div
-            style={{
-              width: "40%",
-              marginLeft: "30px",
-              backgroundColor: "white",
-              padding: "10px",
-            }}
-          >
+          />
+          <div className="checkout-table-cont">
             <h4>Your order</h4>
-            <table
-              width="100%"
-              rules="rows"
-              style={{
-                width: "100%",
-                height: "330px",
-                borderBottom: "1px solid",
-              }}
-            >
+            <table className="checkout-table" width="100%" rules="rows">
               <thead>
                 <tr>
                   <th>Product</th>
                   <th>Subtotal</th>
                 </tr>
               </thead>
-              <tbody style={{ fontSize: "1.2em" }}>
+              <tbody className="checkout-table-tbody">
                 {props.cart.map((item) => (
                   <tr key={item.id}>
                     <td>
@@ -103,7 +71,7 @@ const CheckoutPage = (props) => {
                   </tr>
                 ))}
               </tbody>
-              <tfoot style={{ fontSize: "1.3em", fontWeight: "bold" }}>
+              <tfoot className="checkout-table-tfoot">
                 <tr>
                   <th>Subtotal</th>
                   <td>

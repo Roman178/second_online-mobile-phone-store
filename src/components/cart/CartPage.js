@@ -72,13 +72,7 @@ class CartPage extends React.Component {
           <div className="cart-list-block">
             {this.state.cart.map((item) => (
               <CardForCart
-                key={item.id}
-                id={item.id}
-                path={item.path}
-                title={item.title}
-                memory={item.memory}
-                color={item.color}
-                cost={item.cost}
+                item={item}
                 onDeleteItem={() => this.handleDeleteItem(item)}
                 onChangeQuantity={(count) =>
                   this.handleChangeQuantity(item, count)

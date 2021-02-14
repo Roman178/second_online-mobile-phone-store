@@ -9,13 +9,7 @@ const validateMessages = {
 function FormCheckout(props) {
   return (
     <Form
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "60%",
-        backgroundColor: "white",
-        padding: "1.5%",
-      }}
+      className="checkout-form"
       name="order-form"
       onFinish={props.onFinish}
       validateMessages={validateMessages}
@@ -46,7 +40,12 @@ function FormCheckout(props) {
         <Input />
       </Form.Item>
       <Form.Item name={["country"]} label="Country">
-        <p style={{ margin: 0 }}>USA</p>
+        <p
+          className="checkout-form-title-usa"
+          // style={{ margin: 0 }}
+        >
+          USA
+        </p>
       </Form.Item>
       <Form.Item
         name={["state_of_country"]}
@@ -72,10 +71,7 @@ function FormCheckout(props) {
         label="Street address"
         rules={[{ required: true, message: "Address is required" }]}
       >
-        <Input
-          style={{ width: "50%" }}
-          placeholder="House number and street name"
-        />
+        <Input placeholder="House number and street name" />
       </Form.Item>
 
       <Form.Item
@@ -83,7 +79,7 @@ function FormCheckout(props) {
         label="Town/City"
         rules={[{ required: true, message: "Address is required" }]}
       >
-        <Input style={{ width: "50%" }} placeholder="Town/City name" />
+        <Input placeholder="Town/City name" />
       </Form.Item>
 
       <Form.Item
@@ -91,7 +87,7 @@ function FormCheckout(props) {
         label="Postal code"
         rules={[{ required: true, message: "Postal code is required" }]}
       >
-        <Input style={{ width: "50%" }} />
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -104,12 +100,7 @@ function FormCheckout(props) {
           },
         ]}
       >
-        <Input
-          addonBefore="+1"
-          style={{
-            width: "100%",
-          }}
-        />
+        <Input addonBefore="+1" />
       </Form.Item>
 
       <Form.Item
@@ -129,10 +120,10 @@ function FormCheckout(props) {
         <Input />
       </Form.Item>
       <Button
-        // onClick={success}
+        className="checkout-form-sbmt-btn"
         size="large"
         type="primary"
-        style={{ marginTop: "20px", width: "100px" }}
+        // style={{ marginTop: "20px", width: "100px" }}
         htmlType="submit"
       >
         Submit

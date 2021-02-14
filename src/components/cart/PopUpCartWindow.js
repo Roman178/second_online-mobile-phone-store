@@ -40,12 +40,14 @@ const PopUpCartWindow = (props) => (
             borderBottom: "2px solid #f0f2f5",
           }}
         >
-          <img width="150px" src={item.path}></img>
+          <NavLink to={"/" + item.brand + "/" + item.category + "/" + item.url}>
+            <img width="150px" src={item.path}></img>
+          </NavLink>
           <div>
-            <div>{item.title}</div>
-            <div>
+            <p>{`${item.title} ${item.memory} ${item.color}`} </p>
+            <p>
               {item.quantity} x ${item.price}
-            </div>
+            </p>
           </div>
           <Button
             style={{ marginRight: "5%" }}
