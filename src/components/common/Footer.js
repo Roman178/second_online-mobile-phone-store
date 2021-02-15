@@ -8,7 +8,7 @@ function Footer(props) {
     <FooterAntd
       style={{
         backgroundColor: "#001529",
-        height: window.innerHeight,
+        height: window.innerHeight * 0.5,
         padding: "0",
       }}
     >

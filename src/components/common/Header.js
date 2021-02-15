@@ -18,10 +18,8 @@ import MobileMenu from "../menu/MobileMenu";
 import Search from "../Search";
 import { Button, AutoComplete } from "antd";
 import logo from "../../img/logo.png";
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import CartBlockForHeader from "../cart/CartBlockForHeader";
+import MobileHeader from "../MobileHeader";
 
 const HeaderAntd = Layout.Header;
 
@@ -62,7 +60,6 @@ function Header(props) {
     props.deleteItemFromCart(item);
   }
 
-  const query = useQuery();
   console.log(props);
 
   const options = props.allProducts.map((prod) => ({
@@ -76,7 +73,9 @@ function Header(props) {
       <HeaderAntd className="main-header">
         <MenuForHeader />
 
-        <AutoComplete
+        <Search options={options} />
+
+        {/* <AutoComplete
           allowClear={true}
           options={options}
           filterOption={(inputValue, option) =>
@@ -95,11 +94,17 @@ function Header(props) {
               }/${objOfFoundDevice.url}`
             );
           }}
-          onSearch={(data) => console.log(data)}
           placeholder="iPhone 11"
+        /> */}
+
+        <CartBlockForHeader
+          quantity={quantity}
+          onDeleteItem={handleDeleteItem}
+          cart={cart}
         />
 
-        <Dropdown
+        {/* <Dropdown
+          quantity={quantity}
           visible={visible}
           onVisibleChange={(flag) => setVisible(flag)}
           overlay={() =>
@@ -128,9 +133,12 @@ function Header(props) {
               />
             </div>
           </NavLink>
-        </Dropdown>
+        </Dropdown> */}
       </HeaderAntd>
-      <div className="mobile-header">
+
+      <MobileHeader quantity={quantity} options={options} />
+
+      {/* <div className="mobile-header">
         <button
           onClick={() => setVisibleDrawer(true)}
           className="nav-button-mobile"
@@ -160,7 +168,7 @@ function Header(props) {
             />
           </div>
         </NavLink>
-      </div>
+      </div> */}
     </>
   );
 }
@@ -182,7 +190,7 @@ function mapStateToProps(state, ownProps) {
           productsOfCurrBrand.push(
             ...state[brand][device].map((d) => ({
               ...d,
-              brand: brand[0].toUpperCase() + brand.slice(1),
+              brand: d.brand[0].toUpperCase() + d.brand.slice(1),
             }))
           );
         }

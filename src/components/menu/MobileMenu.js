@@ -56,7 +56,7 @@ class MobileMenu extends React.Component {
                             <Menu.Item className="test-pest">
                               <NavLink
                                 onClick={this.props.onClose}
-                                to={"/" + brand + "/" + device + "/" + item.url}
+                                to={`/${item.brand}/${item.category}/${item.url}`}
                               >
                                 {item.title +
                                   " " +

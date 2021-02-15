@@ -21,7 +21,9 @@ const CardForCart = (props) => {
         <img className="card-cart-img" src={props.item.path}></img>
       </NavLink>
 
-      <p className="card-cart-title">{`${props.item.title} ${props.item.memory} ${props.item.color}`}</p>
+      <p className="card-cart-title">{`${
+        props.item.brand[0].toUpperCase() + props.item.brand.slice(1)
+      } ${props.item.title} ${props.item.memory} ${props.item.color}`}</p>
       <div className="card-cart-cont-counterprice">
         <Counter
           onChangeQuantity={(count) => props.onChangeQuantity(count)}

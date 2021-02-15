@@ -120,7 +120,7 @@ function DevicePage(props) {
         />
         <div className="features-block">
           <h1 className="features-block-h1">
-            {`${props.currentDevice.title} ${props.currentDevice.memory} ${props.currentDevice.color}`}
+            {`${props.currentDevice.brand} ${props.currentDevice.title} ${props.currentDevice.memory} ${props.currentDevice.color}`}
           </h1>
 
           <Button

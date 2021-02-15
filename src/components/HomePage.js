@@ -8,6 +8,7 @@ import xiaomiPic from "../img/4.png";
 import logo from "../img/logo.png";
 import CardDevice from "./common/CardDevice";
 import { connect } from "react-redux";
+import huawei from "../img/Huawei-nova-3i.png";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -15,36 +16,54 @@ class HomePage extends React.Component {
     this.refCarousel = React.createRef();
   }
 
-  getAllProducts() {
+  componentDidMount() {
+    this.currenList = this.getSixRandomNums();
+  }
+
+  // getAllProducts() {
+  //   const allDevices = { ...this.props.apple, ...this.props.samsung };
+  //   const allProducts = [];
+  //   for (let key in allDevices) {
+  //     allProducts.push(...allDevices[key]);
+  //   }
+  //   return allProducts;
+  // }
+
+  getSixRandomNums() {
     const allDevices = { ...this.props.apple, ...this.props.samsung };
     const allProducts = [];
     for (let key in allDevices) {
       allProducts.push(...allDevices[key]);
     }
-    return allProducts;
-  }
-
-  getSixRandomDevices() {
     const sixRandomNums = [];
     while (sixRandomNums.length < 6) {
       let num = parseInt((Math.random() * 20).toFixed());
       if (num > 14) continue;
       sixRandomNums.push(num);
     }
-    return sixRandomNums;
+    return sixRandomNums.map((num) => allProducts[num]);
   }
 
   render() {
-    const currenList = this.getSixRandomDevices();
+    // const allProducts = this.getAllProducts();
+    // const currenList = this.getSixRandomNums();
+    console.log(this.currenList);
     const carouselData = [
       {
         url:
           "https://i01.appmifile.com/webfile/globalimg/gaoruijia/poco-x3-nfc-blue.png",
         title: "Amazing Poco X3",
+        to: "/xiaomi",
       },
       {
         url: "https://www.ixbt.com/img/n1/news/2021/1/1/11111_large.png",
-        title: "Great Xiaomi M11",
+        title: "Great Xiaomi Mi 11",
+        to: "/xiaomi",
+      },
+      {
+        url: huawei,
+        title: "Unbelievable Huawei Nova 3",
+        to: "/huawei",
       },
     ];
 
@@ -91,7 +110,10 @@ class HomePage extends React.Component {
             {carouselData.map((carouselSlide) => {
               return (
                 <div className="home-carousel-slide-ant">
-                  <NavLink className="home-carousel-slide-link" to="/xiaomi">
+                  <NavLink
+                    className="home-carousel-slide-link"
+                    to={carouselSlide.to}
+                  >
                     <div className="home-carousel-slide-own">
                       <h4 className="home-carousel-slide-imgtitle">
                         {carouselSlide.title}
@@ -111,10 +133,10 @@ class HomePage extends React.Component {
           </Carousel>
         </section>
         <section>
-          <h3>Top sales!</h3>
+          <h2 className="h2-top-sales">Top sales!</h2>
           <div>
-            <div className="list-devices-main-cont">
-              <CardDevice list={this.getAllProducts()} />
+            <div className="list-devices-main-cont-homepage list-devices-main-cont">
+              <CardDevice list={this.getSixRandomNums()} />
             </div>
           </div>
         </section>

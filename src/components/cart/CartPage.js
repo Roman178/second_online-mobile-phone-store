@@ -67,7 +67,7 @@ class CartPage extends React.Component {
 
     return (
       <div>
-        <h1>Cart Page</h1>
+        <h1>Cart</h1>
         <section className="cart-main-cont">
           <div className="cart-list-block">
             {this.state.cart.map((item) => (

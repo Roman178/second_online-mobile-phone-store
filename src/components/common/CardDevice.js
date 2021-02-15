@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { Card } from "antd";
+import { Card, notification } from "antd";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import { Button } from "antd";
 import Item from "antd/lib/list/Item";
 import { addItemToCart } from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
+
+const openNotification = (placement) => {
+  notification.success({
+    message: "You just added 1 item to your cart",
+    placement,
+  });
+};
 
 function CardDevice(props) {
   const checkPage = props.location.pathname.includes("/", 1);
@@ -21,7 +28,7 @@ function CardDevice(props) {
 
   return (
     <>
-      {props.list.map((item) => (
+      {props.list.map((item = {}) => (
         <div className="card-device-cont">
           <Card
             className="card-device"
@@ -30,16 +37,18 @@ function CardDevice(props) {
               <NavLink
                 className="card-device-link-top"
                 key={item.id}
-                to={{
-                  pathname: currentPageIsASubPage
-                    ? props.location.pathname + "/" + item.url
-                    : props.location.pathname +
-                      "/" +
-                      item.category +
-                      "/" +
-                      item.url,
-                  state: item,
-                }}
+                to={`/${item.brand}/${item.category}/${item.url}`}
+
+                // {{
+                //   pathname: currentPageIsASubPage
+                //     ? props.location.pathname + "/" + item.url
+                //     : props.location.pathname +
+                //       "/" +
+                //       item.category +
+                //       "/" +
+                //       item.url,
+                //   state: item,
+                // }}
               >
                 <img
                   className="card-device-img"
@@ -51,16 +60,18 @@ function CardDevice(props) {
           >
             <NavLink
               key={item.id}
-              to={{
-                pathname: currentPageIsASubPage
-                  ? props.location.pathname + "/" + item.url
-                  : props.location.pathname +
-                    "/" +
-                    item.category +
-                    "/" +
-                    item.url,
-                state: item,
-              }}
+              to={`/${item.brand}/${item.category}/${item.url}`}
+
+              // {{
+              //   pathname: currentPageIsASubPage
+              //     ? props.location.pathname + "/" + item.url
+              //     : props.location.pathname +
+              //       "/" +
+              //       item.category +
+              //       "/" +
+              //       item.url,
+              //   state: item,
+              // }}
             >
               <Card.Meta
                 className="card-device-description"
@@ -71,7 +82,10 @@ function CardDevice(props) {
 
             <Button
               className="card-device-btn-add-to-cart"
-              onClick={() => handleAddToCart(item)}
+              onClick={() => {
+                handleAddToCart(item);
+                openNotification("topLeft");
+              }}
               type="primary"
               size="small"
             >

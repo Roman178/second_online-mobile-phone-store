@@ -64,9 +64,11 @@ const CheckoutPage = (props) => {
               <tbody className="checkout-table-tbody">
                 {props.cart.map((item) => (
                   <tr key={item.id}>
-                    <td>
-                      {item.title} x {item.quantity}
-                    </td>
+                    <td>{`${
+                      item.brand[0].toUpperCase() + item.brand.slice(1)
+                    } ${item.title} ${item.memory} ${item.color} x ${
+                      item.quantity
+                    }`}</td>
                     <td>${item.cost}</td>
                   </tr>
                 ))}

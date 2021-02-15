@@ -14,26 +14,26 @@ function MenuCreator(props) {
   }, [props.location]);
 
   // Pass the correct link to NavLink's "to" depends on current url (e.g. "/apple" or "/apple/ipads")
-  function getCorrectLink(item) {
-    if (!currentPageIsASubPage) {
-      return props.location.pathname + "/" + item.category + "/" + item.url;
-    }
-    if (
-      currentPageIsASubPage &&
-      props.location.pathname.includes(item.category)
-    ) {
-      return props.location.pathname + "/" + item.url;
-    } else {
-      const currCategory = props.brandDevices.find((dev) =>
-        props.location.pathname.includes(dev)
-      );
-      const correctCategory = props.location.pathname.replace(
-        currCategory,
-        item.category
-      );
-      return correctCategory + "/" + item.url;
-    }
-  }
+  // function getCorrectLink(item) {
+  //   if (!currentPageIsASubPage) {
+  //     return props.location.pathname + "/" + item.category + "/" + item.url;
+  //   }
+  //   if (
+  //     currentPageIsASubPage &&
+  //     props.location.pathname.includes(item.category)
+  //   ) {
+  //     return props.location.pathname + "/" + item.url;
+  //   } else {
+  //     const currCategory = props.brandDevices.find((dev) =>
+  //       props.location.pathname.includes(dev)
+  //     );
+  //     const correctCategory = props.location.pathname.replace(
+  //       currCategory,
+  //       item.category
+  //     );
+  //     return correctCategory + "/" + item.url;
+  //   }
+  // }
 
   function getCorrectSubmenuTitle(device) {
     switch (device) {
@@ -67,10 +67,12 @@ function MenuCreator(props) {
                     <Menu.Item key={item.id}>
                       <NavLink
                         key={item.id}
-                        to={(location) => ({
-                          ...location,
-                          pathname: getCorrectLink(item),
-                        })}
+                        to={`/${item.brand}/${item.category}/${item.url}`}
+
+                        // {(location) => ({
+                        //   ...location,
+                        //   pathname: getCorrectLink(item),
+                        // })}
                       >
                         {item.title + " " + item.memory + " " + item.color}
                       </NavLink>

@@ -44,7 +44,11 @@ const PopUpCartWindow = (props) => (
             <img width="150px" src={item.path}></img>
           </NavLink>
           <div>
-            <p>{`${item.title} ${item.memory} ${item.color}`} </p>
+            <p>
+              {`${item.brand[0].toUpperCase() + item.brand.slice(1)} ${
+                item.title
+              } ${item.memory} ${item.color}`}
+            </p>
             <p>
               {item.quantity} x ${item.price}
             </p>

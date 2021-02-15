@@ -11,10 +11,16 @@ function createPath(obj) {
   return serverUrlImages + createUrlName(obj) + ".jpeg";
 }
 
+let id = 1;
+function createNewId() {
+  return ++id;
+}
+
 const apple = {
   iphones: [
     {
-      id: 1,
+      id: id,
+      brand: "apple",
       title: "iPhone 11",
       memory: "64 gb",
       color: "black",
@@ -37,7 +43,8 @@ const apple = {
     },
 
     {
-      id: 2,
+      id: createNewId(),
+      brand: "apple",
       title: "iPhone 11",
       memory: "128 gb",
       color: "green",
@@ -60,7 +67,8 @@ const apple = {
     },
 
     {
-      id: 3,
+      id: createNewId(),
+      brand: "apple",
       title: "iPhone 11",
       memory: "128 gb",
       color: "black",
@@ -82,7 +90,8 @@ const apple = {
         "https://cdn.svyaznoy.ru/upload/iblock/989/iphone_11_b_2.jpg/resize/870x725/hq/",
     },
     {
-      id: 15,
+      id: createNewId(),
+      brand: "apple",
       title: "iPhone 11",
       memory: "64 gb",
       color: "green",
@@ -104,7 +113,8 @@ const apple = {
         "https://cdn.svyaznoy.ru/upload/iblock/09c/iphone_11_g_2.jpg/resize/870x725/hq/",
     },
     {
-      id: 4,
+      id: createNewId(),
+      brand: "apple",
       title: "iPhone XS 64 Gb",
       path: "https://cdn2.biggeek.ru/1/212/0ce7/xs-gold_1.jpg",
       url: "iphone-xs-64-gb",
@@ -114,7 +124,8 @@ const apple = {
   ],
   ipads: [
     {
-      id: 5,
+      id: createNewId(),
+      brand: "apple",
       title: "iPad Air (2019) 64Gb Wi-Fi Space Gray",
       path:
         "https://cdn2.biggeek.ru/1/212/0d1b/11140-550ipad-pro-11-select-cell-spacegray-202003.png",
@@ -123,7 +134,8 @@ const apple = {
       category: "ipads",
     },
     {
-      id: 6,
+      id: createNewId(),
+      brand: "apple",
       title: "iPad Pro 12.9''(2018) 64Gb Wi-Fi Space Gray",
       path:
         "https://cdn2.biggeek.ru/1/212/7126/7675-760iPad%20Pro%2012%20space%20gray.png",
@@ -132,7 +144,8 @@ const apple = {
       category: "ipads",
     },
     {
-      id: 7,
+      id: createNewId(),
+      brand: "apple",
       title: "Apple iPad 2018 32Gb Wi-Fi Space Gray",
       path:
         "https://cdn2.biggeek.ru/1/212/2d4d/ipad-wifi-select-spacegray-201803.png",
@@ -141,7 +154,8 @@ const apple = {
       category: "ipads",
     },
     {
-      id: 8,
+      id: createNewId(),
+      brand: "apple",
       title: "Apple iPad mini (2019) 64Gb Wi-Fi Silver",
       path: "https://cdn2.biggeek.ru/1/212/cb1a/8470-917wifi_silver.png",
       url: "apple-ipad-mini-2019-64gb-wi-fi-silver",
@@ -151,7 +165,8 @@ const apple = {
   ],
   macbooks: [
     {
-      id: 9,
+      id: createNewId(),
+      brand: "apple",
       title: "Apple MacBook Pro 13 Retina Touch Bar Z0Y7000TM Space Gray",
       path:
         "https://cdn2.biggeek.ru/1/212/7b8c/11806-18411399-84mbp13touch-space-select-202005.jpeg",
@@ -160,7 +175,8 @@ const apple = {
       category: "macbooks",
     },
     {
-      id: 10,
+      id: createNewId(),
+      brand: "apple",
       title: "Apple MacBook Air 13 (2017) MQD32 (1,8Ghz, 8Gb, 128Gb)",
       path:
         "https://cdn2.biggeek.ru/1/212/e8f9/8294-64913_3.435x435_1.435x435.jpg",
@@ -169,7 +185,8 @@ const apple = {
       category: "macbooks",
     },
     {
-      id: 11,
+      id: createNewId(),
+      brand: "apple",
       title:
         "Apple MacBook Pro 16 Retina Touch Bar MVVJ2 Space Gray (2,6 GHz Core i7, 16GB, 512GB, Radeon Pro 5300M)",
       path:
@@ -180,7 +197,8 @@ const apple = {
       category: "macbooks",
     },
     {
-      id: 12,
+      id: createNewId(),
+      brand: "apple",
       title: "Apple Macbook 12 Retina MNYF2 (1.2GHz, 8GB, 256GB) Space Gray",
       path: "https://cdn2.biggeek.ru/1/212/3e4c/space_6.435x435.jpg",
       url: "apple-macbook-12-retina-mnyf2-1-2ghz-8gb-256gb-space-gray",
@@ -193,7 +211,8 @@ const apple = {
 const samsung = {
   galaxyS: [
     {
-      id: 13,
+      id: createNewId(),
+      brand: "samsung",
       title: "Galaxy S20 Ultra 128 Gb (Cosmic Black)",
       path:
         "https://cdn2.biggeek.ru/1/212/08f0/11048-876SM-G988BZKDSER-comp.jpg",
@@ -201,7 +220,8 @@ const samsung = {
       category: "galaxyS",
     },
     {
-      id: 14,
+      id: createNewId(),
+      brand: "samsung",
       title: "Galaxy S10 Lite 128Gb 6Gb Black",
       path: "https://cdn2.biggeek.ru/1/212/9ab2/11037-934s10bk.jpg",
       price: 549,
