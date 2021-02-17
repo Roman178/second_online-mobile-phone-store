@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Card, notification } from "antd";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import { Button } from "antd";
-import Item from "antd/lib/list/Item";
 import { addItemToCart } from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
 
@@ -14,7 +14,7 @@ const openNotification = (placement) => {
   });
 };
 
-function CardDevice(props) {
+function ListOfCardsDevices(props) {
   const checkPage = props.location.pathname.includes("/", 1);
 
   const [currentPageIsASubPage] = useState(checkPage);
@@ -29,7 +29,7 @@ function CardDevice(props) {
   return (
     <>
       {props.list.map((item = {}) => (
-        <div className="card-device-cont">
+        <div key={item.fullTitle} className="card-device-cont">
           <Card
             className="card-device"
             hoverable
@@ -38,17 +38,6 @@ function CardDevice(props) {
                 className="card-device-link-top"
                 key={item.id}
                 to={`/${item.brand}/${item.category}/${item.url}`}
-
-                // {{
-                //   pathname: currentPageIsASubPage
-                //     ? props.location.pathname + "/" + item.url
-                //     : props.location.pathname +
-                //       "/" +
-                //       item.category +
-                //       "/" +
-                //       item.url,
-                //   state: item,
-                // }}
               >
                 <img
                   className="card-device-img"
@@ -61,17 +50,6 @@ function CardDevice(props) {
             <NavLink
               key={item.id}
               to={`/${item.brand}/${item.category}/${item.url}`}
-
-              // {{
-              //   pathname: currentPageIsASubPage
-              //     ? props.location.pathname + "/" + item.url
-              //     : props.location.pathname +
-              //       "/" +
-              //       item.category +
-              //       "/" +
-              //       item.url,
-              //   state: item,
-              // }}
             >
               <Card.Meta
                 className="card-device-description"
@@ -98,6 +76,12 @@ function CardDevice(props) {
   );
 }
 
+ListOfCardsDevices.propTypes = {
+  cart: PropTypes.array.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
+  list: PropTypes.array.isRequired,
+};
+
 function mapStateToProps(state, ownProps) {
   return {
     cart: state.cart,
@@ -111,4 +95,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(CardDevice));
+)(withRouter(ListOfCardsDevices));

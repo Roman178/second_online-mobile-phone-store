@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Dropdown } from "antd";
 import { NavLink } from "react-router-dom";
 import PopUpCartWindow from "./PopUpCartWindow";
@@ -43,5 +44,11 @@ function CartBlockForHeader(props) {
     </Dropdown>
   );
 }
+
+CartBlockForHeader.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  onDeleteItem: PropTypes.func.isRequired,
+  cart: PropTypes.array.isRequired,
+};
 
 export default CartBlockForHeader;

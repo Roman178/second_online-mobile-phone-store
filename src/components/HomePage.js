@@ -1,12 +1,9 @@
 import React from "react";
-// import Carousel from "react-bootstrap/Carousel";
+import PropTypes from "prop-types";
 import { Carousel } from "antd";
-
 import { NavLink } from "react-router-dom";
-import iPhonePic from "../img/2.png";
-import xiaomiPic from "../img/4.png";
 import logo from "../img/logo.png";
-import CardDevice from "./common/CardDevice";
+import ListOfCardsDevices from "./common/ListOfCardsDevices";
 import { connect } from "react-redux";
 import huawei from "../img/Huawei-nova-3i.png";
 
@@ -16,20 +13,7 @@ class HomePage extends React.Component {
     this.refCarousel = React.createRef();
   }
 
-  componentDidMount() {
-    this.currenList = this.getSixRandomNums();
-  }
-
-  // getAllProducts() {
-  //   const allDevices = { ...this.props.apple, ...this.props.samsung };
-  //   const allProducts = [];
-  //   for (let key in allDevices) {
-  //     allProducts.push(...allDevices[key]);
-  //   }
-  //   return allProducts;
-  // }
-
-  getSixRandomNums() {
+  getSixRandomDevices() {
     const allDevices = { ...this.props.apple, ...this.props.samsung };
     const allProducts = [];
     for (let key in allDevices) {
@@ -45,9 +29,7 @@ class HomePage extends React.Component {
   }
 
   render() {
-    // const allProducts = this.getAllProducts();
-    // const currenList = this.getSixRandomNums();
-    console.log(this.currenList);
+    console.log(this.props);
     const carouselData = [
       {
         url:
@@ -109,7 +91,10 @@ class HomePage extends React.Component {
           >
             {carouselData.map((carouselSlide) => {
               return (
-                <div className="home-carousel-slide-ant">
+                <div
+                  key={carouselSlide.title}
+                  className="home-carousel-slide-ant"
+                >
                   <NavLink
                     className="home-carousel-slide-link"
                     to={carouselSlide.to}
@@ -136,7 +121,7 @@ class HomePage extends React.Component {
           <h2 className="h2-top-sales">Top sales!</h2>
           <div>
             <div className="list-devices-main-cont-homepage list-devices-main-cont">
-              <CardDevice list={this.getSixRandomNums()} />
+              <ListOfCardsDevices list={this.getSixRandomDevices()} />
             </div>
           </div>
         </section>
@@ -145,10 +130,13 @@ class HomePage extends React.Component {
   }
 }
 
+HomePage.propTypes = {
+  apple: PropTypes.object.isRequired,
+  samsung: PropTypes.object.isRequired,
+};
+
 function mapStateToProps(state) {
   return { apple: state.apple, samsung: state.samsung };
 }
 
 export default connect(mapStateToProps)(HomePage);
-
-// https://www.ixbt.com/img/n1/news/2021/1/1/11111_large.png

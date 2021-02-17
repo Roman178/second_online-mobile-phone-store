@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Menu } from "antd";
 import { withRouter } from "react-router";
@@ -11,20 +12,13 @@ class MobileMenu extends React.Component {
     super(props);
   }
 
-  // getGenerationsOfDevice(brand, device) {
-  //   const allTitles = this.props.brands[brand][device].map((d) => d.title);
-  //   const allNoRepeatedTitles = [...new Set(allTitles)];
-  //   return allNoRepeatedTitles;
-  // }
-
   render() {
     console.log(this.props);
     return (
       <Menu mode="inline" className="main-mobile-menu">
         {Object.keys(this.props.brands).map((brand) => {
           return (
-            <Menu.ItemGroup className="li-mobile-menu">
-              {/* ---------------------Apple, Samsung, Huawei, Honor, Xiaomi------------------------- */}
+            <Menu.ItemGroup key={brand} className="li-mobile-menu">
               <Menu.Item
                 className="submenu-title"
                 onClick={() => {
@@ -36,11 +30,10 @@ class MobileMenu extends React.Component {
                   {brand[0].toUpperCase() + brand.slice(1)}
                 </h5>
               </Menu.Item>
-              {/* ------------------------------------------------------------------------------------- */}
               <SubMenu key={brand} className="submenu-mobile">
                 {Object.keys(this.props.brands[brand]).map((device) => {
                   return (
-                    <Menu.ItemGroup>
+                    <Menu.ItemGroup key={device}>
                       <Menu.Item
                         className="submenu-title"
                         onClick={() => {
@@ -53,16 +46,12 @@ class MobileMenu extends React.Component {
                       <SubMenu key={device}>
                         {this.props.brands[brand][device].map((item) => {
                           return (
-                            <Menu.Item className="test-pest">
+                            <Menu.Item key={item.id} className="test-pest">
                               <NavLink
                                 onClick={this.props.onClose}
                                 to={`/${item.brand}/${item.category}/${item.url}`}
                               >
-                                {item.title +
-                                  " " +
-                                  item.memory +
-                                  " " +
-                                  item.color}
+                                {`${item.title} ${item.memory} ${item.color}`}
                               </NavLink>
                             </Menu.Item>
                           );
@@ -79,6 +68,11 @@ class MobileMenu extends React.Component {
     );
   }
 }
+
+MobileMenu.propTypes = {
+  brands: PropTypes.object.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state, ownProps) {
   return {

@@ -11,39 +11,72 @@ function createPath(obj) {
   return serverUrlImages + createUrlName(obj) + ".jpeg";
 }
 
-let id = 1;
+let id = 0;
 function createNewId() {
   return ++id;
+}
+
+class CreateItem {
+  constructor(brand, title, memory, color, price, category, ...images) {
+    this.id = createNewId();
+    this.brand = brand;
+    this.title = title;
+    this.memory = memory;
+    this.color = color;
+    this.price = price;
+    this.category = category;
+    this.imageFirst = images[0];
+    this.imageSecond = images[1];
+    this.imageThird = images[2];
+    this.imageFourth = images[3];
+    this.path = createPath(this);
+    this.url = createUrlName(this);
+    this.fullTitle = `${this.brand[0].toUpperCase() + this.brand.slice(1)} ${
+      this.title
+    } ${this.memory} ${this.color}`;
+  }
 }
 
 const apple = {
   iphones: [
     {
-      id: id,
-      brand: "apple",
-      title: "iPhone 11",
-      memory: "64 gb",
-      color: "black",
-      get path() {
-        return createPath(this);
-      },
-      get url() {
-        return createUrlName(this);
-      },
-      price: 999,
-      category: "iphones",
-      imageFirst:
+      ...new CreateItem(
+        "apple",
+        "iPhone 11",
+        "64 gb",
+        "black",
+        999,
+        "iphones",
         "https://cdn.svyaznoy.ru/upload/iblock/82d/iphone_11_b_4.jpg/resize/870x725/hq/",
-      imageSecond:
         "https://cdn.svyaznoy.ru/upload/iblock/2a4/iphone_11_b_3.jpg/resize/870x725/hq/",
-      imageThird:
         "https://cdn.svyaznoy.ru/upload/iblock/c8b/iphone_11_b_1.jpg/resize/870x725/hq/",
-      imageFourth:
-        "https://cdn.svyaznoy.ru/upload/iblock/989/iphone_11_b_2.jpg/resize/870x725/hq/",
+        "https://cdn.svyaznoy.ru/upload/iblock/989/iphone_11_b_2.jpg/resize/870x725/hq/"
+      ),
     },
+    // id: id,
+    // brand: "apple",
+    // title: "iPhone 11",
+    // memory: "64 gb",
+    // color: "black",
+    // get path() {
+    //   return createPath(this);
+    // },
+    // get url() {
+    //   return createUrlName(this);
+    // },
+    // price: 999,
+    // category: "iphones",
+    // imageFirst:
+    //   "https://cdn.svyaznoy.ru/upload/iblock/82d/iphone_11_b_4.jpg/resize/870x725/hq/",
+    // imageSecond:
+    //   "https://cdn.svyaznoy.ru/upload/iblock/2a4/iphone_11_b_3.jpg/resize/870x725/hq/",
+    // imageThird:
+    //   "https://cdn.svyaznoy.ru/upload/iblock/c8b/iphone_11_b_1.jpg/resize/870x725/hq/",
+    // imageFourth:
+    //   "https://cdn.svyaznoy.ru/upload/iblock/989/iphone_11_b_2.jpg/resize/870x725/hq/",
 
     {
-      id: createNewId(),
+      id: 5678,
       brand: "apple",
       title: "iPhone 11",
       memory: "128 gb",
@@ -101,7 +134,7 @@ const apple = {
       get url() {
         return createUrlName(this);
       },
-      price: 1200,
+      price: 999,
       category: "iphones",
       imageFirst:
         "https://cdn.svyaznoy.ru/upload/iblock/3ec/iphone_11_g_4.jpg/resize/870x725/hq/",

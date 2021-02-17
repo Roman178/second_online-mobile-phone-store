@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function SelectColor(props) {
   return (
@@ -6,6 +7,7 @@ function SelectColor(props) {
       <h6>Color</h6>
       {props.availableColors.map((color) => (
         <button
+          key={color}
           className="colors"
           style={{
             border:
@@ -22,5 +24,11 @@ function SelectColor(props) {
     </div>
   );
 }
+
+SelectColor.propTypes = {
+  availableColors: PropTypes.array.isRequired,
+  currentDeviceColor: PropTypes.string,
+  onChangeColor: PropTypes.func.isRequired,
+};
 
 export default SelectColor;

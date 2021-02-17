@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { Form, Input, Button, Select, Modal } from "antd";
-import { statesOfAmerica } from "../../USAstates";
+import { Modal } from "antd";
 import { cleanCart } from "../../redux/actions/cartActions";
 import { addOrderApi } from "../../api/ordersApi";
 import FormCheckout from "./FormCheckout";
-
-// const validateMessages = {
-//   required: "${label} is required!",
-// };
 
 const CheckoutPage = (props) => {
   const [americanState, setAmericanState] = useState("Ohio");
@@ -108,6 +104,11 @@ const CheckoutPage = (props) => {
       )}
     </>
   );
+};
+
+CheckoutPage.propTypes = {
+  cart: PropTypes.array.isRequired,
+  cleanCart: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {

@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router";
-import { Route, Switch } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/common/Header";
 import Sidebar from "../components/common/Sidebar";

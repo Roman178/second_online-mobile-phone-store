@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Row } from "antd";
-import CardDevice from "../common/CardDevice";
+import ListOfCardsDevices from "../common/ListOfCardsDevices";
 import { connect } from "react-redux";
 import { addItemToCart } from "../../redux/actions/cartActions";
 
@@ -24,28 +25,21 @@ function SamsungPage(props) {
       <h2>Samsung</h2>
       <Row>
         <section className="list-devices-main-cont">
-          <CardDevice
+          <ListOfCardsDevices
             list={arrOfAllSamsungGoods}
-            onAddToCart={handleAddToCart}
+            // onAddToCart={handleAddToCart}
           />
         </section>
-
-        {/* {arrOfAllSamsungGoods.map((item) => (
-          <CardDevice
-            key={item.id}
-            onAddToCart={() => handleAddToCart(item)}
-            id={item.id}
-            url={item.url}
-            title={item.title}
-            path={item.path}
-            // description={item.description}
-            price={"$" + item.price}
-          />
-        ))} */}
       </Row>
     </div>
   );
 }
+
+SamsungPage.propTypes = {
+  samsung: PropTypes.object.isRequired,
+  cart: PropTypes.array.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state, ownProps) {
   return {

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Image } from "antd";
 
@@ -52,7 +53,7 @@ function ImageCarouselDevice(props) {
       <div className="container-product-slider">
         <div className={cssClass}>
           {props.arrUrlsImages.map((url) => (
-            <div className="img-container">
+            <div key={url} className="img-container">
               <Image
                 height={"100%"}
                 width={"100%"}
@@ -72,6 +73,7 @@ function ImageCarouselDevice(props) {
 
         {props.arrUrlsImages.map((url) => (
           <button
+            key={url}
             className="img-container-btn"
             onClick={() => setCssClass(moveImgByClickOnImg(url))}
           >
@@ -87,5 +89,10 @@ function ImageCarouselDevice(props) {
     </div>
   );
 }
+
+ImageCarouselDevice.propTypes = {
+  objUrlsImages: PropTypes.object.isRequired,
+  arrUrlsImages: PropTypes.array.isRequired,
+};
 
 export default ImageCarouselDevice;

@@ -12,16 +12,7 @@ const MenuForHeader = (props) => {
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
-        <NavLink
-          // activeStyle={{
-          //   backgroundColor: "#1890ff",
-          //   color: "#fff",
-          //   transition: "background-color 0.6s ease-out",
-          // }}
-          to="/apple"
-        >
-          Apple
-        </NavLink>
+        <NavLink to="/apple">Apple</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
         <NavLink to="/samsung">Samsung</NavLink>

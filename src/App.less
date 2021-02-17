@@ -352,6 +352,48 @@ button {
   }
 }
 
+.pop-up-window {
+  border: 2px solid #f0f2f5;
+  z-index: 9999;
+  background-color: white;
+  .pop-up-window-ul {
+    margin: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0px;
+    padding: 0;
+    max-height: 400px;
+    border: 2px solid #f0f2f5;
+    border-bottom: none;
+    width: 400px;
+    background-color: white;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    .pop-up-window-ul-title {
+      border-bottom: 2px solid #f0f2f5;
+    }
+    .pop-up-window-li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #f0f2f5;
+      .pop-up-window-li-delete-btn {
+        margin-right: 5%;
+      }
+    }
+  }
+  .pop-up-window-subtotal {
+    border-top: 3px solid #f0f2f5;
+    margin: 0;
+  }
+  .pop-up-window-cont-viewcart-checkout {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+  }
+}
+
 // Checkout Page
 
 .empty-cart-h5 {

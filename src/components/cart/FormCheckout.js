@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Form, Input, Button, Select } from "antd";
 import { statesOfAmerica } from "../../USAstates";
 
@@ -62,7 +63,9 @@ function FormCheckout(props) {
           onChange={(value) => props.setAmericanStateProp(value)}
         >
           {statesOfAmerica.map((state) => (
-            <Select.Option value={state}>{state}</Select.Option>
+            <Select.Option key={state} value={state}>
+              {state}
+            </Select.Option>
           ))}
         </Select>
       </Form.Item>
@@ -131,5 +134,10 @@ function FormCheckout(props) {
     </Form>
   );
 }
+
+FormCheckout.propTypes = {
+  onFinish: PropTypes.func.isRequired,
+  setAmericanStateProp: PropTypes.func.isRequired,
+};
 
 export default FormCheckout;

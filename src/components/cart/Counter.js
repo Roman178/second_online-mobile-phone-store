@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Button } from "antd";
 import "./InputTypeNumberDeleteArrows.css";
 
@@ -54,6 +55,11 @@ const Counter = (props) => {
       </Button>
     </div>
   );
+};
+
+Counter.propTypes = {
+  onChangeQuantity: PropTypes.func.isRequired,
+  quantity: PropTypes.number.isRequired,
 };
 
 export default Counter;

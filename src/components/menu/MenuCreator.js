@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { Menu } from "antd";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
@@ -12,28 +13,6 @@ function MenuCreator(props) {
   useEffect(() => {
     return setTrueOrFalseSubPage(checkPage);
   }, [props.location]);
-
-  // Pass the correct link to NavLink's "to" depends on current url (e.g. "/apple" or "/apple/ipads")
-  // function getCorrectLink(item) {
-  //   if (!currentPageIsASubPage) {
-  //     return props.location.pathname + "/" + item.category + "/" + item.url;
-  //   }
-  //   if (
-  //     currentPageIsASubPage &&
-  //     props.location.pathname.includes(item.category)
-  //   ) {
-  //     return props.location.pathname + "/" + item.url;
-  //   } else {
-  //     const currCategory = props.brandDevices.find((dev) =>
-  //       props.location.pathname.includes(dev)
-  //     );
-  //     const correctCategory = props.location.pathname.replace(
-  //       currCategory,
-  //       item.category
-  //     );
-  //     return correctCategory + "/" + item.url;
-  //   }
-  // }
 
   function getCorrectSubmenuTitle(device) {
     switch (device) {
@@ -62,17 +41,12 @@ function MenuCreator(props) {
                 (i) => i.title === gen
               );
               return (
-                <SubMenu title={gen}>
+                <SubMenu key={gen} title={gen}>
                   {devicesOfCurrGen.map((item) => (
                     <Menu.Item key={item.id}>
                       <NavLink
                         key={item.id}
                         to={`/${item.brand}/${item.category}/${item.url}`}
-
-                        // {(location) => ({
-                        //   ...location,
-                        //   pathname: getCorrectLink(item),
-                        // })}
                       >
                         {item.title + " " + item.memory + " " + item.color}
                       </NavLink>
@@ -87,5 +61,14 @@ function MenuCreator(props) {
     </Menu>
   );
 }
+
+MenuCreator.propTypes = {
+  currBrandUrl: PropTypes.string.isRequired,
+  brandDevices: PropTypes.array.isRequired,
+  generationsOfDevices: PropTypes.object.isRequired,
+  iphones: PropTypes.array,
+  ipads: PropTypes.array,
+  macbooks: PropTypes.array,
+};
 
 export default withRouter(MenuCreator);

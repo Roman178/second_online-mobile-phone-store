@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import SelectColor from "./device_page/SelectColor";
@@ -78,7 +79,7 @@ function DevicePage(props) {
   }
   const objUrlsImages = getObjUrlsImages();
 
-  function onChange(e) {
+  function handleChangeMemory(e) {
     const nextDevice = reallyTheSameDevices.find(
       (item) =>
         parseInt(item.memory, 10) === e.target.value &&
@@ -120,7 +121,7 @@ function DevicePage(props) {
         />
         <div className="features-block">
           <h1 className="features-block-h1">
-            {`${props.currentDevice.brand} ${props.currentDevice.title} ${props.currentDevice.memory} ${props.currentDevice.color}`}
+            {`${props.currentDevice.fullTitle}`}
           </h1>
 
           <Button
@@ -133,7 +134,7 @@ function DevicePage(props) {
           </Button>
 
           <SelectMemory
-            onChange={onChange}
+            onChangeMemory={handleChangeMemory}
             currentMemory={parseInt(props.currentDevice.memory)}
             availableMemory={arrOfAvailableMemoryDevice}
           />
@@ -154,6 +155,12 @@ function DevicePage(props) {
     </>
   );
 }
+
+DevicePage.propTypes = {
+  theReduxStore: PropTypes.object.isRequired,
+  currentDevice: PropTypes.object.isRequired,
+  cart: PropTypes.array.isRequired,
+};
 
 function mapStateToProps(state, ownProps) {
   return {

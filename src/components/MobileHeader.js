@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { MenuUnfoldOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Drawer } from "antd";
 import { NavLink } from "react-router-dom";
@@ -44,5 +45,10 @@ function MobileHeader(props) {
     </div>
   );
 }
+
+MobileHeader.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  options: PropTypes.array.isRequired,
+};
 
 export default MobileHeader;

@@ -1,5 +1,5 @@
 import React from "react";
-import "../DevicePage.css";
+import PropTypes from "prop-types";
 
 const CharacteristicsTable = (props) => {
   return (
@@ -39,6 +39,10 @@ const CharacteristicsTable = (props) => {
       </ul>
     </div>
   );
+};
+
+CharacteristicsTable.propTypes = {
+  currentDevice: PropTypes.object.isRequired,
 };
 
 export default CharacteristicsTable;

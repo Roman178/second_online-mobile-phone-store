@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Layout, Menu, Dropdown, Drawer } from "antd";
+import { Layout } from "antd";
 import MenuForHeader from "../common/MenuForHeader";
-import {
-  CodeSandboxCircleFilled,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
 import { loadApple, loadSamsung } from "../../redux/actions/appleActions";
 import { deleteItemFromCart } from "../../redux/actions/cartActions";
-// import CardForCart from "../cart/CardForCart";
-import PopUpCartWindow from "../cart/PopUpCartWindow";
-import { DeleteOutlined } from "@ant-design/icons";
-import { MenuUnfoldOutlined } from "@ant-design/icons";
-import MobileMenu from "../menu/MobileMenu";
 import Search from "../Search";
-import { Button, AutoComplete } from "antd";
-import logo from "../../img/logo.png";
 import CartBlockForHeader from "../cart/CartBlockForHeader";
 import MobileHeader from "../MobileHeader";
 
@@ -25,13 +14,10 @@ const HeaderAntd = Layout.Header;
 
 function Header(props) {
   const [quantity, setQuantity] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [visibleDrawer, setVisibleDrawer] = useState(false);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     props.loadApple();
-    // props.loadCart();
     props.loadSamsung();
   }, []);
 
@@ -72,106 +58,25 @@ function Header(props) {
     <>
       <HeaderAntd className="main-header">
         <MenuForHeader />
-
         <Search options={options} />
-
-        {/* <AutoComplete
-          allowClear={true}
-          options={options}
-          filterOption={(inputValue, option) =>
-            option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-          }
-          style={{
-            width: 400,
-          }}
-          onSelect={(foundDevice) => {
-            const objOfFoundDevice = options.find(
-              (d) => d.value === foundDevice
-            );
-            return props.history.push(
-              `/${objOfFoundDevice.brand.toLowerCase()}/${
-                objOfFoundDevice.category
-              }/${objOfFoundDevice.url}`
-            );
-          }}
-          placeholder="iPhone 11"
-        /> */}
-
         <CartBlockForHeader
           quantity={quantity}
           onDeleteItem={handleDeleteItem}
           cart={cart}
         />
-
-        {/* <Dropdown
-          quantity={quantity}
-          visible={visible}
-          onVisibleChange={(flag) => setVisible(flag)}
-          overlay={() =>
-            quantity === 0 ? (
-              <h5
-                style={{
-                  border: "1px solid gray",
-                  width: "400px",
-                  height: "100px",
-                  zIndex: 9999,
-                  backgroundColor: "white",
-                }}
-              >
-                No products in the Cart
-              </h5>
-            ) : (
-              <PopUpCartWindow cart={cart} onDeleteItem={handleDeleteItem} />
-            )
-          }
-        >
-          <NavLink to="/cart">
-            <div>
-              {quantity}
-              <ShoppingCartOutlined
-                style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
-              />
-            </div>
-          </NavLink>
-        </Dropdown> */}
       </HeaderAntd>
-
       <MobileHeader quantity={quantity} options={options} />
-
-      {/* <div className="mobile-header">
-        <button
-          onClick={() => setVisibleDrawer(true)}
-          className="nav-button-mobile"
-        >
-          <MenuUnfoldOutlined className="nav-button-icon" />
-        </button>
-        <Drawer
-          width={270}
-          title={
-            <NavLink onClick={() => setVisibleDrawer(false)} to="/">
-              <img className="logo-img" src={logo} />
-            </NavLink>
-          }
-          placement="left"
-          closable={true}
-          onClose={() => setVisibleDrawer(false)}
-          visible={visibleDrawer}
-          key="left"
-        >
-          <MobileMenu onClose={() => setVisibleDrawer(false)} />
-        </Drawer>
-        <NavLink to="/cart" className="mobile-cart-btn">
-          <div>
-            {quantity}
-            <ShoppingCartOutlined
-              style={{ fontSize: "170%", color: "rgba(255, 255, 255, 0.65)" }}
-            />
-          </div>
-        </NavLink>
-      </div> */}
     </>
   );
 }
+
+Header.propTypes = {
+  cart: PropTypes.array.isRequired,
+  allProducts: PropTypes.array.isRequired,
+  loadApple: PropTypes.func.isRequired,
+  loadSamsung: PropTypes.func.isRequired,
+  deleteItemFromCart: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state, ownProps) {
   function getArrOfAllProducts() {
@@ -203,7 +108,6 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  // loadCart,
   loadApple,
   loadSamsung,
   deleteItemFromCart,

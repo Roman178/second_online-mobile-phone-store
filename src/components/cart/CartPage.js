@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  // loadCart,
   deleteItemFromCart,
   updateCart,
 } from "../../redux/actions/cartActions";
@@ -14,7 +14,6 @@ class CartPage extends React.Component {
     super(props);
     this.state = { cart: [] };
 
-    // this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
     this.componentCleanup = this.componentCleanup.bind(this);
   }
 
@@ -23,7 +22,6 @@ class CartPage extends React.Component {
   }
 
   async componentDidMount() {
-    // await this.props.loadCart().catch((error) => console.error(error));
     this.setState({ cart: this.props.cart });
     window.addEventListener("beforeunload", this.componentCleanup);
   }
@@ -31,7 +29,6 @@ class CartPage extends React.Component {
   componentWillUnmount() {
     this.componentCleanup();
     window.removeEventListener("beforeunload", this.componentCleanup);
-    // this.props.updateCart(this.state.cart);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -72,12 +69,12 @@ class CartPage extends React.Component {
           <div className="cart-list-block">
             {this.state.cart.map((item) => (
               <CardForCart
+                key={item.id}
                 item={item}
                 onDeleteItem={() => this.handleDeleteItem(item)}
                 onChangeQuantity={(count) =>
                   this.handleChangeQuantity(item, count)
                 }
-                quantity={item.quantity}
               />
             ))}
           </div>
@@ -125,6 +122,12 @@ class CartPage extends React.Component {
   }
 }
 
+CartPage.propTypes = {
+  cart: PropTypes.array.isRequired,
+  deleteItemFromCart: PropTypes.func.isRequired,
+  updateCart: PropTypes.func.isRequired,
+};
+
 function mapStateToProps(state, ownProps) {
   return {
     cart: state.cart,
@@ -132,7 +135,6 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  // loadCart,
   deleteItemFromCart,
   updateCart,
 };
