@@ -7,10 +7,6 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 function ApplePage(props) {
-  function addBrandToObj(arrOfDevices) {
-    return { ...arrOfDevices, brand: "apple" };
-  }
-
   const arrOfAllAppleGoods = Object.values(props.apple).flat();
 
   function checkUrl() {
@@ -21,10 +17,10 @@ function ApplePage(props) {
         return props.apple.iphones;
       case "/apple/ipads":
         return props.apple.ipads;
-      case "/apple/macbooks":
-        return props.apple.macbooks;
+      // case "/apple/macbooks":
+      //   return props.apple.macbooks;
       default:
-        return undefined;
+        return;
     }
   }
   return (

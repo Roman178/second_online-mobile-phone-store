@@ -29,7 +29,7 @@ function ListOfCardsDevices(props) {
   return (
     <>
       {props.list.map((item = {}) => (
-        <div key={item.fullTitle} className="card-device-cont">
+        <div className="card-device-cont">
           <Card
             className="card-device"
             hoverable

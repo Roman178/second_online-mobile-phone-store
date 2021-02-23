@@ -4,7 +4,13 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { Layout } from "antd";
 import MenuForHeader from "../common/MenuForHeader";
-import { loadApple, loadSamsung } from "../../redux/actions/appleActions";
+import {
+  loadApple,
+  loadSamsung,
+  loadHonor,
+  loadXiaomi,
+  loadHuawei,
+} from "../../redux/actions/appleActions";
 import { deleteItemFromCart } from "../../redux/actions/cartActions";
 import Search from "../Search";
 import CartBlockForHeader from "../cart/CartBlockForHeader";
@@ -19,6 +25,9 @@ function Header(props) {
   useEffect(() => {
     props.loadApple();
     props.loadSamsung();
+    props.loadHonor();
+    props.loadHuawei();
+    props.loadXiaomi();
   }, []);
 
   useEffect(() => {
@@ -75,6 +84,10 @@ Header.propTypes = {
   allProducts: PropTypes.array.isRequired,
   loadApple: PropTypes.func.isRequired,
   loadSamsung: PropTypes.func.isRequired,
+  loadXiaomi: PropTypes.func.isRequired,
+  loadHonor: PropTypes.func.isRequired,
+  loadHuawei: PropTypes.func.isRequired,
+
   deleteItemFromCart: PropTypes.func.isRequired,
 };
 
@@ -110,6 +123,9 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   loadApple,
   loadSamsung,
+  loadXiaomi,
+  loadHonor,
+  loadHuawei,
   deleteItemFromCart,
 };
 

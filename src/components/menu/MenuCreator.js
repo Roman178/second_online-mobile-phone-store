@@ -22,6 +22,20 @@ function MenuCreator(props) {
         return "iPad";
       case "macbooks":
         return "Macbook";
+      case "galaxys":
+        return "Galaxy S";
+      case "galaxya":
+        return "Galaxy A";
+      case "galaxynote":
+        return "Galaxy Note";
+      case "galaxytab":
+        return "Galxy Tab";
+      case "poco":
+        return "Poco";
+      case "modelp":
+        return "P Model";
+      case "nine":
+        return "9";
       default:
         return;
     }
@@ -68,7 +82,7 @@ MenuCreator.propTypes = {
   generationsOfDevices: PropTypes.object.isRequired,
   iphones: PropTypes.array,
   ipads: PropTypes.array,
-  macbooks: PropTypes.array,
+  // macbooks: PropTypes.array,
 };
 
 export default withRouter(MenuCreator);

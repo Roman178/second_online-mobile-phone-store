@@ -6,19 +6,29 @@ import { connect } from "react-redux";
 import { addItemToCart } from "../../redux/actions/cartActions";
 
 function SamsungPage(props) {
-  const handleAddToCart = (item) => {
-    if (!props.cart.find((i) => i.id === item.id)) {
-      props.addItemToCart({ ...item, quantity: 1, cost: item.price });
+  const arrOfAllSamsungGoods = Object.values(props.samsung).flat();
+
+  function checkUrl() {
+    switch (props.location.pathname) {
+      case "/samsung":
+        return arrOfAllSamsungGoods;
+      case "/samsung/galaxys":
+        return props.samsung.galaxys;
+      case "/samsung/galaxya":
+        return props.samsung.galaxya;
+      case "/samsung/galaxynote":
+        return props.samsung.galaxynote;
+      case "/samsung/galaxytab":
+        return props.samsung.galaxytab;
+
+      // case "/apple/ipads":
+      //   return props.apple.ipads;
+      // case "/apple/macbooks":
+      //   return props.apple.macbooks;
+      default:
+        return;
     }
-  };
-
-  function addBrandToObj(arrOfDevices) {
-    return { ...arrOfDevices, brand: "samsung" };
   }
-
-  const arrOfAllSamsungGoods = Object.values(props.samsung)
-    .flat()
-    .map((d) => addBrandToObj(d));
 
   return (
     <div>
@@ -26,7 +36,7 @@ function SamsungPage(props) {
       <Row>
         <section className="list-devices-main-cont">
           <ListOfCardsDevices
-            list={arrOfAllSamsungGoods}
+            list={checkUrl()}
             // onAddToCart={handleAddToCart}
           />
         </section>

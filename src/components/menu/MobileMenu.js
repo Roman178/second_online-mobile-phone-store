@@ -79,9 +79,9 @@ function mapStateToProps(state, ownProps) {
     brands: {
       apple: state.apple,
       samsung: state.samsung,
-      huawei: {},
-      honor: {},
-      xiaomi: {},
+      huawei: state.huawei,
+      honor: state.honor,
+      xiaomi: state.xiaomi,
     },
   };
 }

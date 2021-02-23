@@ -14,15 +14,21 @@ class HomePage extends React.Component {
   }
 
   getSixRandomDevices() {
-    const allDevices = { ...this.props.apple, ...this.props.samsung };
+    const allDevices = {
+      ...this.props.apple,
+      ...this.props.samsung,
+      ...this.props.huawei,
+      ...this.props.honor,
+      ...this.props.xiaomi,
+    };
     const allProducts = [];
     for (let key in allDevices) {
       allProducts.push(...allDevices[key]);
     }
     const sixRandomNums = [];
     while (sixRandomNums.length < 6) {
-      let num = parseInt((Math.random() * 20).toFixed());
-      if (num > 14) continue;
+      let num = parseInt((Math.random() * 120).toFixed());
+      if (num > 106) continue;
       sixRandomNums.push(num);
     }
     return sixRandomNums.map((num) => allProducts[num]);
@@ -133,10 +139,19 @@ class HomePage extends React.Component {
 HomePage.propTypes = {
   apple: PropTypes.object.isRequired,
   samsung: PropTypes.object.isRequired,
+  xiaomi: PropTypes.object.isRequired,
+  honor: PropTypes.object.isRequired,
+  huawei: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
-  return { apple: state.apple, samsung: state.samsung };
+  return {
+    apple: state.apple,
+    samsung: state.samsung,
+    xiaomi: state.xiaomi,
+    honor: state.honor,
+    huawei: state.huawei,
+  };
 }
 
 export default connect(mapStateToProps)(HomePage);
