@@ -14,6 +14,10 @@ function HonorPage(props) {
         return arrOfAllHonorGoods;
       case "/honor/nine":
         return props.honor.nine;
+      case "/honor/ten":
+        return props.honor.ten;
+      case "/honor/thirty":
+        return props.honor.thirty;
       default:
         return;
     }

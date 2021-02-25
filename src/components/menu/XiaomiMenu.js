@@ -9,6 +9,8 @@ const XiaomiMenu = (props) => {
 
   const generationsOfXiaomiDevices = {
     poco: [...new Set(props.poco.map((i) => i.title))],
+    redmi: [...new Set(props.redmi.map((i) => i.title))],
+    mi: [...new Set(props.mi.map((i) => i.title))],
   };
 
   return (
@@ -17,6 +19,8 @@ const XiaomiMenu = (props) => {
       brandDevices={xiaomiDevices}
       generationsOfDevices={generationsOfXiaomiDevices}
       poco={props.poco}
+      redmi={props.redmi}
+      mi={props.mi}
     />
   );
 };
@@ -24,6 +28,8 @@ const XiaomiMenu = (props) => {
 XiaomiMenu.propTypes = {
   xiaomi: PropTypes.object.isRequired,
   poco: PropTypes.array.isRequired,
+  redmi: PropTypes.array.isRequired,
+  mi: PropTypes.array.isRequired,
 };
 
 export default withRouter(XiaomiMenu);

@@ -4,10 +4,9 @@ export default {
   apple: {
     iphones: [],
     ipads: [],
-    // macbooks: []
   },
   samsung: { galaxys: [], galaxya: [], galaxynote: [], galaxytab: [] },
-  xiaomi: { poco: [] },
-  honor: { nine: [] },
-  huawei: { modelp: [] },
+  xiaomi: { poco: [], redmi: [], mi: [] },
+  honor: { nine: [], ten: [], thirty: [] },
+  huawei: { modelp: [], modely: [] },
 };

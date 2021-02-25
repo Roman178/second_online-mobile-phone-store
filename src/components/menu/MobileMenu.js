@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Menu } from "antd";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
+import { getCorrectSubmenuTitle } from "./MenuCreator";
 
 const { SubMenu } = Menu;
 
@@ -41,7 +42,9 @@ class MobileMenu extends React.Component {
                           return this.props.onClose();
                         }}
                       >
-                        <h6 className="h6-mobile-menu">{device}</h6>
+                        <h6 className="h6-mobile-menu">
+                          {getCorrectSubmenuTitle(device)}
+                        </h6>
                       </Menu.Item>
                       <SubMenu key={device}>
                         {this.props.brands[brand][device].map((item) => {

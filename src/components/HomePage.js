@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Carousel } from "antd";
 import { NavLink } from "react-router-dom";
-import logo from "../img/logo.png";
+// import logo from "../img/logo.png";
 import ListOfCardsDevices from "./common/ListOfCardsDevices";
 import { connect } from "react-redux";
 import huawei from "../img/Huawei-nova-3i.png";
+import xiaomi from "../img/Xiaomi-Mi-10T.png";
+
+export const logo = "http://localhost:3001/home-page-images/logo.png";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -27,8 +30,8 @@ class HomePage extends React.Component {
     }
     const sixRandomNums = [];
     while (sixRandomNums.length < 6) {
-      let num = parseInt((Math.random() * 120).toFixed());
-      if (num > 106) continue;
+      let num = parseInt((Math.random() * 170).toFixed());
+      if (num > 153) continue;
       sixRandomNums.push(num);
     }
     return sixRandomNums.map((num) => allProducts[num]);
@@ -38,47 +41,21 @@ class HomePage extends React.Component {
     console.log(this.props);
     const carouselData = [
       {
-        url:
-          "https://i01.appmifile.com/webfile/globalimg/gaoruijia/poco-x3-nfc-blue.png",
+        url: "http://localhost:3001/home-page-images/poco-x3-nfc-blue.png",
         title: "Amazing Poco X3",
-        to: "/xiaomi",
+        to: "/xiaomi/poco/poco-x3-128-gb-blue",
       },
       {
-        url: "https://www.ixbt.com/img/n1/news/2021/1/1/11111_large.png",
-        title: "Great Xiaomi Mi 11",
-        to: "/xiaomi",
+        url: "http://localhost:3001/home-page-images/Xiaomi-Mi-10T.png",
+        title: "Great Xiaomi Mi 10T Pro",
+        to: "/xiaomi/mi/mi-10t-pro-256-gb-silver",
       },
       {
-        url: huawei,
-        title: "Unbelievable Huawei Nova 3",
-        to: "/huawei",
+        url: "http://localhost:3001/home-page-images/huawei-p40-pro.png",
+        title: "Unbelievable Huawei P40 Pro",
+        to: "/huawei/modelp/p40-pro-256-gb-black",
       },
     ];
-
-    // function getAllProducts() {
-    //   const test = { ...this.props.apple, ...this.props.samsung };
-    //   let arr = [];
-    //   for (let key in test) {
-    //     arr.push(...test[key]);
-    //   }
-    //   return arr;
-    // }
-    // const allProducts = getAllProducts();
-    // console.log(allProducts.length);
-
-    // function getSixRandomDevices() {
-    //   const arr = [];
-    //   while (arr.length < 6) {
-    //     let num = parseInt((Math.random() * 20).toFixed());
-    //     if (num > 14) continue;
-    //     arr.push(num);
-    //   }
-    //   return arr.map((index) => allProducts[index]);
-    // }
-    // const test2 = getSixRandomDevices();
-    // // const topSalesSixDevices = getSixRandomDevices();
-    // // let num = parseInt((Math.random() * 20).toFixed());
-    // console.log(test2);
 
     return (
       <>
@@ -89,7 +66,7 @@ class HomePage extends React.Component {
         </section>
         <section className="home-carousel-cont">
           <Carousel
-            autoplay
+            // autoplay
             dots={{ className: "carousel-dots" }}
             className="home-carousel"
             ref={this.refCarousel}
@@ -111,8 +88,17 @@ class HomePage extends React.Component {
                       </h4>
                       <div className="home-carousel-slide-cont-img">
                         <img
+                          style={{
+                            width:
+                              carouselSlide.title === "Amazing Poco X3"
+                                ? "95%"
+                                : carouselSlide.title ===
+                                  "Great Xiaomi Mi 10T Pro"
+                                ? "130%"
+                                : "",
+                          }}
                           className="home-carousel-slide-img"
-                          alt="iPhone SE"
+                          alt={carouselSlide.title}
                           src={carouselSlide.url}
                         />
                       </div>

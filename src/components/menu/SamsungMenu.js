@@ -53,4 +53,12 @@ function SamsungMenu(props) {
   );
 }
 
+SamsungMenu.propTypes = {
+  samsung: PropTypes.object.isRequired,
+  galaxys: PropTypes.array.isRequired,
+  galaxya: PropTypes.array.isRequired,
+  galaxynote: PropTypes.array.isRequired,
+  galaxytab: PropTypes.array.isRequired,
+};
+
 export default SamsungMenu;

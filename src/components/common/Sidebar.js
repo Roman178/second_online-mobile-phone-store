@@ -41,17 +41,25 @@ class Sidebar extends React.Component {
         {this.props.location.pathname.startsWith("/xiaomi") && (
           <XiaomiMenu
             poco={this.props.xiaomi.poco}
+            redmi={this.props.xiaomi.redmi}
+            mi={this.props.xiaomi.mi}
             xiaomi={this.props.xiaomi}
           />
         )}
 
         {this.props.location.pathname.startsWith("/honor") && (
-          <HonorMenu nine={this.props.honor.nine} honor={this.props.honor} />
+          <HonorMenu
+            nine={this.props.honor.nine}
+            ten={this.props.honor.ten}
+            thirty={this.props.honor.thirty}
+            honor={this.props.honor}
+          />
         )}
 
         {this.props.location.pathname.startsWith("/huawei") && (
           <HuaweiMenu
             modelp={this.props.huawei.modelp}
+            modely={this.props.huawei.modely}
             huawei={this.props.huawei}
           />
         )}

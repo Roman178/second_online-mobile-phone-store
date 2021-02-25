@@ -14,33 +14,6 @@ function MenuCreator(props) {
     return setTrueOrFalseSubPage(checkPage);
   }, [props.location]);
 
-  function getCorrectSubmenuTitle(device) {
-    switch (device) {
-      case "iphones":
-        return "iPhone";
-      case "ipads":
-        return "iPad";
-      case "macbooks":
-        return "Macbook";
-      case "galaxys":
-        return "Galaxy S";
-      case "galaxya":
-        return "Galaxy A";
-      case "galaxynote":
-        return "Galaxy Note";
-      case "galaxytab":
-        return "Galxy Tab";
-      case "poco":
-        return "Poco";
-      case "modelp":
-        return "P Model";
-      case "nine":
-        return "9";
-      default:
-        return;
-    }
-  }
-
   return (
     <Menu mode="vertical" style={{ height: "100%" }}>
       {props.brandDevices.map((device) => {
@@ -74,6 +47,43 @@ function MenuCreator(props) {
       })}
     </Menu>
   );
+}
+
+export function getCorrectSubmenuTitle(device) {
+  switch (device) {
+    case "iphones":
+      return "iPhone";
+    case "ipads":
+      return "iPad";
+    case "macbooks":
+      return "Macbook";
+    case "galaxys":
+      return "Galaxy S";
+    case "galaxya":
+      return "Galaxy A";
+    case "galaxynote":
+      return "Galaxy Note";
+    case "galaxytab":
+      return "Galxy Tab";
+    case "poco":
+      return "Poco";
+    case "redmi":
+      return "Redmi";
+    case "mi":
+      return "Mi";
+    case "modelp":
+      return "P Model";
+    case "modely":
+      return "Y model";
+    case "nine":
+      return "9";
+    case "ten":
+      return "10";
+    case "thirty":
+      return "30";
+    default:
+      return;
+  }
 }
 
 MenuCreator.propTypes = {

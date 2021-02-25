@@ -9,6 +9,8 @@ const HonorMenu = (props) => {
 
   const generationsOfHonorDevices = {
     nine: [...new Set(props.nine.map((i) => i.title))],
+    ten: [...new Set(props.ten.map((i) => i.title))],
+    thirty: [...new Set(props.thirty.map((i) => i.title))],
   };
 
   return (
@@ -17,6 +19,8 @@ const HonorMenu = (props) => {
       brandDevices={honorDevices}
       generationsOfDevices={generationsOfHonorDevices}
       nine={props.nine}
+      ten={props.ten}
+      thirty={props.thirty}
     />
   );
 };
@@ -24,6 +28,8 @@ const HonorMenu = (props) => {
 HonorMenu.propTypes = {
   honor: PropTypes.object.isRequired,
   nine: PropTypes.array.isRequired,
+  ten: PropTypes.array.isRequired,
+  thirty: PropTypes.array.isRequired,
 };
 
 export default withRouter(HonorMenu);

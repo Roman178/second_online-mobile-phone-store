@@ -27,9 +27,6 @@ function DevicePage(props) {
   const theSameTypesOfDevices = getArrSameTypesOfDevices();
 
   function getCurrentDevice() {
-    // const arrCurrentDevice = props.location.pathname.split("/");
-    // const arrTheSameDevices =
-    //   props.theReduxStore[arrCurrentDevice[1]][arrCurrentDevice[2]];
     const objCurrentDevice = theSameTypesOfDevices.find(
       (item) => item.url === props.match.params.urlName
     );
@@ -123,6 +120,7 @@ function DevicePage(props) {
           <h1 className="features-block-h1">
             {`${props.currentDevice.fullTitle}`}
           </h1>
+          <h2>{`$${props.currentDevice.price}`}</h2>
 
           <Button
             className="features-block-btn-addtocart"

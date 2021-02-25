@@ -9,6 +9,7 @@ const HuaweiMenu = (props) => {
 
   const generationsOfHuaweiDevices = {
     modelp: [...new Set(props.modelp.map((i) => i.title))],
+    modely: [...new Set(props.modely.map((i) => i.title))],
   };
 
   return (
@@ -17,6 +18,7 @@ const HuaweiMenu = (props) => {
       brandDevices={huaweiDevices}
       generationsOfDevices={generationsOfHuaweiDevices}
       modelp={props.modelp}
+      modely={props.modely}
     />
   );
 };
@@ -24,6 +26,7 @@ const HuaweiMenu = (props) => {
 HuaweiMenu.propTypes = {
   huawei: PropTypes.object.isRequired,
   modelp: PropTypes.array.isRequired,
+  modely: PropTypes.array.isRequired,
 };
 
 export default withRouter(HuaweiMenu);

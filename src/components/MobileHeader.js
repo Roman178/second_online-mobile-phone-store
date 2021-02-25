@@ -4,7 +4,8 @@ import { MenuUnfoldOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Drawer } from "antd";
 import { NavLink } from "react-router-dom";
 import MobileMenu from "./menu/MobileMenu";
-import logo from "../img/logo.png";
+// import logo from "../img/logo.png";
+import { logo } from "./HomePage";
 import Search from "./Search";
 
 function MobileHeader(props) {

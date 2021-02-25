@@ -16,7 +16,14 @@ const CheckoutPage = (props) => {
       subtotal: subtotal,
       stateTax: stateTax,
       total: total,
-      order: props.cart,
+      order: props.cart.map((item) => {
+        let updatedItem = {};
+        for (let key in item) {
+          if (key.startsWith("image") || key === "path") continue;
+          updatedItem[key] = item[key];
+        }
+        return updatedItem;
+      }),
     });
     props.cleanCart(props.cart);
     success();

@@ -10,8 +10,11 @@ const PopUpCartWindow = (props) => (
       <p className="pop-up-window-ul-title">Recent add item(s)</p>
       {props.cart.map((item) => (
         <li key={item.id} className="pop-up-window-li">
-          <NavLink to={"/" + item.brand + "/" + item.category + "/" + item.url}>
-            <img width="150px" src={item.path}></img>
+          <NavLink
+            className="pop-up-window-li-link"
+            to={"/" + item.brand + "/" + item.category + "/" + item.url}
+          >
+            <img className="pop-up-window-li-link-img" src={item.path}></img>
           </NavLink>
           <div>
             <p>

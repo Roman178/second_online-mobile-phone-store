@@ -14,6 +14,10 @@ function XiaomiPage(props) {
         return arrOfAllXiaomiGoods;
       case "/xiaomi/poco":
         return props.xiaomi.poco;
+      case "/xiaomi/redmi":
+        return props.xiaomi.redmi;
+      case "/xiaomi/mi":
+        return props.xiaomi.mi;
       default:
         return;
     }

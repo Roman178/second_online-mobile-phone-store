@@ -14,6 +14,8 @@ function HuaweiPage(props) {
         return arrOfAllHuaweiGoods;
       case "/huawei/modelp":
         return props.huawei.modelp;
+      case "/huawei/modely":
+        return props.huawei.modely;
       default:
         return;
     }
