@@ -1,10 +1,9 @@
 The second "project". The worst online mobile phone store.
 
+This app is deployed on GitHub Pages (https://roman178.github.io/second_the-worst-online-mobile-phone-store/)
 
-clone repo
-
-npm start
-
-go to http://localhost:3000/
-JSON-server loaded on http://localhost:3001/
+Simplest server for this app written by Express.js deployed on Heroku.
+You can find your fake orders on https://tranquil-shelf-04975.herokuapp.com/orders.
+At least once a day Heroku stops the app-server, so that images for this client app are not be render.
+Just come back later. 
 
