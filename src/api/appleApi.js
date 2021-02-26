@@ -1,32 +1,32 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = "http://localhost:3001/apple/";
+const baseUrl = "https://tranquil-shelf-04975.herokuapp.com/";
 
 export function getApple() {
-  return fetch("http://localhost:3001/apple/")
+  return fetch(baseUrl + "apple/")
     .then(handleResponse)
     .catch(handleError);
 }
 
 export function getSamsung() {
-  return fetch("http://localhost:3001/samsung/")
+  return fetch(baseUrl + "samsung/")
     .then(handleResponse)
     .catch(handleError);
 }
 
 export function getXiaomi() {
-  return fetch("http://localhost:3001/xiaomi/")
+  return fetch(baseUrl + "xiaomi/")
     .then(handleResponse)
     .catch(handleError);
 }
 
 export function getHonor() {
-  return fetch("http://localhost:3001/honor/")
+  return fetch(baseUrl + "honor/")
     .then(handleResponse)
     .catch(handleError);
 }
 
 export function getHuawei() {
-  return fetch("http://localhost:3001/huawei/")
+  return fetch(baseUrl + "huawei/")
     .then(handleResponse)
     .catch(handleError);
 }

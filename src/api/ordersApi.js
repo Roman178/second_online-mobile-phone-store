@@ -1,5 +1,5 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = "http://localhost:3001/orders/";
+const baseUrl = "https://tranquil-shelf-04975.herokuapp.com/orders/";
 
 export function addOrderApi(order) {
   return fetch(baseUrl, {
