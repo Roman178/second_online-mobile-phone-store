@@ -16,7 +16,7 @@ const persistor = persistStore(store);
 render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
         <App />
       </Router>
