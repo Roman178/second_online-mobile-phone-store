@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./components/App";
 
@@ -16,7 +16,9 @@ const persistor = persistStore(store);
 render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router
+      // basename={process.env.PUBLIC_URL}
+      >
         <ScrollToTop />
         <App />
       </Router>

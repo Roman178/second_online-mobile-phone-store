@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/second_the-worst-online-mobile-phone-store/static/css/main.0f3d3a19.chunk.css",
-    "main.js": "/second_the-worst-online-mobile-phone-store/static/js/main.cbd49c0e.chunk.js",
-    "main.js.map": "/second_the-worst-online-mobile-phone-store/static/js/main.cbd49c0e.chunk.js.map",
+    "main.js": "/second_the-worst-online-mobile-phone-store/static/js/main.2658ec2c.chunk.js",
+    "main.js.map": "/second_the-worst-online-mobile-phone-store/static/js/main.2658ec2c.chunk.js.map",
     "runtime-main.js": "/second_the-worst-online-mobile-phone-store/static/js/runtime-main.aaeb2252.js",
     "runtime-main.js.map": "/second_the-worst-online-mobile-phone-store/static/js/runtime-main.aaeb2252.js.map",
-    "static/css/2.7ffe9f36.chunk.css": "/second_the-worst-online-mobile-phone-store/static/css/2.7ffe9f36.chunk.css",
+    "static/css/2.bc55a208.chunk.css": "/second_the-worst-online-mobile-phone-store/static/css/2.bc55a208.chunk.css",
     "static/js/2.f2f2eca8.chunk.js": "/second_the-worst-online-mobile-phone-store/static/js/2.f2f2eca8.chunk.js",
     "static/js/2.f2f2eca8.chunk.js.map": "/second_the-worst-online-mobile-phone-store/static/js/2.f2f2eca8.chunk.js.map",
     "index.html": "/second_the-worst-online-mobile-phone-store/index.html",
-    "static/css/2.7ffe9f36.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/2.7ffe9f36.chunk.css.map",
+    "static/css/2.bc55a208.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/2.bc55a208.chunk.css.map",
     "static/css/main.0f3d3a19.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/main.0f3d3a19.chunk.css.map",
     "static/js/2.f2f2eca8.chunk.js.LICENSE.txt": "/second_the-worst-online-mobile-phone-store/static/js/2.f2f2eca8.chunk.js.LICENSE.txt",
     "static/media/Huawei-nova-3i.aef94ab5.png": "/second_the-worst-online-mobile-phone-store/static/media/Huawei-nova-3i.aef94ab5.png",
@@ -17,9 +17,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.aaeb2252.js",
-    "static/css/2.7ffe9f36.chunk.css",
+    "static/css/2.bc55a208.chunk.css",
     "static/js/2.f2f2eca8.chunk.js",
     "static/css/main.0f3d3a19.chunk.css",
-    "static/js/main.cbd49c0e.chunk.js"
+    "static/js/main.2658ec2c.chunk.js"
   ]
 }
