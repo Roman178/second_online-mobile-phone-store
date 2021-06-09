@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/second_the-worst-online-mobile-phone-store/static/css/main.0f3d3a19.chunk.css",
-    "main.js": "/second_the-worst-online-mobile-phone-store/static/js/main.2658ec2c.chunk.js",
-    "main.js.map": "/second_the-worst-online-mobile-phone-store/static/js/main.2658ec2c.chunk.js.map",
+    "main.css": "/second_the-worst-online-mobile-phone-store/static/css/main.ab88de2f.chunk.css",
+    "main.js": "/second_the-worst-online-mobile-phone-store/static/js/main.61ad3178.chunk.js",
+    "main.js.map": "/second_the-worst-online-mobile-phone-store/static/js/main.61ad3178.chunk.js.map",
     "runtime-main.js": "/second_the-worst-online-mobile-phone-store/static/js/runtime-main.aaeb2252.js",
     "runtime-main.js.map": "/second_the-worst-online-mobile-phone-store/static/js/runtime-main.aaeb2252.js.map",
-    "static/css/2.bc55a208.chunk.css": "/second_the-worst-online-mobile-phone-store/static/css/2.bc55a208.chunk.css",
-    "static/js/2.f2f2eca8.chunk.js": "/second_the-worst-online-mobile-phone-store/static/js/2.f2f2eca8.chunk.js",
-    "static/js/2.f2f2eca8.chunk.js.map": "/second_the-worst-online-mobile-phone-store/static/js/2.f2f2eca8.chunk.js.map",
+    "static/css/2.b315c15e.chunk.css": "/second_the-worst-online-mobile-phone-store/static/css/2.b315c15e.chunk.css",
+    "static/js/2.e20bae04.chunk.js": "/second_the-worst-online-mobile-phone-store/static/js/2.e20bae04.chunk.js",
+    "static/js/2.e20bae04.chunk.js.map": "/second_the-worst-online-mobile-phone-store/static/js/2.e20bae04.chunk.js.map",
     "index.html": "/second_the-worst-online-mobile-phone-store/index.html",
-    "static/css/2.bc55a208.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/2.bc55a208.chunk.css.map",
-    "static/css/main.0f3d3a19.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/main.0f3d3a19.chunk.css.map",
-    "static/js/2.f2f2eca8.chunk.js.LICENSE.txt": "/second_the-worst-online-mobile-phone-store/static/js/2.f2f2eca8.chunk.js.LICENSE.txt",
+    "static/css/2.b315c15e.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/2.b315c15e.chunk.css.map",
+    "static/css/main.ab88de2f.chunk.css.map": "/second_the-worst-online-mobile-phone-store/static/css/main.ab88de2f.chunk.css.map",
+    "static/js/2.e20bae04.chunk.js.LICENSE.txt": "/second_the-worst-online-mobile-phone-store/static/js/2.e20bae04.chunk.js.LICENSE.txt",
     "static/media/Huawei-nova-3i.aef94ab5.png": "/second_the-worst-online-mobile-phone-store/static/media/Huawei-nova-3i.aef94ab5.png",
     "static/media/Xiaomi-Mi-10T.242fbfa1.png": "/second_the-worst-online-mobile-phone-store/static/media/Xiaomi-Mi-10T.242fbfa1.png"
   },
   "entrypoints": [
     "static/js/runtime-main.aaeb2252.js",
-    "static/css/2.bc55a208.chunk.css",
-    "static/js/2.f2f2eca8.chunk.js",
-    "static/css/main.0f3d3a19.chunk.css",
-    "static/js/main.2658ec2c.chunk.js"
+    "static/css/2.b315c15e.chunk.css",
+    "static/js/2.e20bae04.chunk.js",
+    "static/css/main.ab88de2f.chunk.css",
+    "static/js/main.61ad3178.chunk.js"
   ]
 }
