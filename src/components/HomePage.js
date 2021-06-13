@@ -2,11 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Carousel } from "antd";
 import { NavLink } from "react-router-dom";
-// import logo from "../img/logo.png";
 import ListOfCardsDevices from "./common/ListOfCardsDevices";
 import { connect } from "react-redux";
-import huawei from "../img/Huawei-nova-3i.png";
-import xiaomi from "../img/Xiaomi-Mi-10T.png";
 
 export const logo =
   "https://tranquil-shelf-04975.herokuapp.com/home-page-images/logo.png";
@@ -42,20 +39,17 @@ class HomePage extends React.Component {
     console.log(this.props);
     const carouselData = [
       {
-        url:
-          "https://tranquil-shelf-04975.herokuapp.com/home-page-images/poco-x3-nfc-blue.png",
+        url: "https://tranquil-shelf-04975.herokuapp.com/home-page-images/poco-x3-nfc-blue.png",
         title: "Amazing Poco X3",
         to: "/xiaomi/poco/poco-x3-128-gb-blue",
       },
       {
-        url:
-          "https://tranquil-shelf-04975.herokuapp.com/home-page-images/Xiaomi-Mi-10T.png",
+        url: "https://tranquil-shelf-04975.herokuapp.com/home-page-images/Xiaomi-Mi-10T.png",
         title: "Great Xiaomi Mi 10T Pro",
         to: "/xiaomi/mi/mi-10t-pro-256-gb-silver",
       },
       {
-        url:
-          "https://tranquil-shelf-04975.herokuapp.com/home-page-images/huawei-p40-pro.png",
+        url: "https://tranquil-shelf-04975.herokuapp.com/home-page-images/huawei-p40-pro.png",
         title: "Unbelievable Huawei P40 Pro",
         to: "/huawei/modelp/p40-pro-256-gb-black",
       },
@@ -65,7 +59,7 @@ class HomePage extends React.Component {
       <>
         <section>
           <div className="logo-cont">
-            <img className="logo-img" src={logo} />
+            <img className="logo-img" src={logo} alt="logo" />
           </div>
         </section>
         <section className="home-carousel-cont">
